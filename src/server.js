@@ -1,7 +1,7 @@
 import 'dotenv/config'
 
-import app from './app'
-import models from './models'
+import app from '@/app'
+import models from '@/models'
 const port = process.env.PORT || 5000
 
 // START THE SERVER

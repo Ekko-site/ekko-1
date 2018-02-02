@@ -69,6 +69,7 @@
     "@babel/preset-react": "^7.0.0-beta.39",
     "ava": "^0.16.0",
     "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-root-import": "^5.1.0",
     "concurrently": "^3.5.0",
     "nodemon": "1.11.0",
     "sinon": "^1.17.5"
