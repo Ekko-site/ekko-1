@@ -1,6 +1,5 @@
-import services from './../../services/'
-const { DomainRequests, Domains } = services
-import { logger } from './../../etc/logger'
+import { DomainRequests, Domains } from '@/services'
+import { logger } from '@/etc/logger'
 
 const add = async ({ registrar, DomainId, user  }) => {
     const domainRequests = new DomainRequests()

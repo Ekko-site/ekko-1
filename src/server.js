@@ -8,5 +8,5 @@ const port = process.env.PORT || 5000
 // ==============================================
 models.sequelize.sync().then(() => {
     app.listen(port)
-    console.log('Magic happens on port ' + port)
+    console.log(`Magic happens on port ${port}`)
 })

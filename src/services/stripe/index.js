@@ -2,11 +2,10 @@ const stripe = require('stripe')(process.env.STRIPE_API_KEY)
 import moment from 'moment'
 const cc = require('currency-converter')({ CLIENTKEY: process.env.OPEN_EXCHANGE_RATES })
 
-import models from './../../models/'
-const { StripeCustomerId } = models
+import { StripeCustomerId } from '@/models'
 
-import { logger } from './../../etc/logger'
-import ApiError from './../../etc/error'
+import { logger } from '@/etc/logger'
+import ApiError from '@/etc/error'
 
 const getConvertedDomainCost = async domainCost => await cc.convert(domainCost, 'USD', 'GBP')
 

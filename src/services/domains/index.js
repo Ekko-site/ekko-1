@@ -1,9 +1,8 @@
 import moment from 'moment'
 
-import models from './../../models/'
-const { Domain } = models
-import { logger } from './../../etc/logger'
-import ApiError from './../../etc/error'
+import { Domain } from '@/models'
+import { logger } from '@/etc/logger'
+import ApiError from '@/etc/error'
 
 const client = require('dnsimple')({
   baseUrl: process.env.NODE_ENV == 'production' ? 'https://api.dnsimple.com' : 'https://api.sandbox.dnsimple.com',

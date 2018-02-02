@@ -1,8 +1,7 @@
-import ApiError from './error'
-import auth from './auth'
-import messages from './messages'
-import services from './../services'
-const { Users, Pages, Domains } = services
+import ApiError from '@/etc/error'
+import auth from '@/etc/auth'
+import messages from '@/etc/messages'
+import { Users, Pages, Domains } from '@/services'
 
 const whitelist = [
     '/api/users/sign-up',

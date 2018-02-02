@@ -1,8 +1,7 @@
 import moment from 'moment'
-import services from './../../services/'
-const { Stripe, Users } = services
-import Slack from './../../etc/slack'
-import mail from './../../etc/mail'
+import { Stripe, Users } from '@/services'
+import Slack from '@/etc/slack'
+import mail from '@/etc/mail'
 
 const post = async ({ type, data }) => {
     if(type == 'invoice.payment_succeeded'){

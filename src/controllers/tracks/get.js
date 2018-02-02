@@ -1,7 +1,6 @@
 import groupBy from 'lodash.groupby'
 
-import services from './../../services/'
-const { Tracks, Pages } = services
+import { Tracks, Pages } from '@/services'
 
 const get = {
     async one({ id }) {

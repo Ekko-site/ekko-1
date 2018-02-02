@@ -1,9 +1,7 @@
 import moment from 'moment'
-import models from './../../models/'
-import Themes from './../themes'
-import Facebook from './../../etc/facebook'
-const { Page } = models
-import Users from './../users'
+import { Page } from '@/models'
+import { Themes, Users } from '@/services'
+import Facebook from '@/etc/facebook'
 
 class Pages {
     constructor(db) {

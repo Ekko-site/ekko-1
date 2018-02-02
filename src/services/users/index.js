@@ -1,15 +1,13 @@
 import bcrypt from 'bcryptjs'
 import moment from 'moment'
 
-import auth from './../../etc/auth'
-import ApiError from './../../etc/error'
-import Facebook from './../../etc/facebook'
-import mail from './../../etc/mail'
-import models from './../../models/'
-const { User, StripeCustomerId, DirectDebitCustomerId, DirectDebitSubscription } = models
-import FacebookTokens from './../facebookToken'
-import { logger } from './../../etc/logger'
-import Pages from './../pages/'
+import auth from '@/etc/auth'
+import ApiError from '@/etc/error'
+import Facebook from '@/etc/facebook'
+import mail from '@/etc/mail'
+import { User, StripeCustomerId, DirectDebitCustomerId, DirectDebitSubscription } from '@/models'
+import { FacebookTokens, Pages } from '@/services'
+import { logger } from '@/etc/logger'
 
 class Users {
     constructor(db) {

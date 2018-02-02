@@ -1,8 +1,8 @@
-import auth from './../../etc/auth'
-import services from './../../services/'
+import auth from '@/etc/auth'
+import services from '@/services'
 const { Users } = services
-import ApiError from './../../etc/error'
-import Slack from './../../etc/slack'
+import ApiError from '@/etc/error'
+import Slack from '@/etc/slack'
 
 const SignUp = async ({ email, password, firstName, lastName, coupon, fbInfo = {} }) => {
 

@@ -1,6 +1,5 @@
-import services from './../../services/'
-const { Pages } = services
-import Slack from './../../etc/slack'
+import { Pages } from '@/services/'
+import Slack from '@/etc/slack'
 
 const updateTheme = async ({ pageId, themeId }) => {
     const pages = new Pages()

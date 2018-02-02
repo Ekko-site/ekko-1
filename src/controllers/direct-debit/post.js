@@ -1,9 +1,8 @@
 import moment from 'moment'
 import HmacSHA256 from 'crypto-js/hmac-sha256'
-import services from './../../services/'
-const { DirectDebit, Users } = services
-import Slack from './../../etc/slack'
-import mail from './../../etc/mail'
+import { DirectDebit, Users } from '@/services'
+import Slack from '@/etc/slack'
+import mail from '@/etc/mail'
 
 const TOKEN = process.env.GC_WEBHOOK_SECRET
 

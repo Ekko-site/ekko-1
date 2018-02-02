@@ -1,6 +1,6 @@
 class Plans {
     async getAll() {
-        const plans = require('./../../../config/stripe-plans')
+        const plans = require('#/stripe-plans')
         return plans
     }
 }

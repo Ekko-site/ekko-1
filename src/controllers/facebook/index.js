@@ -1,5 +1,5 @@
-import get from './get'
-import post from './post'
+import get from '@/controllers/facebook/get'
+import post from '@/controllers/facebook/post'
 
 export default {
     '/facebook/page_hook': {

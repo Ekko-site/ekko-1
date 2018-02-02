@@ -1,5 +1,4 @@
-import services from './../../services/'
-const { Domains } = services
+import { Domains } from '@/services'
 
 const contact = {
     async add({ contact }) {

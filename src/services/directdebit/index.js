@@ -1,19 +1,13 @@
 import got from 'got'
 const cc = require('currency-converter')({ CLIENTKEY: process.env.OPEN_EXCHANGE_RATES })
-
 import moment from 'moment'
 
 import plans from './../../../config/direct-debit-plans'
-
-import Coupons from './../coupons'
-
-import models from './../../models/'
-const { DirectDebitCustomerId, DirectDebitSubscriptionId } = models
-
-import DirectDebitSubscriptions from './../directdebitsubscriptions'
-
-import { logger } from './../../etc/logger'
-import ApiError from './../../etc/error'
+import Coupons from '@/services/coupons'
+import DirectDebitSubscriptions from '@/services/directdebitsubscriptions'
+import { DirectDebitCustomerId, DirectDebitSubscriptionId } from '@/models'
+import { logger } from '@/etc/logger'
+import ApiError from '@/etc/error'
 
 const getConvertedDomainCost = async domainCost => await cc.convert(domainCost, 'USD', 'GBP')
 

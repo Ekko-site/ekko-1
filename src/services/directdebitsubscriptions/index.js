@@ -1,5 +1,4 @@
-import models from './../../models/'
-const { DirectDebitSubscription } = models
+import { DirectDebitSubscription } from '@/models'
 
 class DirectDebitSubscriptions {
     constructor(db) {

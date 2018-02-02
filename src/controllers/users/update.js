@@ -1,5 +1,4 @@
-import services from './../../services/'
-const { Users } = services
+import { Users } from '@/services'
 
 const update = {
     async password({ user, current_password, new_password }) {

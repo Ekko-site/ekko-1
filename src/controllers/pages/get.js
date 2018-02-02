@@ -1,10 +1,9 @@
-import Facebook from './../../etc/facebook'
-import services from './../../services/'
-const { Pages, Tracks, Themes, FacebookToken, Domains } = services
-import ApiError from './../../etc/error'
-import mail from './../../etc/mail'
-import formatPageForDisplay from './../../etc/format-page-for-display'
-import Slack from './../../etc/slack'
+import Facebook from '@/etc/facebook'
+import { Pages, Tracks, Themes, FacebookToken, Domains } from '@/services'
+import ApiError from '@/etc/error'
+import mail from '@/etc/mail'
+import formatPageForDisplay from '@/etc/format-page-for-display'
+import Slack from '@/etc/slack'
 
 const get = {
     async fetchPublicPageForPreview ({ id, theme }) {

@@ -1,5 +1,4 @@
-import models from './../../models/'
-const { Coupon } = models
+import { Coupon } from '@/models'
 
 class Coupons {
     constructor(db) {

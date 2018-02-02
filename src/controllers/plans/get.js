@@ -1,5 +1,4 @@
-import services from './../../services/'
-const { Plans } = services
+import { Plans } from '@/services'
 
 const get = {
     async all() {

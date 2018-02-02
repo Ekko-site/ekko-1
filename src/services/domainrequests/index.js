@@ -1,7 +1,6 @@
-import Domains from './../domains/'
-import models from './../../models/'
-const { DomainRequest } = models
-import mail from './../../etc/mail'
+import Domains from '@/services/domains'
+import { DomainRequest } from '@/models'
+import mail from '@/etc/mail'
 
 class DomainRequests {
     constructor(db) {

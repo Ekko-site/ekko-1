@@ -1,5 +1,4 @@
-import models from './../../models/'
-const { Track } = models
+import { Track } from '@/models'
 
 class Tracks {
     constructor(db) {

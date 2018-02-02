@@ -1,7 +1,7 @@
 import AWS from 'aws-sdk'
 import got from 'got'
 
-import { logger } from './logger'
+import { logger } from '@/etc/logger'
 
 AWS.config.setPromisesDependency(null)
 AWS.config.region = 'eu-west-1'

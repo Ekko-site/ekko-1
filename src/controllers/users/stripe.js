@@ -1,8 +1,7 @@
-import services from './../../services/'
-const { Stripe, Users, Domains, Heroku } = services
+import { Stripe, Users, Domains, Heroku } from '@/services'
 import { emails as demoEmails, freeStripePlanId } from './../../../config/demo.js'
-import Slack from './../../etc/slack'
-import mail from './../../etc/mail'
+import Slack from '@/etc/slack'
+import mail from '@/etc/mail'
 
 const upgrade = async ({ stripe_token_id, plan_id = 'pro', user }) => {
     let token = stripe_token_id,

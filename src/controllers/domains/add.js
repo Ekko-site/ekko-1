@@ -1,15 +1,14 @@
 import parseDomain from 'parse-domain'
 
-import services from './../../services/'
-const { Domains, Heroku, Pages, Stripe, DomainRequests, DirectDebit } = services
+import { Domains, Heroku, Pages, Stripe, DomainRequests, DirectDebit } from '@/services'
 
-import ApiError from './../../etc/error'
+import ApiError from '@/etc/error'
 
-import { logger } from './../../etc/logger'
+import { logger } from '@/etc/logger'
 
 import DNSimpleTLDs from './../../../config/dnsimple-tlds'
-import mail from './../../etc/mail'
-import Slack from './../../etc/slack'
+import mail from '@/etc/mail'
+import Slack from '@/etc/slack'
 
 const cc = require('currency-converter')({ CLIENTKEY: process.env.OPEN_EXCHANGE_RATES })
 

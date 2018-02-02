@@ -1,10 +1,9 @@
 import moment from 'moment'
 
-import Facebook from './../../etc/facebook'
-import services from './../../services/'
-const { Users, Pages } = services
-import { logger } from './../../etc/logger'
-import formatPageForDisplay from './../../etc/format-page-for-display'
+import Facebook from '@/etc/facebook'
+import { Users, Pages } from '@/services'
+import { logger } from '@/etc/logger'
+import formatPageForDisplay from '@/etc/format-page-for-display'
 
 const syncByPageId = async ({ pageId }) => {
     const pages = new Pages()

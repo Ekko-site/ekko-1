@@ -1,11 +1,11 @@
-import get from './get'
-import signUp from './sign-up'
-import login from './login'
-import remove from './remove'
-import stripe from './stripe'
-import facebook from './facebook'
-import update from './update'
-import cancel from './cancel'
+import get from '@/controllers/users/get'
+import signUp from '@/controllers/users/sign-up'
+import login from '@/controllers/users/login'
+import remove from '@/controllers/users/remove'
+import stripe from '@/controllers/users/stripe'
+import facebook from '@/controllers/users/facebook'
+import update from '@/controllers/users/update'
+import cancel from '@/controllers/users/cancel'
 
 export default {
     '/api/users/sign-up': signUp,

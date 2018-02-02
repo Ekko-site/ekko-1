@@ -1,8 +1,7 @@
-import services from './../../services'
-const { Users, Stripe, FacebookToken, Pages, Domains, DirectDebit } = services
-import Facebook from './../../etc/facebook'
+import { Users, Stripe, FacebookToken, Pages, Domains, DirectDebit } from '@/services'
+import Facebook from '@/etc/facebook'
 
-import ApiError from './../../etc/error'
+import ApiError from '@/etc/error'
 
 const cancel = async ({ user }) => {
     const users = new Users()

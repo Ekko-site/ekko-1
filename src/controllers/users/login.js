@@ -1,7 +1,6 @@
-import services from './../../services'
-const { Users } = services
+import { Users } from '@/services'
 
-import ApiError from './../../etc/error'
+import ApiError from '@/etc/error'
 
 const login = async ({ email, password }) => {
     const users = new Users()

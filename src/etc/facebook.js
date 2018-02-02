@@ -1,8 +1,8 @@
 import FB from 'fb'
 import { reduce } from 'asyncro'
-import ApiError from './error'
-import { logger } from './logger'
-import MediaStore from './media-store'
+import ApiError from '@/etc/error'
+import { logger } from '@/etc/logger'
+import MediaStore from '@/etc/media-store'
 FB.options({
     version: 'v2.7'
 })

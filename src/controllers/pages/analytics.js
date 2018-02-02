@@ -1,6 +1,5 @@
-import services from './../../services/'
-const { Pages } = services
-import formatPageForDisplay from './../../etc/format-page-for-display'
+import { Pages } from '@/services'
+import formatPageForDisplay from '@/etc/format-page-for-display'
 
 const save = async ({ pageId, code }) => {
     const pages = new Pages()

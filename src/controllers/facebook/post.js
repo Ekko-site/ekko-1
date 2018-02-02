@@ -1,7 +1,6 @@
-import syncByPageId from './../pages/sync-by-page-id'
-import { logger } from './../../etc/logger'
-import services from './../../services/'
-const { Users } = services
+import syncByPageId from '@/controllers/pages/sync-by-page-id'
+import { logger } from '@/etc/logger'
+import { Users } from '@/services'
 
 const post = ({ entry }) => {
     entry && entry.forEach(async change => {

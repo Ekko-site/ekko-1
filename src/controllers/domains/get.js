@@ -1,5 +1,4 @@
-import services from './../../services/'
-const { Domains, Heroku, Pages } = services
+import { Domains, Heroku, Pages } from '@/services'
 
 import DNSimpleTLDs from './../../../config/dnsimple-tlds'
 

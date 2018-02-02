@@ -1,5 +1,4 @@
-import services from './../../services/'
-const { Users } = services
+import { Users } from '@/services'
 
 const get = {
     async getByFacebookId({ facebook_id }) {

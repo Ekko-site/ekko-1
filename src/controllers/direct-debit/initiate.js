@@ -1,7 +1,6 @@
-import services from './../../services/'
-const { DirectDebit, Users } = services
-import Slack from './../../etc/slack'
-import mail from './../../etc/mail'
+import { DirectDebit, Users } from '@/services'
+import Slack from '@/etc/slack'
+import mail from '@/etc/mail'
 
 const initiate = async ({ user }) => {
     const directDebit = new DirectDebit()

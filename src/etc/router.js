@@ -1,9 +1,9 @@
 import pathToRegExp from 'path-to-regexp'
-import Controllers from './../controllers/'
-import response from './response'
-import api from './api'
-import { logger } from './logger'
-import cleanError from './clean-error'
+import Controllers from '@/controllers'
+import response from '@/etc/response'
+import api from '@/etc/api'
+import { logger } from '@/etc/logger'
+import cleanError from '@/etc/clean-error'
 
 const respondWithError = ({ e, res, ravenClient }) => {
     const { code, message } = e

@@ -1,5 +1,4 @@
-import models from './../../models/'
-const { FacebookToken } = models
+import { FacebookToken } from '@/models'
 
 class FacebookTokens {
     constructor(db) {

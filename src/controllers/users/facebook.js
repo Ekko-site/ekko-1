@@ -1,9 +1,8 @@
-import Facebook from './../../etc/facebook'
-import services from './../../services/'
-const { Users, Themes, FacebookToken } = services
+import Facebook from '@/etc/facebook'
+import { Users, Themes, FacebookToken } from '@/services'
 
-import ApiError from './../../etc/error'
-import Slack from './../../etc/slack'
+import ApiError from '@/etc/error'
+import Slack from '@/etc/slack'
 
 const page = async ({ facebook_id, facebook_access_token, user }) => {
     if(user && !facebook_id && user.facebookUserId){

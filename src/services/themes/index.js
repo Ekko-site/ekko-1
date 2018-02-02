@@ -1,5 +1,4 @@
-import models from './../../models/'
-const { Theme } = models
+import { Theme } from '@/models'
 
 class Themes {
     constructor(db) {

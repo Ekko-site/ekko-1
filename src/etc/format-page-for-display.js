@@ -1,4 +1,4 @@
-import MediaStore from './media-store'
+import MediaStore from '@/etc/media-store'
 
 const mediaStore = new MediaStore()
 

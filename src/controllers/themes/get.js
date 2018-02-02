@@ -1,5 +1,4 @@
-import services from './../../services/'
-const { Themes } = services
+import { Themes } from '@/services'
 
 const get = {
     async one({ id }) {

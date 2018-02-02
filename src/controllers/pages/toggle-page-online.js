@@ -1,8 +1,7 @@
-import services from './../../services/'
-const { Users, Pages, FacebookToken } = services
+import { Users, Pages, FacebookToken } from '@/services'
 
-import formatPageForDisplay from './../../etc/format-page-for-display'
-import Slack from './../../etc/slack'
+import formatPageForDisplay from '@/etc/format-page-for-display'
+import Slack from '@/etc/slack'
 
 const togglePageOnline = async ({ id }) => {
     const pages = new Pages()

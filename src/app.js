@@ -7,9 +7,9 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import raven from 'raven'
 import cors from 'cors'
-import messages from './etc/messages'
-import { logger } from './etc/logger'
-import router from './etc/router'
+import messages from '@/etc/messages'
+import { logger } from '@/etc/logger'
+import router from '@/etc/router'
 
 const ravenURL = 'https://d843860d83844ce3900cb959145e4e2e:b39570c7ea4c4ab89c3c84e7c0465b89@sentry.io/104015'
 

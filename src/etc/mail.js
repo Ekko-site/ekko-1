@@ -1,14 +1,14 @@
-var Sendgrid = require('sendgrid-web')
-var sendgrid = new Sendgrid({
+import Sendgrid from 'sendgrid-web'
+import { logger } from '@/etc/logger'
+import messages from '@/etc/emails'
+import renderEmail from '@/etc/emails/render'
+
+const sendgrid = new Sendgrid({
     user: process.env.SENDGRID_USERNAME,
     key: process.env.SENDGRID_PASSWORD
 })
 
-import { logger } from './logger'
-var messages = require('./emails')
-var renderEmail = require('./emails/render')
-
-let send = ({
+const send = ({
     to,
     type,
     data = {}
@@ -40,6 +40,6 @@ let send = ({
     })
 }
 
-module.exports = {
+export default {
     send
 }

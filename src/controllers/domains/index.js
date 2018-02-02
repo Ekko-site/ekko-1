@@ -1,6 +1,6 @@
-import get from './get'
-import add from './add'
-import contact from './contact'
+import get from '@/controllers/domains/get'
+import add from '@/controllers/domains/add'
+import contact from '@/controllers/domains/contact'
 
 export default {
     '/api/domains/search': get.search,
