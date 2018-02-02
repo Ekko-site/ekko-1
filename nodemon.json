@@ -8,6 +8,5 @@
   "execMap": {
     "js": "babel-node src/server.js"
   },
-  "delay": 1000,
   "ext": "js json"
 }
