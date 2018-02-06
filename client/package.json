@@ -14,9 +14,12 @@
     "react-scripts": "1.1.0",
     "react-slick": "^0.17.1",
     "react-stripe-checkout": "^2.6.3",
+    "react-universal-component": "^2.5.0",
     "react-youtube": "^7.5.0",
     "rebass": "^1.0.4",
     "redux": "^3.7.2",
+    "redux-first-router": "^1.9.15",
+    "redux-first-router-link": "^1.1.4",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "store": "^2.0.12"
@@ -27,5 +30,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-plugin-universal-import": "^1.4.0"
   }
 }
