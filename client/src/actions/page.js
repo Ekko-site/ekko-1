@@ -2,12 +2,13 @@ import {
     fetch
 } from './../etc/fetch'
 import { toastr } from 'react-redux-toastr'
-import { push } from 'react-router-redux'
 
 import * as authActions from '../actions/auth'
 import * as types from '../constants/action-types'
 
 import intercom from './../etc/intercom'
+
+let push
 
 export function pageFetchInit() {
     return {

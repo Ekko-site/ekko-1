@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {Field, Form} from 'react-redux-form'
 import {actions as formActions} from 'react-redux-form'
 import { Button } from 'rebass'
-import { Link } from 'react-router'
+import Link from 'redux-first-router-link'
 import Helmet from 'react-helmet'
 
 import * as authActions from './../../actions/auth'

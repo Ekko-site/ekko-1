@@ -1,7 +1,7 @@
-import React, {PropTypes} from 'react'
+import React from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
-import {browserHistory} from 'react-router'
+import PropTypes from 'prop-types'
 
 import * as authActions from './../actions/auth'
 import * as billingActions from './../actions/billing'
@@ -16,10 +16,12 @@ const inApp = pathname => ['themes', 'dashboard', 'settings'].some(r => pathname
 
 const onHomepage = pathname => pathname == '/'
 
+let browserHistory
+
 class App extends React.Component {
 
     static childContextTypes = {
-        rebass: React.PropTypes.object
+        rebass: PropTypes.object
     }
 
     componentWillReceiveProps(nextProps) {
@@ -57,6 +59,7 @@ App.propTypes = {
 
 function mapStateToProps(state) {
     return {
+        location: state.location,
         authState: state.authState,
         pageState: state.pageState,
         themesState: state.themesState

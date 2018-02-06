@@ -1,15 +1,16 @@
 import store from './store'
 import fetchAPI from 'isomorphic-fetch'
-import {browserHistory} from 'react-router'
 import { toastr } from 'react-redux-toastr'
 
 require('es6-promise').polyfill()
 
-const CONFIG = process.env
+const config = process.env
 
 const authPaths = ['dashboard', 'login', 'sign-up', 'themes', 'settings']
 
-const API_URL = CONFIG.API_URL
+const { API_URL } = config
+
+let browserHistory
 
 const inApp = () => {
     let path = window.location.pathname.split('/').pop()

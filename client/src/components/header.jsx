@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router'
+import Link from 'redux-first-router-link'
 
 const onSignUp = path => path == '/sign-up'
 

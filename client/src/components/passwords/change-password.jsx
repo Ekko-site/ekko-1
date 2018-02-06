@@ -1,7 +1,8 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
-import { Link } from 'react-router'
+import Link from 'redux-first-router-link'
 
 import * as authActions from './../../actions/auth'
 

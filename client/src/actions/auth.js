@@ -5,7 +5,6 @@ import store from './../etc/store'
 import {
     actions as formActions
 } from 'react-redux-form'
-import { push } from 'react-router-redux'
 
 import { toastr } from 'react-redux-toastr'
 
@@ -13,6 +12,8 @@ import * as messages from './../config/messages'
 import * as pageActions from './page'
 import * as types from '../constants/action-types'
 import intercom from './../etc/intercom'
+
+let push
 
 export function loginInit() {
     return {

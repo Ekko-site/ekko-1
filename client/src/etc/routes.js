@@ -1,5 +1,4 @@
 import React from 'react'
-import { Router } from 'react-router'
 
 import App from './../containers/app.jsx'
 import Dashboard from './../components/dashboard/index.jsx'
