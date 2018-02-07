@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import {Field, Form} from 'react-redux-form'
@@ -24,7 +25,7 @@ class SignUp extends React.Component {
 
     getForm() {
         const {signUpForm} = this.props
-        const { coupon } = this.props.location.query
+        const { coupon } = this.props.location
         const { signing_up } = this.props.authState
         return <div>
             <Helmet
@@ -157,7 +158,12 @@ SignUp.propTypes = {
 }
 
 function mapStateToProps(state) {
-    return {authState: state.authState, signUp: state.signUp, signUpForm: state.signUpForm}
+    return {
+        authState: state.authState,
+        signUp: state.signUp,
+        signUpForm: state.signUpForm,
+        location: state.location
+    }
 }
 
 function mapDispatchToProps(dispatch) {

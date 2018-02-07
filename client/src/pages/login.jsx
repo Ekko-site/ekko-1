@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import {Field, Form} from 'react-redux-form'
@@ -23,6 +24,7 @@ class Login extends React.Component {
     };
 
     render() {
+        console.log(this.props)
         const { loginForm } = this.props
         const { logging_in } = this.props.authState
         return (
@@ -49,7 +51,7 @@ class Login extends React.Component {
                         }} onSubmit={this.handleSubmit}>
                             <Field model="login.email">
                                 <label htmlFor="email-address">Email address</label>
-                                <input type="email" className={`full-width i-w-m ${!loginForm.fields.email.valid && loginForm.fields.email.touched ? 'error' : ''}`} id="email-address" />
+                                <input type="email" className={`full-width i-w-m ${!loginForm.email.valid && loginForm.email.touched ? 'error' : ''}`} id="email-address" />
                                 <FieldErrors model="login.email" messages={{
                                     required: messages.FORM_EMAIL_NULL
                                 }} show={loginForm.submitFailed}/>
@@ -57,7 +59,7 @@ class Login extends React.Component {
 
                             <Field model="login.password">
                                 <label htmlFor="password">Password</label>
-                                <input type="password" className={`full-width i-w-m ${!loginForm.fields.password.valid && loginForm.fields.password.touched ? 'error' : ''}`} id="password" />
+                                <input type="password" className={`full-width i-w-m ${!loginForm.password.valid && loginForm.password.touched ? 'error' : ''}`} id="password" />
                                 <FieldErrors model="login.password" messages={{
                                     required: messages.FORM_PASSWORD_NULL
                                 }} show={loginForm.submitFailed}/>
