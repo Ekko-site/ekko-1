@@ -9,7 +9,7 @@ import {
 } from 'react-redux-form'
 
 import * as types from '@/constants/action-types'
-import * as authActions from '@/auth'
+import * as authActions from '@/actions/auth'
 import * as messages from '@/config/messages'
 
 const validateDomain = search => !!(search.match(/\./))

@@ -9,7 +9,7 @@ import {
 import { toastr } from 'react-redux-toastr'
 
 import * as messages from '@/config/messages'
-import * as pageActions from '@/page'
+import * as pageActions from '@/actions/page'
 import * as types from '@/constants/action-types'
 import intercom from '@/etc/intercom'
 

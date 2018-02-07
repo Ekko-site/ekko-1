@@ -2,7 +2,7 @@ import {
     BILLING_FETCH_INIT,
     BILLING_FETCHED
 }
-from '../constants/action-types'
+from '@/constants/action-types'
 
 const initialState = {
     billing: [],

@@ -14,9 +14,9 @@ import {
     ANALYTICS_SAVED,
     ANALYTICS_SAVE_INIT
 }
-from '../constants/action-types'
+from '@/constants/action-types'
 
-import store from '@/../etc/store'
+import store from '@/etc/store'
 
 const initialState = {
     pages: [],

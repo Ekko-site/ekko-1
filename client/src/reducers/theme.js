@@ -3,9 +3,9 @@ import {
     THEMES_FETCHED,
     LOGOUT
 }
-from '../constants/action-types'
+from '@/constants/action-types'
 
-import store from '@/../etc/store'
+import store from '@/etc/store'
 
 const initialState = {
     themes: [],

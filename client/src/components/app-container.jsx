@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Sidebar from '@/sidebar.jsx'
-import PageAdmin from '@/page-admin.jsx'
-import Footer from '@/footer.jsx'
+import Sidebar from '@/components/sidebar'
+import PageAdmin from '@/components/page-admin'
+import Footer from '@/components/footer'
 
 const AppContainer = ({ children, user, marginUnderPageAdmin, logout }) => {
     return <div>

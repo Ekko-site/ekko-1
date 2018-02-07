@@ -32,9 +32,9 @@ import {
     DIRECT_DEBIT_INIT,
     COMPLETING_DIRECT_DEBIT_INIT
 }
-from '../constants/action-types'
+from '@/constants/action-types'
 
-import store from '@/../etc/store'
+import store from '@/etc/store'
 
 const initialState = {
     logged_in: false,

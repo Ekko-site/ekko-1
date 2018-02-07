@@ -10,7 +10,7 @@ import {
     DOMAIN_REQUEST_INIT,
     DOMAIN_REQUESTED
 }
-from '../constants/action-types'
+from '@/constants/action-types'
 
 const initialState = {
     domains: {},

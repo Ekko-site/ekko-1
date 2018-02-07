@@ -2,17 +2,16 @@ import React from 'react'
 
 import { Heading } from 'rebass'
 
-import Page from '@/../page.jsx'
-import ThemeLink from '@/theme-link.jsx'
-import CurrentTheme from '@/current-theme.jsx'
-import Online from '@/online.jsx'
-import FacebookUser from '@/facebook-user.jsx'
-import ViewSite from '@/view-site.jsx'
-import Sync from '@/sync.jsx'
-import SyncPages from '@/sync-pages.jsx'
-import Controls from '@/controls.jsx'
-import FreeTrial from '@/free-trial.jsx'
-import EkkoButton from '@/../ekko-button.jsx'
+import Page from '@/components/page'
+import ThemeLink from '@/components/dashboard/theme-link'
+import CurrentTheme from '@/components/dashboard/current-theme'
+import Online from '@/components/dashboard/online'
+import FacebookUser from '@/components/dashboard/facebook-user'
+import ViewSite from '@/components/dashboard/view-site'
+import Sync from '@/components/sync'
+import SyncPages from '@/components/dashboard/sync-pages'
+import Controls from '@/components/dashboard/controls'
+import FreeTrial from '@/components/dashboard/free-trial'
 
 const pageStyle = (pageId, currentPageId) => {
     return {

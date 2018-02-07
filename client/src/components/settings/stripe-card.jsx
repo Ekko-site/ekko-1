@@ -1,7 +1,7 @@
 import Script from 'react-load-script'
 import React from 'react'
 
-import Loading from '@/../loading.jsx'
+import Loading from '@/components/loading'
 
 const config = process.env
 const Stripe = window.Stripe

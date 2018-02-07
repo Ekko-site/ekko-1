@@ -1,7 +1,7 @@
 import React from 'react'
 
-import EkkoButton from '@/../ekko-button.jsx'
-import Icon from '@/../icon.jsx'
+import EkkoButton from '@/components/dashboard/ekko-button'
+import Icon from '@/components/icon'
 
 const Sync = ({ pageEditing, onPageEditing, cancelEditing }) => {
     if(pageEditing){

@@ -1,9 +1,9 @@
 import React from 'react'
-import BrowserWindow from '@/browser-window.jsx'
-import TwitterIcon from '@/dashboard/twitter'
-import FacebookIcon from '@/dashboard/facebook'
+import BrowserWindow from '@/components/browser-window'
+import TwitterIcon from '@/components/dashboard/twitter'
+import FacebookIcon from '@/components/dashboard/facebook'
 
-const ekkoRenderer = require('ekko-renderer')
+const ekkoRenderer = {}
 const config = process.env
 
 const getPageURLShare = url => {

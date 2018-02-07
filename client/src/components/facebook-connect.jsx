@@ -1,6 +1,6 @@
 import React from 'react'
 
-import FacebookConnection from '@/facebook-connection.jsx'
+import FacebookConnection from '@/components/facebook-connection'
 
 class FacebookConnect extends React.Component {
     render() {

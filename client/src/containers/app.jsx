@@ -3,16 +3,16 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 
-import * as authActions from '@/../actions/auth'
-import * as navActions from '@/../actions/navigation'
-import * as billingActions from '@/../actions/billing'
-import * as domainActions from '@/../actions/domain'
+import * as authActions from '@/actions/auth'
+import * as navActions from '@/actions/navigation'
+import * as billingActions from '@/actions/billing'
+import * as domainActions from '@/actions/domain'
 
-import store from '@/../etc/store'
+import store from '@/etc/store'
 
-import Switcher from '@/../containers/switcher'
-import AppContainer from '@/../components/app-container.jsx'
-import MarketingContainer from '@/../components/marketing-container.jsx'
+import Switcher from '@/containers/switcher'
+import AppContainer from '@/components/app-container'
+import MarketingContainer from '@/components/marketing-container'
 
 const inApp = pathname => ['themes', 'dashboard', 'settings'].some(r => pathname.match(new RegExp(r)))
 

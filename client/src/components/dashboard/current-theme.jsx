@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text } from 'rebass'
 
-import Icon from '@/../icon.jsx'
+import Icon from '@/components/icon'
 
 const CurrentTheme = ({ selectedTheme, themes }) => {
     if(!themes.length || !selectedTheme){

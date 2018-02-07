@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { TransitionGroup, Transition } from 'transition-group'
 import universal from 'react-universal-component'
 
-const UniversalComponent = universal(({ page }) => import(`./../pages/${page}`), {
+const UniversalComponent = universal(({ page = 'home' }) => import(`../pages/${page}`), {
   minDelay: 500
 })
 

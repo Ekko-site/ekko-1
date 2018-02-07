@@ -7,14 +7,14 @@ import { Button } from 'rebass'
 import Link from 'redux-first-router-link'
 import Helmet from 'react-helmet'
 
-import * as authActions from '@/../../actions/auth'
-import { required } from '@/../../etc/validator'
-import FieldErrors from '@/../forms/field-errors.jsx'
-import FormErrors from '@/../forms/form-errors.jsx'
-import Mailchimp from '@/../mailchimp.jsx'
-import Loading from '@/../loading.jsx'
+import * as authActions from '@/actions/auth'
+import { required } from '@/etc/validator'
+import FieldErrors from '@/components/forms/field-errors'
+import FormErrors from '@/components/forms/form-errors'
+import Mailchimp from '@/components/mailchimp'
+import Loading from '@/components/loading'
 
-import * as messages from '@/../../config/messages'
+import * as messages from '@/config/messages'
 
 class SignUp extends React.Component {
 

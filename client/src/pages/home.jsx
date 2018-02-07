@@ -3,14 +3,13 @@ import PropTypes from 'prop-types'
 import Link from 'redux-first-router-link'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
-import Icon from 'react-geomicons'
 import Slider from 'react-slick'
 import Helmet from 'react-helmet'
 import YouTube from 'react-youtube'
 
-import * as authActions from '@/../actions/auth'
-import Mailchimp from '@/mailchimp.jsx'
-import HomepagePreview from '@/homepage-preview.jsx'
+import * as authActions from '@/actions/auth'
+import Mailchimp from '@/components/mailchimp'
+import HomepagePreview from '@/components/homepage-preview'
 
 const sliderSettings = {
     dots: false,

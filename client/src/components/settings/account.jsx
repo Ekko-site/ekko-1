@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Loading from '@/../loading.jsx'
-import UpgradeErrors from '@/upgrade-errors.jsx'
+import Loading from '@/components/loading'
+import UpgradeErrors from '@/components/settings/upgrade-errors'
 
 class Account extends React.Component {
     constructor(props) {

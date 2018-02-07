@@ -1,5 +1,6 @@
 {
     "plugins": [
+        "babel-plugin-universal-import",
         [
             "babel-plugin-root-import",
             {

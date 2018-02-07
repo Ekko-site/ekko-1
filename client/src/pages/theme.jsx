@@ -5,12 +5,12 @@ import {connect} from 'react-redux'
 import Link from 'redux-first-router-link'
 import Helmet from 'react-helmet'
 
-import * as authActions from '@/../../actions/auth'
-import * as pageActions from '@/../../actions/page'
-import * as themeActions from '@/../../actions/theme'
+import * as authActions from '@/actions/auth'
+import * as pageActions from '@/actions/page'
+import * as themeActions from '@/actions/theme'
 
-import Loading from '@/../loading.jsx'
-import ekkoRenderer from 'ekko-renderer'
+import Loading from '@/components/loading'
+const ekkoRenderer = {}
 
 const config = process.env
 

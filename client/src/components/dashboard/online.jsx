@@ -1,7 +1,7 @@
 import React from 'react'
 
-import EkkoButton from '@/../ekko-button.jsx'
-import Icon from '@/../icon.jsx'
+import EkkoButton from '@/../ekko-button'
+import Icon from '@/../icon'
 
 const Online = ({ handleTogglePageOnline, page, pageFetching, togglingPageOnline }) => {
     return <EkkoButton style={{

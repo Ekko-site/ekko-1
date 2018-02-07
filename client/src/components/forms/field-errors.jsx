@@ -1,7 +1,7 @@
 import React from 'react'
 import {Errors} from 'react-redux-form'
 
-import FormInputError from '@/form-input-error.jsx'
+import FormInputError from '@/components/forms/form-input-error'
 
 export default class FieldErrors extends React.Component {
     render() {

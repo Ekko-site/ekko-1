@@ -2,15 +2,15 @@ import React, {PropTypes} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import Helmet from 'react-helmet'
-import * as authActions from '@/../../actions/auth'
-import * as pageActions from '@/../../actions/page'
-import * as themeActions from '@/../../actions/theme'
-import * as domainActions from '@/../../actions/domain'
+import * as authActions from '@/actions/auth'
+import * as pageActions from '@/actions/page'
+import * as themeActions from '@/actions/theme'
+import * as domainActions from '@/actions/domain'
 
-import Preview from '@/../preview.jsx'
-import Loading from '@/../loading.jsx'
-import ApiError from '@/../api-error.jsx'
-import domainHelpers from '@/../../etc/domain-helpers'
+import Preview from '@/components/preview'
+import Loading from '@/components/loading'
+import ApiError from '@/components/api-error'
+import domainHelpers from '@/etc/domain-helpers'
 
 const config = process.env
 

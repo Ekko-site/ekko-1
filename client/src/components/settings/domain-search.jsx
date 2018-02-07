@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Loading from '@/../loading.jsx'
-import DomainContact from '@/domain-contact.jsx'
-import FormattedDomainCost from '@/formatted-domain-cost.jsx'
+import Loading from '@/components/loading'
+import DomainContact from '@/components/settings/domain-contact'
+import FormattedDomainCost from '@/components/settings/formatted-domain-cost'
 
 const DomainSearch = ({ onSearch, domains, searching, onDomainSelection, pages, addingDomain, tlds, plans, userPlan }) => {
     let input,

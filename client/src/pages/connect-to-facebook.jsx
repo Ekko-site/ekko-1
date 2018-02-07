@@ -2,9 +2,9 @@ import React, {PropTypes} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 
-import * as authActions from '@/../actions/auth'
+import * as authActions from '@/actions/auth'
 
-import FacebookConnect from '@/facebook-connect.jsx'
+import FacebookConnect from '@/components/facebook-connect'
 
 const ConnectToFacebook = ({ authActions, authState }) => {
     return <FacebookConnect

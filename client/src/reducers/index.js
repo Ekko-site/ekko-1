@@ -1,10 +1,10 @@
-import authState from '@/auth'
-import pageState from '@/page'
-import themesState from '@/theme'
-import formsState from '@/form'
-import billingState from '@/billing'
-import domainState from '@/domain'
-import navigationState from '@/navigation'
+import authState from '@/reducers/auth'
+import pageState from '@/reducers/page'
+import themesState from '@/reducers/theme'
+import formsState from '@/reducers/form'
+import billingState from '@/reducers/billing'
+import domainState from '@/reducers/domain'
+import navigationState from '@/reducers/navigation'
 
 const reducers = {
     authState,

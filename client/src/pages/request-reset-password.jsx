@@ -4,9 +4,9 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import Link from 'redux-first-router-link'
 
-import * as authActions from '@/../../actions/auth'
+import * as authActions from '@/actions/auth'
 
-import Loading from '@/../loading.jsx'
+import Loading from '@/components/loading'
 
 class RequestReset extends React.Component {
 
