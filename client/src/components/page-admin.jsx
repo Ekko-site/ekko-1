@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 
-import * as authActions from './../actions/auth'
-import * as pageActions from './../actions/page'
+import * as authActions from '@/../actions/auth'
+import * as pageActions from '@/../actions/page'
 
-import LastUpdated from './last-updated.jsx'
-import Sync from './sync.jsx'
-import Loading from './loading.jsx'
-import domainHelpers from './../etc/domain-helpers'
+import LastUpdated from '@/last-updated.jsx'
+import Sync from '@/sync.jsx'
+import Loading from '@/loading.jsx'
+import domainHelpers from '@/../etc/domain-helpers'
 
 const config = process.env
 

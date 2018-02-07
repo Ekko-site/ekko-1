@@ -8,13 +8,13 @@ import { Button } from 'rebass'
 import {toastr} from 'react-redux-toastr'
 import Helmet from 'react-helmet'
 
-import * as authActions from './../../actions/auth'
-import { required } from './../../etc/validator'
-import FieldErrors from './../forms/field-errors.jsx'
-import FormErrors from './../forms/form-errors.jsx'
-import Loading from './../loading.jsx'
+import * as authActions from '@/../../actions/auth'
+import { required } from '@/../../etc/validator'
+import FieldErrors from '@/../forms/field-errors.jsx'
+import FormErrors from '@/../forms/form-errors.jsx'
+import Loading from '@/../loading.jsx'
 
-import * as messages from './../config/messages'
+import * as messages from '@/../config/messages'
 
 class Login extends React.Component {
 

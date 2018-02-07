@@ -1,12 +1,12 @@
 import {
     fetch
-} from './../etc/fetch'
+} from '@/etc/fetch'
 import { toastr } from 'react-redux-toastr'
 
-import * as authActions from '../actions/auth'
-import * as types from '../constants/action-types'
+import * as authActions from '@/actions/auth'
+import * as types from '@/constants/action-types'
 
-import intercom from './../etc/intercom'
+import intercom from '@/etc/intercom'
 
 let push
 

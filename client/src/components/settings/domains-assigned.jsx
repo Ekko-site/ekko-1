@@ -1,10 +1,10 @@
 import React from 'react'
 import moment from 'moment'
 
-import DomainRequests from './domain-request.jsx'
-import FormattedDomainCost from './formatted-domain-cost.jsx'
-import DomainContact from './domain-contact.jsx'
-import Loading from './../loading.jsx'
+import DomainRequests from '@/domain-request.jsx'
+import FormattedDomainCost from '@/formatted-domain-cost.jsx'
+import DomainContact from '@/domain-contact.jsx'
+import Loading from '@/../loading.jsx'
 
 const DomainsAssigned = ({ pages, userDomains, onAddDomain, onDomainSelection, domainRequest, plans, tlds, userPlan, addingDomain }) => {
 

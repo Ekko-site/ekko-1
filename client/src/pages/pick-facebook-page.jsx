@@ -2,10 +2,10 @@ import React, {PropTypes} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 
-import * as authActions from './../actions/auth'
-import * as pageActions from './../actions/page'
+import * as authActions from '@/../actions/auth'
+import * as pageActions from '@/../actions/page'
 
-import PageChooser from './page-chooser.jsx'
+import PageChooser from '@/page-chooser.jsx'
 
 const PickFacebookPage = ({ authActions, authState, pageActions, pageState }) => {
     const { facebookPages, fetchingFacebookPage } = authState

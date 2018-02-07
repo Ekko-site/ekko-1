@@ -1,7 +1,7 @@
 import React from 'react'
-import BrowserWindow from './browser-window.jsx'
-import TwitterIcon from './dashboard/twitter'
-import FacebookIcon from './dashboard/facebook'
+import BrowserWindow from '@/browser-window.jsx'
+import TwitterIcon from '@/dashboard/twitter'
+import FacebookIcon from '@/dashboard/facebook'
 
 const ekkoRenderer = require('ekko-renderer')
 const config = process.env

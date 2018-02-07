@@ -1,8 +1,8 @@
 import {
     fetch
-} from './../etc/fetch'
+} from '@/etc/fetch'
 
-import * as types from '../constants/action-types'
+import * as types from '@/constants/action-types'
 
 export function billingFetchInit() {
     return {

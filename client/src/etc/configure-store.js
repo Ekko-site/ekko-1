@@ -5,10 +5,10 @@ import { reducer as toastrReducer } from 'react-redux-toastr'
 import thunkMiddleware from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 
-import routesMap from './routes-map'
-import options from './options'
-import reducers from './../reducers'
-import * as actionCreators from './../actions'
+import routesMap from '@/routes-map'
+import options from '@/options'
+import reducers from '@/../reducers'
+import * as actionCreators from '@/../actions'
 
 const config = process.env
 

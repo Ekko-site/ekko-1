@@ -4,13 +4,13 @@ import {connect} from 'react-redux'
 import {Field, Form} from 'react-redux-form'
 import {actions as formActions} from 'react-redux-form'
 
-import { required } from './../../etc/validator'
-import FieldErrors from './../forms/field-errors.jsx'
-import FormErrors from './../forms/form-errors.jsx'
-import Loading from './../loading.jsx'
+import { required } from '@/../../etc/validator'
+import FieldErrors from '@/../forms/field-errors.jsx'
+import FormErrors from '@/../forms/form-errors.jsx'
+import Loading from '@/../loading.jsx'
 
-import * as messages from './../../config/messages'
-import countryCodes from './../../config/country-codes'
+import * as messages from '@/../../config/messages'
+import countryCodes from '@/../../config/country-codes'
 
 class DomainContact extends React.Component {
 

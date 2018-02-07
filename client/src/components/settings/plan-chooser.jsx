@@ -1,8 +1,8 @@
 import React from 'react'
 
-import StripeCheckout from './stripe.jsx'
-import FreeTrial from './../dashboard/free-trial.jsx'
-import Loading from './../loading.jsx'
+import StripeCheckout from '@/stripe.jsx'
+import FreeTrial from '@/../dashboard/free-trial.jsx'
+import Loading from '@/../loading.jsx'
 
 class PlanChooser extends React.Component {
     render() {

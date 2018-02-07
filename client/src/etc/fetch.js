@@ -1,4 +1,4 @@
-import store from './store'
+import store from '@/store'
 import fetchAPI from 'isomorphic-fetch'
 import { toastr } from 'react-redux-toastr'
 

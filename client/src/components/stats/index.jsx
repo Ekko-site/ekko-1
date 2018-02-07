@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {Text, Heading} from 'rebass'
 import moment from 'moment'
 
-import * as pageActions from './../../actions/page'
+import * as pageActions from '@/../../actions/page'
 
 const style = {
     sidebar: {

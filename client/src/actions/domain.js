@@ -2,15 +2,15 @@ import { toastr } from 'react-redux-toastr'
 
 import {
     fetch
-} from './../etc/fetch'
+} from '@/etc/fetch'
 
 import {
     actions as formActions
 } from 'react-redux-form'
 
-import * as types from '../constants/action-types'
-import * as authActions from './auth'
-import * as messages from './../config/messages'
+import * as types from '@/constants/action-types'
+import * as authActions from '@/auth'
+import * as messages from '@/config/messages'
 
 const validateDomain = search => !!(search.match(/\./))
 

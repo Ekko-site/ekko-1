@@ -1,7 +1,7 @@
 import React from 'react'
-import FacebookConnection from './facebook-connection.jsx'
-import Loading from './loading.jsx'
-import Icon from './icon.jsx'
+import FacebookConnection from '@/facebook-connection.jsx'
+import Loading from '@/loading.jsx'
+import Icon from '@/icon.jsx'
 
 const config = process.env
 const $ = window.$ || null

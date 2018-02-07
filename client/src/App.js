@@ -4,10 +4,10 @@ import {Provider} from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
 import ReduxToastr from 'react-redux-toastr'
 
-import configureStore from './etc/configure-store'
+import configureStore from '@/etc/configure-store'
 import localStore from 'store'
-import intercom from './etc/intercom'
-import AppContainer from './containers/app'
+import intercom from '@/etc/intercom'
+import AppContainer from '@/containers/app'
 
 const history = createHistory()
 const { store } = configureStore(history, window.REDUX_STATE)

@@ -1,7 +1,7 @@
 import React from 'react'
 
-import EkkoButton from './../ekko-button.jsx'
-import Icon from './../icon.jsx'
+import EkkoButton from '@/../ekko-button.jsx'
+import Icon from '@/../icon.jsx'
 
 const Sync = ({ handleSyncClick }) => {
     return <EkkoButton onClick={handleSyncClick}>

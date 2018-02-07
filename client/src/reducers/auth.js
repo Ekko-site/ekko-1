@@ -34,7 +34,7 @@ import {
 }
 from '../constants/action-types'
 
-import store from './../etc/store'
+import store from '@/../etc/store'
 
 const initialState = {
     logged_in: false,

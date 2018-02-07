@@ -2,7 +2,7 @@ import React from 'react'
 
 import Link from 'redux-first-router-link'
 
-import FreeTrial from './dashboard/free-trial.jsx'
+import FreeTrial from '@/dashboard/free-trial.jsx'
 
 const Sidebar = ({ user = {}, logout }) => {
     user = user || {}

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Loading from './loading.jsx'
+import Loading from '@/loading.jsx'
 
 class PageChooser extends React.Component {
 

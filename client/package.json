@@ -72,6 +72,7 @@
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
+    "babel-plugin-root-import": "^5.1.0",
     "babel-plugin-universal-import": "^1.4.0"
   },
   "jest": {
