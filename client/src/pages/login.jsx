@@ -14,7 +14,7 @@ import FieldErrors from './../forms/field-errors.jsx'
 import FormErrors from './../forms/form-errors.jsx'
 import Loading from './../loading.jsx'
 
-import * as messages from './../../config/messages'
+import * as messages from './../config/messages'
 
 class Login extends React.Component {
 
@@ -23,7 +23,7 @@ class Login extends React.Component {
     };
 
     render() {
-        const {loginForm} = this.props
+        const { loginForm } = this.props
         const { logging_in } = this.props.authState
         return (
             <div className="container">
@@ -92,15 +92,16 @@ Login.propTypes = {
 }
 
 function mapStateToProps(state) {
-    return {authState: state.authState, login: state.login, loginForm: state.loginForm}
+    return {
+        authState: state.authState,
+        login: state.login,
+        loginForm: state.loginForm
+    }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        authActions: bindActionCreators(authActions, dispatch),
-        redirectToDashboard: () => {
-            browserHistory.push('/dashboard')
-        }
+        authActions: bindActionCreators(authActions, dispatch)
     }
 }
 

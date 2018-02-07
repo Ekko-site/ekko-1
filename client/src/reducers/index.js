@@ -4,6 +4,7 @@ import themesState from './theme'
 import formsState from './form'
 import billingState from './billing'
 import domainState from './domain'
+import navigationState from './navigation'
 
 const reducers = {
     authState,
@@ -11,6 +12,7 @@ const reducers = {
     themesState,
     billingState,
     domainState,
+    navigationState,
     ...formsState
 }
 

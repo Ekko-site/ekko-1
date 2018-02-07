@@ -4,11 +4,13 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 
 import * as authActions from './../actions/auth'
+import * as navActions from './../actions/navigation'
 import * as billingActions from './../actions/billing'
 import * as domainActions from './../actions/domain'
 
 import store from './../etc/store'
 
+import Switcher from './../containers/switcher'
 import AppContainer from './../components/app-container.jsx'
 import MarketingContainer from './../components/marketing-container.jsx'
 
@@ -27,7 +29,7 @@ class App extends React.Component {
     componentWillReceiveProps(nextProps) {
         if (!nextProps.authState.current_user && this.props.authState.current_user) {
             this.props.authActions.logout()
-            nextProps.redirectToHome()
+            this.props.navActions.go('HOME')
         }
     }
 
@@ -35,6 +37,7 @@ class App extends React.Component {
         const user = this.props.authState.current_user
         const { logout } = this.props.authActions
         const marginUnderPageAdmin = !this.props.location.pathname.match(/dashboard/)
+        return <Switcher />
         if(inApp(this.props.location.pathname)){
             return <AppContainer user={user} marginUnderPageAdmin={marginUnderPageAdmin} logout={logout}>
                 {
@@ -69,9 +72,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         authActions: bindActionCreators(authActions, dispatch),
-        redirectToHome: () => {
-            browserHistory.push('/')
-        }
+        navActions: bindActionCreators(navActions, dispatch)
     }
 }
 

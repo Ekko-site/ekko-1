@@ -75,3 +75,6 @@ export const THEMES_FETCH_INIT = 'THEMES_FETCH_INIT'
 export const THEMES_FETCHED = 'THEMES_FETCHED'
 export const ACTIVATE_THEME = 'ACTIVATE_THEME'
 export const SAVE_SETTINGS = 'SAVE_SETTINGS'
+
+export const HOME = 'HOME'
+export const LOGIN = 'LOGIN'
