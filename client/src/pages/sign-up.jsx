@@ -62,7 +62,7 @@ class SignUp extends React.Component {
                         }} onSubmit={this.handleSubmit}>
                             <Field model="signUp.firstName">
                                 <label htmlFor="first-name">First name</label>
-                                <input type="text" className={`full-width i-w-m ${!signUpForm.fields.firstName.valid && signUpForm.fields.firstName.touched ? 'error' : ''}`} id="first-name" />
+                                <input type="text" className={`full-width i-w-m ${!signUpForm.firstName.valid && signUpForm.firstName.touched ? 'error' : ''}`} id="first-name" />
                                 <FieldErrors model="signUp.firstName" messages={{
                                     required: messages.FORM_FIRST_NAME_NULL
                                 }} show={signUpForm.submitFailed}/>
@@ -70,7 +70,7 @@ class SignUp extends React.Component {
 
                             <Field model="signUp.lastName">
                                 <label htmlFor="last-name">Last name</label>
-                                <input type="text" className={`full-width i-w-m ${!signUpForm.fields.lastName.valid && signUpForm.fields.lastName.touched ? 'error' : ''}`} id="last-name" />
+                                <input type="text" className={`full-width i-w-m ${!signUpForm.lastName.valid && signUpForm.lastName.touched ? 'error' : ''}`} id="last-name" />
                                 <FieldErrors model="signUp.lastName" messages={{
                                     required: messages.FORM_LAST_NAME_NULL
                                 }} show={signUpForm.submitFailed}/>
@@ -78,7 +78,7 @@ class SignUp extends React.Component {
 
                             <Field model="signUp.email">
                                 <label htmlFor="email-address">Email address</label>
-                                <input type="email" className={`full-width i-w-m ${!signUpForm.fields.email.valid && signUpForm.fields.email.touched ? 'error' : ''}`} id="email-address" />
+                                <input type="email" className={`full-width i-w-m ${!signUpForm.email.valid && signUpForm.email.touched ? 'error' : ''}`} id="email-address" />
                                 <FieldErrors model="signUp.email" messages={{
                                     required: messages.FORM_EMAIL_NULL
                                 }} show={signUpForm.submitFailed}/>
@@ -86,7 +86,7 @@ class SignUp extends React.Component {
 
                             <Field model="signUp.password" className="half-mb">
                                 <label htmlFor="password">Choose a password <span className="note">— minimum 6 characters</span></label>
-                                <input type="password" className={`full-width i-w-m ${!signUpForm.fields.password.valid && signUpForm.fields.password.touched ? 'error' : ''}`} id="password" />
+                                <input type="password" className={`full-width i-w-m ${!signUpForm.password.valid && signUpForm.password.touched ? 'error' : ''}`} id="password" />
                                 <FieldErrors model="signUp.password" messages={{
                                     required: messages.FORM_PASSWORD_NULL
                                 }} show={signUpForm.submitFailed}/>
