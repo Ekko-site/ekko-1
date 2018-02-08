@@ -1,0 +1,241 @@
+html {
+	font-family: "gt-walsheim", "helvetica neue", helvetica, arial, sans-serif;
+	font-size: 20px;
+	line-height: 1.4;
+	color: $off-black;
+	@include grid-media-query(palm) {
+		font-size: 18px;
+	}
+}
+
+// Load in the font files
+
+@font-face {
+	font-family: "gt-walsheim";
+	src: url("/fonts/gt-walsheim-web.ttf") format("truetype"), url("/fonts/gt-walsheim-web.woff") format("woff"), url("/fonts/gt-walsheim-web.eot") format("eot");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "gt-walsheim";
+	src: url("/fonts/gt-walsheim-bold-web.ttf") format("truetype"), url("/fonts/gt-walsheim-bold-web.woff") format("woff"), url("/fonts/gt-walsheim-bold-web.eot") format("eot");
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "gt-walsheim";
+	src: url("/fonts/gt-walsheim-medium-web.ttf") format("truetype"), url("/fonts/gt-walsheim-medium-web.woff") format("woff"), url("/fonts/gt-walsheim-medium-web.eot") format("eot");
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "gt-walsheim";
+	src: url("/fonts/gt-walsheim-light-web.ttf") format("truetype"), url("/fonts/gt-walsheim-light-web.woff") format("woff"), url("/fonts/gt-walsheim-light-web.eot") format("eot");
+	font-weight: 200;
+	font-style: normal;
+}
+
+// Actual type styles
+
+p {
+	margin: 0 0 1.25em 0;
+}
+
+b {
+	font-weight: 500;
+}
+
+.headline {
+	font-size: 64px;
+	font-weight: 200;
+	line-height: 1.15;
+	@include grid-media-query(palm) {
+		font-size: 40px;
+		line-height: 1.2;
+	}
+}
+
+h1, .h1 {
+	font-size: 49px;
+	font-weight: 200;
+	line-height: 1.05;
+	margin-top: 0;
+	@include grid-media-query(palm) {
+		font-size: 32px;
+	}
+}
+
+h2, .h2 {
+	font-size: 31px;
+	font-weight: 500;
+	margin: 0 0 25px 0;
+	line-height: 1.3;
+	@include grid-media-query(palm) {
+		font-size: 26px;
+	}
+}
+
+h3, .h3 {
+	font-size: 24px;
+	font-weight: 500;
+	margin: 0 0 25px 0;
+	line-height: 1.3;
+	@include grid-media-query(palm) {
+		font-size: 20px;
+	}
+}
+
+.caps-title {
+	font-size: 15px;
+	font-weight: bold;
+	margin: 0 0 25px 0;
+	line-height: 1.3;
+	text-transform: uppercase;
+	color: $faded-black;
+}
+
+.title {
+	text-transform: capitalize;
+}
+
+.emphasised {
+	font-size: 23px;
+	@include grid-media-query(palm) {
+		font-size: 21px;
+	}
+}
+
+.large-quote {
+	font-size: 28px;
+	@include grid-media-query(palm) {
+		font-size: 23px;
+	}
+}
+
+.mini {
+	font-size: 0.8rem;
+	@include grid-media-query(portable) {
+		font-size: 0.7rem;
+	}
+}
+
+.tiny {
+	font-size: 0.7rem;
+	@include grid-media-query(portable) {
+		font-size: 0.7rem;
+	}
+}
+
+.bold {
+	font-weight: bold;
+}
+
+blockquote {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+
+.half-mt {
+	margin-top: 0.65em;
+}
+
+.big-mt {
+	margin-top: 40px;
+}
+
+.huge-mb {
+	margin-bottom: 70px;
+}
+
+.big-mb {
+	margin-bottom: 40px;
+}
+
+.half-mb {
+	margin-bottom: 0.65em;
+}
+
+.tiny-mb {
+	margin-bottom: 5px;
+}
+
+.decent-mb {
+    margin-bottom: 20px;
+}
+
+.title::first-letter {
+	text-transform: capitalize;
+}
+
+.text-button {
+	color: $raspberry;
+	text-decoration: underline;
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.text-link {
+	cursor: pointer;
+}
+
+.mb--palm {
+	@include grid-media-query(palm) {
+		margin-bottom: 30px;
+	}
+}
+
+.half-mb--palm {
+	@include grid-media-query(palm) {
+		margin-bottom: 0.65em;
+	}
+}
+
+.normal {
+	font-weight: normal;
+}
+
+.tr {
+	text-align: right;
+}
+
+.tr--lap {
+	@include grid-media-query(lap) {
+		text-align: right;
+	}
+}
+
+.tr-desk {
+	@include grid-media-query(desk) {
+		text-align: right;
+	}
+}
+
+// Colours
+
+.raspberry {
+	color: $raspberry;
+}
+
+.blue-dark {
+	color: $blue-dark;
+}
+
+.faded {
+	color: $faded-black;
+}
+
+.faded--opacity {
+	opacity: .75;
+}
+
+.red {
+	color: $error-red;
+}
+
+.green {
+	color: darken($green, 5%);
+}

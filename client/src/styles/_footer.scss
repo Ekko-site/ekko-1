@@ -1,0 +1,111 @@
+/**
+// Styles for the main footer
+**/
+
+.site-footer {
+	background-color: $grey-pale;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	font-size: 25px;
+	font-weight: 300;
+	a {
+		color: #929292;
+	}
+	@include grid-media-query(portable) {
+		font-size: 1rem;
+	}
+	@include grid-media-query(palm) {
+		padding-top: 90px;
+	}
+}
+
+.site-footer__logo {
+	margin-bottom: 45px;
+	@include grid-media-query(palm) {
+		margin-bottom: 30px;
+	}
+}
+
+.site-footer__nav {
+	float: left;
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	li {
+		display: inline-block;
+		padding: 0;
+		margin: 0 35px 0 0;
+		&:last-of-type {
+			margin-right: 0;
+		}
+	}
+	.site-footer__nav__email-wrap {
+		padding-right: 35px;
+		border-right: 2px #E4E4E4 solid;
+	}
+	a {
+		&:hover {
+			color: $off-black;
+		}
+	}
+	@media only screen and (max-width: 790px) {
+		float: none;
+		display: block;
+	}
+	@include grid-media-query(palm) {
+		li {
+			margin: 0 20px 0 0;
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+		.site-footer__nav__email-wrap {
+			padding-right: 0;
+			border-right: 0;
+		}
+	}
+	@media only screen and (max-width: 490px) {
+		li {
+			display: block;
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.site-footer__twitter-link, .site-footer__fb-link, {
+	background-image: url("./images/faded-twitter-icon.svg");
+	background-repeat: no-repeat;
+	background-position: left center;
+	display: inline-block;
+	padding: 0 0 4px 35px;
+	float: right;
+	&:hover {
+		color: #1DA1F2;
+        &.site-footer__fb-link {
+            color: #3b5998;
+        }
+	}
+	&.site-footer__fb-link {
+		margin-right: 35px;
+		background-image: url("./images/faded-fb-icon.svg");
+	}
+	@media only screen and (max-width: 790px) {
+		float: none;
+		font-size: 0.8rem;
+		margin-top: 15px;
+		background-size: 15px auto;
+		padding-left: 25px;
+        margin-right: 15px;
+	}
+}
+
+.site-footer__copyright {
+	color: #CDCDCD;
+	font-size: 20px;
+	margin: 15px 0 0 0;
+	@media only screen and (max-width: 790px) {
+		font-size: 0.8rem;
+	}
+}

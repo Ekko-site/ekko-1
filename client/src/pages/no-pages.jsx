@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import Link from 'redux-first-router-link'
 
 import * as authActions from '@/actions/auth'
-
 import Loading from '@/components/loading'
+
+import { stopwatchImage } from '@/etc/images'
 
 const FB_CREATE_URL = 'https://www.facebook.com/pages/create/'
 
@@ -69,7 +69,7 @@ class NoPages extends React.Component {
                     <p className="mini">It's easy to make one 👉</p>
                     <p className="mini faded">We've even put together a <a target="_BLANK" href="https://blog.ekko.site/creating-a-good-facebook-page-557d5f1b16bf">handy guide</a>.</p>
                     <div className="trial-alert huge-mb">
-                        <p className="half-mb trial-alert__stopwatch"><img src="/dist/images/stopwatch.svg" /></p>
+                        <p className="half-mb trial-alert__stopwatch"><img src={stopwatchImage} /></p>
                         <div className="no-mb">
                             <p><strong className="half-mb">Recently created a Facebook Page?</strong></p>
                             <p className="half-mb">Sometimes new pages don't appear right away. Not to worry!</p>

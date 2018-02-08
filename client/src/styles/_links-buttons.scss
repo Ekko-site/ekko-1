@@ -1,0 +1,110 @@
+/**
+// Styles for sitewide links and buttons
+**/
+
+// Standard links
+
+a {
+	color: $raspberry;
+	text-decoration: none;
+}
+
+// Buttons
+
+.butt {
+	display: inline-block;
+	border-radius: 40px;
+	padding: 5px 16px;
+	background-color: $raspberry;
+	color: #fff;
+	font-size: 17px;
+	-webkit-transition: all 0.15s ease-out;
+    transition: all 0.15s ease-out;
+    border: 0;
+    outline: 0;
+	cursor: pointer;
+    &:hover {
+    	background-color: darken($raspberry, 10%);
+    }
+}
+
+.butt--big {
+	font-size: 20px;
+	padding: 12px 22px;
+}
+
+.butt--mini {
+	padding: 2px 8px;
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.butt--outline {
+	border: 2px $raspberry solid;
+	color: $off-black;
+	background: transparent;
+    &:hover {
+        color: #fff;
+    }
+}
+
+.butt--red {
+	background-color: $error-red;
+	&:hover {
+		background-color: darken($error-red, 6%);
+	}
+}
+
+.butt--green {
+	background-color: $green;
+	&:hover {
+		background-color: darken($green, 6%);
+	}
+}
+
+.butt--positive {
+	&:hover {
+		background-color: $green;
+	}
+}
+
+.butt--fb {
+	background-color: $blue-fb;
+	&:hover {
+		background-color: darken($blue-fb, 10%);
+	}
+}
+
+.butt--yellow {
+	background-color: $yellow;
+	color: $off-black;
+	&:hover {
+		background-color: darken($yellow, 10%);
+		color: lighten($off-black, 10%);
+	}
+}
+
+a.faded {
+    text-decoration: underline;
+    &:hover {
+        opacity: .7;
+    }
+}
+
+.danger-hover {
+    &:hover {
+        color: $error-red;
+    }
+}
+
+.main-cta {
+    text-align: center;
+    padding-top: 0.5em;
+    .butt:first-of-type {
+        margin-right: 0.5em;
+        font-weight: 500;
+    }
+    .butt:last-of-type {
+        margin-left: 0.5em;
+    }
+}

@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'redux-first-router-link'
 
+import { mrEkoImage } from '@/etc/images'
+
 class FourOhFour extends React.Component {
     constructor(props) {
         super(props)
@@ -42,7 +44,7 @@ class FourOhFour extends React.Component {
                             bottom: 0,
                             left: '20px',
                             zIndex: 10
-                        }} src="/dist/images/mr-eko.png" key="/dist/images/mr-eko.png" alt="" />
+                        }} src={mrEkoImage} key={mrEkoImage} alt="" />
                     )}
                 </div>
             </div>

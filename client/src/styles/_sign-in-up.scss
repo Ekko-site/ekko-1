@@ -1,0 +1,33 @@
+/**
+// Styles for sign in, sign up, etc
+**/
+
+.progress-list {
+	color: $faded-black;
+	font-size: 14px;
+	.divide {
+		display: inline-block;
+		margin: 0 10px;
+	}
+}
+
+.progress-list__current {
+	color: $raspberry;
+}
+
+// Testimonial block
+
+.testimonial-row {
+	background: $yellow;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+.testimonial-row__img {
+	width: 50px;
+	border-radius: 25px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 15px;
+	border: 2px #fff solid;
+}

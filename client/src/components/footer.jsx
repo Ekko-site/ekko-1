@@ -2,6 +2,8 @@ import React from 'react'
 
 import Link from 'redux-first-router-link'
 
+import { footerLogoImage } from '@/etc/images'
+
 const Footer = ({ onHomepage }) => {
     return <footer className="site-footer">
         <div className="container">
@@ -9,7 +11,7 @@ const Footer = ({ onHomepage }) => {
                 <div className="grid__item one-whole">
                     <div className="cf">
                         <div>
-                            <img src="/dist/images/desaturated-logo.svg" className="site-footer__logo" />
+                            <img src={footerLogoImage} className="site-footer__logo" />
                         </div>
                         <nav className="site-footer__nav">
                             <ul>

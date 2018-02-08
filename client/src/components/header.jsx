@@ -1,14 +1,16 @@
 import React from 'react'
 import Link from 'redux-first-router-link'
 
+import { headerLogoMarkImage, headerLogoTextImage } from '@/etc/images'
+
 const onSignUp = path => path == '/sign-up'
 
 const Header = ({ onHomepage, loggedIn, path }) => {
     return <header className={`site-header cf ${!onHomepage ? 'big-mb static': ''}`}>
         <div className="container">
             <Link to="/" className="site-logo-link">
-                <img src="./dist/images/logo-mark.svg" className="site-logo-link__logomark animated-faster" />
-                <img src="./dist/images/logo-text.svg" className="site-logo-link__img" />
+                <img src={headerLogoMarkImage} className="site-logo-link__logomark animated-faster" />
+                <img src={headerLogoTextImage} className="site-logo-link__img" />
             </Link>
             <nav className="site-header__nav">
                 <ul>

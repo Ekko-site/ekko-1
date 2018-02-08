@@ -25,6 +25,7 @@
     "eslint-plugin-react": "7.4.0",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.5",
+    "font-loader": "^0.1.2",
     "fs-extra": "3.0.1",
     "global": "^4.3.2",
     "history": "^4.7.2",
@@ -69,12 +70,17 @@
   },
   "proxy": "http://localhost:5000/",
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "start-js": "node scripts/start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build-js": "node scripts/build",
+    "build": "npm-run-all build-css build-js",
+    "test": "node scripts/test.js --env=jsdom",
+    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive"
   },
   "devDependencies": {
     "babel-plugin-root-import": "^5.1.0",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
     "babel-plugin-universal-import": "^1.4.0"
   },
   "jest": {
@@ -109,14 +115,6 @@
       "web.jsx",
       "jsx",
       "node"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "react-app"
-    ],
-    "plugins": [
-      "universal-import"
     ]
   },
   "eslintConfig": {

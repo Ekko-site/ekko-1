@@ -1,0 +1,193 @@
+.about-header {
+    background-image: linear-gradient(135deg, rgba(188, 44, 95, 0.97), rgba(244, 90, 144, 0.97)), url("./images/about-header.jpg");
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 25px;
+    @include grid-media-query(palm) {
+        height: 200px;
+    }
+    h1 {
+        color: #fff;
+    }
+    p {
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 0;
+    }
+}
+
+.about-content, .about-contributors {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    h2 {
+        margin-bottom: 35px;
+    }
+    hr.primary {
+        background: $raspberry;
+        height: 5px;
+        border: none;
+        margin: 0 auto 70px auto;
+        width: 90%;
+    }
+    .founders {
+        display: flex;
+        @include grid-media-query(palm) {
+            flex-direction: column;
+        }
+        .founder {
+            width: 45%;
+            margin-right: 22.5px;
+            margin-left: 22.5px;
+            margin-bottom: 45px;
+            @include grid-media-query(palm) {
+                width: 100%;
+                margin-right: 0;
+                margin-left: 0;
+            }
+            &:last-of-type {
+                margin-right: 0;
+            }
+            .founder-media {
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 25px;
+                @include grid-media-query(palm) {
+                    display: block;
+                    margin-bottom: 0;
+                }
+                .founder-media-body {
+                    flex: 1;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    height: 96px;
+                    p {
+                        margin-bottom: 0;
+                    }
+                }
+                .avatar {
+                    width: 96px;
+                    margin-right: 25px;
+                    padding-bottom: 96px;
+                    background-size: cover;
+                    background-position: center;
+                    border-radius: 50%;
+                    border: 5px solid #e5e5e5;
+                    @include grid-media-query(palm) {
+                        margin: auto;
+                	}
+                    &#founder-ben {
+                        background-image: url("./images/people/ben.png");
+                    }
+                    &#founder-sam {
+                        background-image: url("./images/people/sam.png");
+                    }
+                    &#founder-luke {
+                        background-image: url("./images/people/luke.jpg");
+                    }
+                    &#founder-jack {
+                        background-image: url("./images/people/jack.jpg");
+                    }
+                    &#founder-dan-gough {
+                        background-image: url("./images/people/dan-gough.jpg");
+                    }
+                    &#founder-dan-edwards {
+                        background-image: url("./images/people/dan-edwards.jpg");
+                    }
+                }
+                h3 {
+                    margin-bottom: 5px;
+                }
+            }
+            .founder-connect {
+                margin-right: auto;
+                a {
+                    margin: 0 12.5px;
+                    border-right: 2px rgba(0, 0, 0, 0.1) solid;
+                    padding-right: 25px;
+                    &:last-of-type {
+                        border-right: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.about-contributors {
+    background: #f5f5f5;
+    h2 {
+        color: $off-black;
+    }
+    hr.primary {
+        background: $off-black;
+    }
+    .founders {
+        color: #fff;
+        flex-flow: row wrap;
+        .founder {
+            background: $raspberry;
+            border-radius: 4px;
+            padding: 25px;
+            width: 45%;
+        }
+        @media screen and (max-width: 980px) {
+            .founder {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+    }
+    .contributors-themes {
+        margin-bottom: 25px;
+        .themes-contributors-wrap {
+            display: inline-block;
+            position: relative;
+            border-radius: 4px;
+            margin-right: 25px;
+            max-width: 175px;
+            @include grid-media-query(palm) {
+                margin-right: 0;
+                margin-bottom: 25px;
+            }
+            &:hover:after {
+                opacity: 1;
+            }
+            &:after {
+                opacity: 0;
+                transition: all .3s;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                content: attr(data-theme-name);
+                background: rgba(20, 36, 66, 0.95);
+                box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+                text-align: center;
+                border-radius: 4px;
+                padding-top: 45%;
+                height: 55%;
+            }
+        }
+        img {
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            position: relative;
+            display: block;
+        }
+    }
+    .founder-connect {
+        p {
+            word-wrap: break-word;
+            padding: 0 12px;
+        }
+        a {
+            color: #fff;
+        }
+    }
+}

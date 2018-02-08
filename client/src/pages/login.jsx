@@ -24,7 +24,6 @@ class Login extends React.Component {
     };
 
     render() {
-        console.log(this.props)
         const { loginForm } = this.props
         const { logging_in } = this.props.authState
         return (

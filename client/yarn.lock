@@ -170,11 +170,18 @@ are-we-there-yet@~1.1.2:
     delegates "^1.0.0"
     readable-stream "^2.0.6"
 
-argparse@^1.0.7:
+argparse@^1.0.3, argparse@^1.0.7:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/argparse/-/argparse-1.0.9.tgz#73d83bc263f86e97f8cc4f6bae1b0e90a7d22c86"
   dependencies:
     sprintf-js "~1.0.2"
+
+"argparse@~ 0.1.15", argparse@~0.1.15:
+  version "0.1.16"
+  resolved "https://registry.yarnpkg.com/argparse/-/argparse-0.1.16.tgz#cfd01e0fbba3d6caed049fbd758d40f65196f57c"
+  dependencies:
+    underscore "~1.7.0"
+    underscore.string "~2.4.0"
 
 aria-query@^0.7.0:
   version "0.7.0"
@@ -1161,6 +1168,10 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
+bluebird@^2.9.26:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-2.11.0.tgz#534b9033c022c9579c56ba3b3e5a5caafbb650e1"
+
 bluebird@^3.4.7:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.1.tgz#d9551f9de98f1fcda1e683d17ee91a0602ee2eb9"
@@ -1439,6 +1450,10 @@ caniuse-lite@^1.0.30000748, caniuse-lite@^1.0.30000792:
 capture-stack-trace@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/capture-stack-trace/-/capture-stack-trace-1.0.0.tgz#4a6fa07399c26bba47f0b2496b4d0fb408c5550d"
+
+cartesian-product@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/cartesian-product/-/cartesian-product-2.1.2.tgz#c9a8462c54ab19a0c5fd32192922e239ab4ca4fd"
 
 case-sensitive-paths-webpack-plugin@2.1.1:
   version "2.1.1"
@@ -1950,6 +1965,10 @@ cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
   resolved "https://registry.yarnpkg.com/cssstyle/-/cssstyle-0.2.37.tgz#541097234cb2513c83ceed3acddc27ff27987d54"
   dependencies:
     cssom "0.3.x"
+
+cubic2quad@^1.0.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/cubic2quad/-/cubic2quad-1.1.1.tgz#69b19c61a3f5b41ecf2f1d5fae8fb03415aa8b15"
 
 currency-formatter@^1.3.2:
   version "1.3.2"
@@ -2861,6 +2880,18 @@ flatten@^1.0.2:
 flow-parser@^0.*:
   version "0.64.0"
   resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.64.0.tgz#858664ef2246880f9a81b05e69fbd308a1b865c9"
+
+font-loader@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/font-loader/-/font-loader-0.1.2.tgz#f8b5d278e9756fac4fa8fbcf852900d50e557adb"
+  dependencies:
+    bluebird "^2.9.26"
+    loader-utils "^0.2.7"
+    lodash "^3.8.0"
+    option-multiplexer "^0.1.0"
+    svg2ttf "^2.0.0"
+    ttf2eot "^1.3.0"
+    ttf2woff "^1.3.0"
 
 for-in@^1.0.1:
   version "1.0.2"
@@ -4269,7 +4300,7 @@ loader-runner@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.3.0.tgz#f482aea82d543e07921700d5a46ef26fdac6b8a2"
 
-loader-utils@^0.2.16:
+loader-utils@^0.2.16, loader-utils@^0.2.7:
   version "0.2.17"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-0.2.17.tgz#f86e6374d43205a6e6c60e9196f17c0299bfb348"
   dependencies:
@@ -4349,6 +4380,10 @@ lodash.uniq@^4.5.0:
 "lodash@>=3.5 <5", lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.3.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
+
+lodash@^3.6.0, lodash@^3.8.0:
+  version "3.10.1"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
 lodash@^4.13.1, lodash@^4.2.0, lodash@^4.2.1:
   version "4.17.5"
@@ -4481,6 +4516,10 @@ micro@^6.1.0:
     media-typer "0.3.0"
     minimist "1.2.0"
     raw-body "2.2.0"
+
+microbuffer@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/microbuffer/-/microbuffer-1.0.0.tgz#8b3832ed40c87d51f47bb234913a698a756d19d2"
 
 micromatch@^2.1.5, micromatch@^2.3.11, micromatch@^2.3.7:
   version "2.3.11"
@@ -4854,6 +4893,13 @@ optimist@^0.6.1:
     minimist "~0.0.1"
     wordwrap "~0.0.2"
 
+option-multiplexer@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/option-multiplexer/-/option-multiplexer-0.1.0.tgz#6bcb3b51f3195d9315fb77ae223d65c3a01c7e15"
+  dependencies:
+    cartesian-product "^2.1.2"
+    lodash "^3.8.0"
+
 optionator@^0.8.1, optionator@^0.8.2:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/optionator/-/optionator-0.8.2.tgz#364c5e409d3f4d6301d6c0b4c05bba50180aeb64"
@@ -4936,6 +4982,10 @@ package-json@^4.0.0:
     registry-auth-token "^3.0.1"
     registry-url "^3.0.3"
     semver "^5.1.0"
+
+"pako@~ 0.2.2":
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/pako/-/pako-0.2.9.tgz#f3f7522f4ef782348da8161bad9ecfd51bf83a75"
 
 pako@~1.0.5:
   version "1.0.6"
@@ -6629,6 +6679,17 @@ supports-color@^5.1.0:
   dependencies:
     has-flag "^2.0.0"
 
+svg2ttf@^2.0.0:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/svg2ttf/-/svg2ttf-2.1.1.tgz#103d3a236f6596c47a2490ec22b67c051ee4692e"
+  dependencies:
+    argparse "^1.0.3"
+    cubic2quad "^1.0.0"
+    lodash "^3.6.0"
+    microbuffer "^1.0.0"
+    svgpath "^2.1.2"
+    xmldom "~0.1.16"
+
 svgo@^0.7.0:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/svgo/-/svgo-0.7.2.tgz#9f5772413952135c6fefbf40afe6a4faa88b4bb5"
@@ -6640,6 +6701,10 @@ svgo@^0.7.0:
     mkdirp "~0.5.1"
     sax "~1.2.1"
     whet.extend "~0.9.9"
+
+svgpath@^2.1.2:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/svgpath/-/svgpath-2.2.1.tgz#0834bb67c89a76472b2bd06cc101fa7b517b222c"
 
 sw-precache-webpack-plugin@0.11.4:
   version "0.11.4"
@@ -6823,6 +6888,19 @@ trim-right@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-right/-/trim-right-1.0.1.tgz#cb2e1203067e0c8de1f614094b9fe45704ea6003"
 
+ttf2eot@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/ttf2eot/-/ttf2eot-1.3.0.tgz#94671eacfa5ad7799cd6f9f5b6030f513b032ac2"
+  dependencies:
+    argparse "~0.1.15"
+
+ttf2woff@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/ttf2woff/-/ttf2woff-1.3.0.tgz#76a27a6f30ea037a9ed64c9ff43ec7ed461e6d2a"
+  dependencies:
+    argparse "~ 0.1.15"
+    pako "~ 0.2.2"
+
 tty-browserify@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/tty-browserify/-/tty-browserify-0.0.0.tgz#a157ba402da24e9bf957f9aa69d524eed42901a6"
@@ -6890,9 +6968,17 @@ uid-number@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
 
+underscore.string@~2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/underscore.string/-/underscore.string-2.4.0.tgz#8cdd8fbac4e2d2ea1e7e2e8097c42f442280f85b"
+
 underscore@~1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.6.0.tgz#8b38b10cacdef63337b8b24e4ff86d45aea529a8"
+
+underscore@~1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.7.0.tgz#6bbaf0877500d36be34ecaa584e0db9fef035209"
 
 uniq@^1.0.1:
   version "1.0.1"
@@ -7296,6 +7382,10 @@ xml-char-classes@^1.0.0:
 xml-name-validator@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/xml-name-validator/-/xml-name-validator-2.0.1.tgz#4d8b8f1eccd3419aa362061becef515e1e559635"
+
+xmldom@~0.1.16:
+  version "0.1.27"
+  resolved "https://registry.yarnpkg.com/xmldom/-/xmldom-0.1.27.tgz#d501f97b3bdb403af8ef9ecc20573187aadac0e9"
 
 xtend@^4.0.0, xtend@^4.0.1:
   version "4.0.1"

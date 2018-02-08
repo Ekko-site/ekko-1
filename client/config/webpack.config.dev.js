@@ -131,7 +131,7 @@ module.exports = {
           // smaller than specified limit in bytes as data URLs to avoid requests.
           // A missing `test` is equivalent to a match.
           {
-            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/, /\.svg$/],
             loader: require.resolve('url-loader'),
             options: {
               limit: 10000,
@@ -187,6 +187,13 @@ module.exports = {
                 },
               },
             ],
+          },
+          {
+            test: /\.(ttf|eot|woff|woff2)$/,
+            loader: "file-loader",
+            options: {
+              name: "fonts/[name].[ext]",
+            },
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.

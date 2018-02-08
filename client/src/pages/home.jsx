@@ -11,6 +11,14 @@ import * as authActions from '@/actions/auth'
 import Mailchimp from '@/components/mailchimp'
 import HomepagePreview from '@/components/homepage-preview'
 
+import {
+    loaderImage,
+    fbCircleImage,
+    triangleImage,
+    bigCircleImage,
+    testimonialMelissaImage
+} from '@/etc/images'
+
 const sliderSettings = {
     dots: false,
     arrows: false,
@@ -42,11 +50,11 @@ class Home extends React.Component {
                             <h1 className="headline center home-intro__headline">
                                 <span className="shape-wrapper animated">
                                     <div className="fb-circle">
-                                        <img src="./dist/images/loader.svg" className="loader" />
-                                        <img src="./dist/images/fb-circle.svg" className="fb-circle-img animated" />
+                                        <img src={loaderImage} className="loader" />
+                                        <img src={fbCircleImage} className="fb-circle-img animated" />
                                     </div>
-                                    <img src="./dist/images/triangle.svg" className="triangle animated" />
-                                    <img src="./dist/images/big-circle.svg" className="big-circle animated-slow" />
+                                    <img src={triangleImage} className="triangle animated" />
+                                    <img src={bigCircleImage} className="big-circle animated-slow" />
                                 </span>
                                 Create your <span className="home-intro__headline__create-website">business website</span> in seconds, using your <span className="home-intro__headline__fb-page">Facebook page</span>
                                 <p className="main-cta animated-faster no-mb"><Link to="/sign-up" className="butt butt--big">Create my website</Link><a className="butt butt--big butt--yellow" href="#learn-more">Learn more</a></p>
@@ -163,7 +171,7 @@ class Home extends React.Component {
                                     A lot of businesses don't need a bespoke site with a complex CMS. I think they'd be much happier managing a simpler website with Facebook, the 'CMS' they're familiar with."
         						</blockquote>
         						<p className="mini center">
-        							<img src="/dist/images/testimonial-melissa.jpg" className="testimonial-row__img" />
+        							<img src={testimonialMelissaImage} className="testimonial-row__img" />
         							<a href="https://twitter.com/keizgoesboom">Melissa Keizer</a>
         						</p>
         					</div>
@@ -193,10 +201,12 @@ class Home extends React.Component {
                             <Slider {...sliderSettings}>
                                 {
                                     ['snapshot', 'kafee', 'funk', 'junipero'].map(theme => {
+                                        const themeImage = require(`../images/themes-slider/${theme}.png`)
+                                        const themeImageMobile = require(`../images/themes-slider/${theme}-mobile.png`)
                                         return <div>
                                             <span className="no-technical__slider__inner__chrome-wrap">
-                                                <img src={`./dist/images/themes-slider/${theme}.png`} className="no-technical__slider__inner__browser" />
-                                                <img src={`./dist/images/themes-slider/${theme}-mobile.png`} className="no-technical__slider__inner__iphone" />
+                                                <img src={themeImage} className="no-technical__slider__inner__browser" />
+                                                <img src={themeImageMobile} className="no-technical__slider__inner__iphone" />
                                             </span>
                                         </div>
                                     })

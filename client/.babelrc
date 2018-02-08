@@ -1,13 +1,14 @@
 {
     "plugins": [
-        "babel-plugin-universal-import",
+        "universal-import",
         [
             "babel-plugin-root-import",
             {
                 "rootPathSuffix": "src",
                 "rootPathPrefix": "@"
             }
-        ]
+        ],
+        "transform-export-extensions",
     ],
     "presets": [
         "react-app"

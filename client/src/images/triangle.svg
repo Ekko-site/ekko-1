@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="37px" height="45px" viewBox="0 0 37 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>Triangle</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Homepage" transform="translate(-444.000000, -300.000000)" fill="#FFDF52">
+            <g id="Header-and-intro" transform="translate(180.000000, 27.000000)">
+                <g id="BRAND" transform="translate(267.737860, 280.564819) rotate(20.000000) translate(-267.737860, -280.564819) translate(167.737860, 182.064819)">
+                    <polygon id="Triangle" transform="translate(109.708516, 106.178044) rotate(-45.000000) translate(-109.708516, -106.178044) " points="109.708516 86.395435 129.491125 125.960652 89.9259077 125.960652"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -2,8 +2,15 @@ import React from 'react'
 import moment from 'moment'
 import Helmet from 'react-helmet'
 
-const benYearStarted = '2009'
+import {
+    themeSnapshotImage,
+    themeBoutiqueImage,
+    themeFunkImage,
+    themeKendrickImage,
+    themeKafeeImage
+} from '@/etc/images'
 
+const benYearStarted = '2009'
 const benDuration = () => moment().diff(moment(benYearStarted, 'Y'), 'years')
 
 const About = () => {
@@ -88,10 +95,10 @@ const About = () => {
                               </div>
                               <div className="contributors-themes">
                                   <div className="themes-contributors-wrap" data-theme-name="Snapshot">
-                                      <img src="/dist/images/themes-contributors/snapshot.png" alt=""/>
+                                      <img src={themeSnapshotImage} alt=""/>
                                   </div>
                                   <div className="themes-contributors-wrap" data-theme-name="Boutique">
-                                      <img src="/dist/images/themes-contributors/boutique.png" alt=""/>
+                                      <img src={themeBoutiqueImage} alt=""/>
                                   </div>
                               </div>
                               <div className="founder-connect">
@@ -114,7 +121,7 @@ const About = () => {
                               </div>
                               <div className="contributors-themes">
                                   <div className="themes-contributors-wrap" data-theme-name="Funk">
-                                      <img src="/dist/images/themes-contributors/funk.jpeg" alt=""/>
+                                      <img src={themeFunkImage} alt=""/>
                                   </div>
                               </div>
                               <div className="founder-connect">
@@ -137,7 +144,7 @@ const About = () => {
                               </div>
                               <div className="contributors-themes">
                                   <div className="themes-contributors-wrap" data-theme-name="Kendrick">
-                                      <img src="/dist/images/themes-contributors/kendrick.png" alt=""/>
+                                      <img src={themeKendrickImage} alt=""/>
                                   </div>
                               </div>
                               <div className="founder-connect">
@@ -159,7 +166,7 @@ const About = () => {
                               </div>
                               <div className="contributors-themes">
                                   <div className="themes-contributors-wrap" data-theme-name="Kafee">
-                                      <img src="/dist/images/themes-contributors/kafee.png" alt=""/>
+                                      <img src={themeKafeeImage} alt=""/>
                                   </div>
                               </div>
                               <div className="founder-connect">

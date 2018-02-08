@@ -1,8 +1,9 @@
 import React from 'react'
-
 import Link from 'redux-first-router-link'
 
 import FreeTrial from '@/components/dashboard/free-trial'
+
+import { logoImage, stopwatchImage} from '@/etc/images'
 
 const Sidebar = ({ user = {}, logout }) => {
     user = user || {}
@@ -10,7 +11,7 @@ const Sidebar = ({ user = {}, logout }) => {
         <span className="dash-sidebar__intro">
             <div className="cf">
                 <Link to="/" className="dash-sidebar__logo">
-                    <img src="/dist/images/logo.svg" />
+                    <img src={logoImage} />
                 </Link>
             </div>
             <p className="dash-sidebar__welcome faded mini">Good day <span className="title">{ user.firstName }</span> 👋🏽</p>
@@ -26,7 +27,7 @@ const Sidebar = ({ user = {}, logout }) => {
         <div className="cf"></div>
         {(!user.full_user) && (
             <div className="trial-alert">
-                <p className="half-mb trial-alert__stopwatch"><img src="/dist/images/stopwatch.svg" /></p>
+                <p className="half-mb trial-alert__stopwatch"><img src={stopwatchImage} /></p>
                 <p><span className="trial-alert__no-palm">Your website is currently in <strong>preview mode</strong>.</span></p>
                 <p className="no-mb"><Link to= "/settings">Activate</Link> now.</p>
             </div>

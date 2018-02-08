@@ -4,6 +4,8 @@ import {Provider} from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
 import ReduxToastr from 'react-redux-toastr'
 
+import '@/App.css';
+
 import configureStore from '@/etc/configure-store'
 import localStore from 'store'
 import intercom from '@/etc/intercom'

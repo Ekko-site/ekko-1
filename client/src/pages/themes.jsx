@@ -66,6 +66,7 @@ class Themes extends React.Component {
                 </div>
                 <div className="grid">
                     {sortedThemes.map(theme => {
+                        const themeImage = require(`../images/themes/${ theme.name }.png`)
                         return <div className="grid__item palm--one-whole one-half" key={theme.id}>
                             <Link to={`/themes/${theme.id}`} className="themes__entry big-mb">
                                 {
@@ -78,7 +79,7 @@ class Themes extends React.Component {
                                         <span className="themes__entry__preview">Preview theme</span>
                                     )
                                 }
-                                <img src={`/dist/images/themes/${ theme.name }.png`} />
+                                <img src={themeImage} />
                                 <h3 className="no-mb title">{ theme.name }</h3>
                                 <p className="mini no-mb">{ theme.description }</p>
                             </Link>

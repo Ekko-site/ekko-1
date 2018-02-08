@@ -17,6 +17,8 @@ import Loading from '@/components/loading'
 
 import * as messages from '@/config/messages'
 
+import { testimonialDuaneImage } from '@/etc/images'
+
 class SignUp extends React.Component {
 
     handleSubmit = signUp => {
@@ -130,7 +132,7 @@ class SignUp extends React.Component {
     							"Ekko's really sped up website and content management for my businesses, and they look better than designs I would've had to spend weeks on"
     						</blockquote>
     						<p className="mini center">
-    							<img src="/dist/images/testimonial-duane.jpg" className="testimonial-row__img" />
+    							<img src={testimonialDuaneImage} className="testimonial-row__img" />
     							<a href="https://twitter.com/DuaneJackson">Duane Jackson</a>
     						</p>
     					</div>

@@ -1,0 +1,65 @@
+/**
+// Styles for sitewide forms, inputs, selects, etc
+**/
+
+input, textarea, button {
+	font-family: inherit;
+	font-size: inherit;
+}
+
+button {
+	cursor: pointer;
+}
+
+.form {
+	label {
+		display: block;
+		margin-bottom: 4px;
+		cursor: pointer;
+		.note {
+			font-size: 14px;
+			@extend .faded;
+		}
+	}
+	input {
+		padding: 5px;
+		border-radius: 5px;
+		border: 1px $grey-border solid;
+		&:focus {
+			border-color: darken($grey-border, 8%);
+			-webkit-box-shadow: 0 0 25px 0 rgba(255,233,82,0.25);
+			box-shadow: 0 0 25px 0 rgba(255,233,82,0.25);
+			outline: none;
+		}
+		&.error {
+			border-color: $error-red;
+		}
+	}
+}
+
+input[readonly], input[disabled] {
+	cursor: not-allowed;
+}
+
+.form--mega {
+	input {
+		padding: 10px;
+		@extend .emphasised;
+	}
+}
+
+.i-w-m {
+	margin-bottom: 10px;
+}
+
+.validation-message {
+	padding: 10px;
+	display: inline-block;
+	background: $grey-pale;
+	border-radius: 5px;
+	margin-bottom: 1.25em;
+	&.error {
+		background: $error-red;
+		color: #fff;
+	}
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="34px" viewBox="0 0 32 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>Logo mark</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Homepage" transform="translate(-186.000000, -31.000000)">
+            <g id="Header-and-intro" transform="translate(180.000000, 27.000000)">
+                <g id="Header">
+                    <g id="Logo">
+                        <g id="Logo-mark" transform="translate(22.773594, 20.312732) rotate(20.000000) translate(-22.773594, -20.312732) translate(4.773594, 5.312732)">
+                            <ellipse id="Oval-2" fill="#3B5998" cx="25.8056523" cy="20.0285946" rx="9.45" ry="9.45"></ellipse>
+                            <ellipse id="Oval-2" fill="#DA4177" cx="12.8556523" cy="13.2035946" rx="12.425" ry="12.425"></ellipse>
+                            <polygon id="Triangle" fill="#FFDF52" transform="translate(22.480652, 17.578595) rotate(-45.000000) translate(-22.480652, -17.578595) " points="22.4806523 12.3285946 27.7306523 22.8285946 17.2306523 22.8285946"></polygon>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
