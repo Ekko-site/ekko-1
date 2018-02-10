@@ -407,8 +407,9 @@ export function login({
                     ]))
                     dispatch(loggedIn(json.user))
                     dispatch(push('/dashboard'))
-                    intercom.update(json.user)
+                    return intercom.update(json.user)
                 }
+                return dispatch(loginFailed())
             }).catch(() => {
                 dispatch(loginFailed())
             })
