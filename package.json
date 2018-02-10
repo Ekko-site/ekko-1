@@ -48,7 +48,7 @@
     "start": "sequelize db:migrate --config config/production.js && node scripts/themes.js production && node dist/server.js",
     "client": "cd client && yarn start",
     "server": "nodemon",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "dev": "concurrently --names \"API,CLIENT\" --prefix-colors \"magenta,yellow\" --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "ava": {
     "require": [

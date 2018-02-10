@@ -1,3 +1,5 @@
+import { createForms } from 'react-redux-form'
+
 import authState from '@/reducers/auth'
 import pageState from '@/reducers/page'
 import themesState from '@/reducers/theme'
@@ -13,7 +15,7 @@ const reducers = {
     billingState,
     domainState,
     navigationState,
-    ...formsState
+    ...createForms(formsState)
 }
 
 export default reducers

@@ -1,21 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
-import {Field, Form} from 'react-redux-form'
-import {actions as formActions} from 'react-redux-form'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { Form, Control } from 'react-redux-form'
 import Link from 'redux-first-router-link'
-import { Button } from 'rebass'
-import {toastr} from 'react-redux-toastr'
 import Helmet from 'react-helmet'
 
 import * as authActions from '@/actions/auth'
-import { required } from '@/etc/validator'
-import FieldErrors from '@/components/forms/field-errors'
-import FormErrors from '@/components/forms/form-errors'
 import Loading from '@/components/loading'
-
-import * as messages from '@/config/messages'
 
 class Login extends React.Component {
 
@@ -24,7 +16,6 @@ class Login extends React.Component {
     };
 
     render() {
-        const { loginForm } = this.props
         const { logging_in } = this.props.authState
         return (
             <div className="container">
@@ -40,38 +31,21 @@ class Login extends React.Component {
     			<div className="grid">
     				<div className="grid__item big-mb one-whole desk--one-half push--desk--one-quarter">
     					<h1 className="center">Log in to Ekko</h1>
-                        <Form className="form form--mega" model="login" validators={{
-                            email: {
-                                required
-                            },
-                            password: {
-                                required
-                            }
-                        }} onSubmit={this.handleSubmit}>
-                            <Field model="login.email">
-                                <label htmlFor="email-address">Email address</label>
-                                <input type="email" className={`full-width i-w-m ${!loginForm.email.valid && loginForm.email.touched ? 'error' : ''}`} id="email-address" />
-                                <FieldErrors model="login.email" messages={{
-                                    required: messages.FORM_EMAIL_NULL
-                                }} show={loginForm.submitFailed}/>
-                            </Field>
+                        <Form className="form form--mega" model="login" onSubmit={this.handleSubmit}>
+                            <label htmlFor="login.email">Email address</label>
+                            <Control.text model="login.email" className="full-width i-w-m" />
 
-                            <Field model="login.password">
-                                <label htmlFor="password">Password</label>
-                                <input type="password" className={`full-width i-w-m ${!loginForm.password.valid && loginForm.password.touched ? 'error' : ''}`} id="password" />
-                                <FieldErrors model="login.password" messages={{
-                                    required: messages.FORM_PASSWORD_NULL
-                                }} show={loginForm.submitFailed}/>
-                            </Field>
+                            <label htmlFor="login.password">Password</label>
+                            <Control.password model="login.password" className="full-width i-w-m" />
 
                             <p className="big-mb">
                                 <Link to="/request-reset">Forgot your password?</Link>
                             </p>
 
-                            <FormErrors model="login" show="submitFailed"/>
-
                             {(!logging_in) && (
-                                <p className="center big-mb"><button disabled={loginForm.submitting || loginForm.validating} className="butt butt--big">Continue</button></p>
+                                <p className="center big-mb">
+                                    <button className="butt butt--big">Continue</button>
+                                </p>
                             )}
 
                             {(logging_in) && (
@@ -95,8 +69,7 @@ Login.propTypes = {
 function mapStateToProps(state) {
     return {
         authState: state.authState,
-        login: state.login,
-        loginForm: state.loginForm
+        login: state.forms.login
     }
 }
 

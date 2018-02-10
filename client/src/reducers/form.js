@@ -1,8 +1,3 @@
-import {
-    modelReducer,
-    formReducer
-} from 'react-redux-form'
-
 const initialSignUpState = {
     firstName: '',
     lastName: '',
@@ -29,10 +24,7 @@ const initialDomainContactState = {
 }
 
 export default {
-    login: modelReducer('login', initialLoginState),
-    loginForm: formReducer('login', initialLoginState),
-    signUp: modelReducer('signUp', initialSignUpState),
-    signUpForm: formReducer('signUp', initialSignUpState),
-    domainContact: modelReducer('domainContact', initialDomainContactState),
-    domainContactForm: formReducer('domainContact', initialDomainContactState)
+    login: initialLoginState,
+    signUp: initialSignUpState,
+    domainContact: initialDomainContactState
 }

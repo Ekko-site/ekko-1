@@ -40,7 +40,7 @@ export const fetch = (url, opts = {}) => {
         params.method = 'POST'
     }
 
-    return fetchAPI(`${API_URL}${url}`, params).then(response => {
+    return fetchAPI(`/${url}`, params).then(response => {
         return response.json().then(json => {
             return {
                 status: response.status,
