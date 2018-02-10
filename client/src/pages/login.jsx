@@ -7,7 +7,10 @@ import Link from 'redux-first-router-link'
 import Helmet from 'react-helmet'
 
 import * as authActions from '@/actions/auth'
+import FieldErrors from '@/components/forms/field-errors'	
+import FormErrors from '@/components/forms/form-errors'
 import Loading from '@/components/loading'
+import { loggedIn } from '../actions/auth';
 
 class Login extends React.Component {
 
@@ -16,7 +19,7 @@ class Login extends React.Component {
     };
 
     render() {
-        const { logging_in } = this.props.authState
+        const loggingIn = this.props.login.loggingIn.value
         return (
             <div className="container">
                 <Helmet
@@ -33,24 +36,25 @@ class Login extends React.Component {
     					<h1 className="center">Log in to Ekko</h1>
                         <Form className="form form--mega" model="login" onSubmit={this.handleSubmit}>
                             <label htmlFor="login.email">Email address</label>
-                            <Control.text model="login.email" className="full-width i-w-m" />
+                            <Control.text model="login.email" className="full-width i-w-m" required />
 
                             <label htmlFor="login.password">Password</label>
-                            <Control.password model="login.password" className="full-width i-w-m" />
+                            <Control.password model="login.password" className="full-width i-w-m" required />
 
                             <p className="big-mb">
-                                <Link to="/request-reset">Forgot your password?</Link>
+                                <Link to="/request-reset-password">Forgot your password?</Link>
                             </p>
 
-                            {(!logging_in) && (
-                                <p className="center big-mb">
-                                    <button className="butt butt--big">Continue</button>
-                                </p>
-                            )}
+                            <FormErrors model="login" />
 
-                            {(logging_in) && (
-                                <Loading column />
-                            )}
+                            { 
+                                !loggingIn && 
+                                    <p className="center big-mb">
+                                        <button className="butt butt--big">Continue</button>
+                                    </p>
+                            }
+
+                            { loggingIn && <Loading column /> }
 
                         </Form>
                     </div>

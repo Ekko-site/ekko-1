@@ -1,5 +1,5 @@
 import React from 'react'
-import {Errors} from 'react-redux-form'
+import { Errors } from 'react-redux-form'
 
 import FormInputError from '@/components/forms/form-input-error'
 

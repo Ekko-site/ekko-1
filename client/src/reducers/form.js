@@ -8,7 +8,8 @@ const initialSignUpState = {
 
 const initialLoginState = {
     email: '',
-    password: ''
+    password: '',
+    loggingIn: false
 }
 
 const initialDomainContactState = {

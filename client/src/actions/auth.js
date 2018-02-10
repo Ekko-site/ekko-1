@@ -369,7 +369,7 @@ export function login({
     password
 }) {
     return dispatch => {
-        dispatch(loginInit())
+        dispatch(formActions.change('login.loggingIn', true))
         if (!email) {
             dispatch(formActions.batch('login', [
                 formActions.setSubmitFailed('login'),
@@ -393,11 +393,9 @@ export function login({
         })
             .then((json = {}) => {
                 if (json.error) {
-                    dispatch(formActions.batch('login', [
-                        formActions.setSubmitFailed('login'),
-                        formActions.setErrors('login', json.error)
-                    ]))
-                    dispatch(loginFailed())
+                    dispatch(formActions.setSubmitFailed('login'))
+                    dispatch(formActions.setErrors('login', json.error))
+                    dispatch(formActions.change('login.loggingIn', false))
                     return setTimeout(() => dispatch(formActions.setErrors('login', false)), 3000)
                 }
                 if (json.user) {
