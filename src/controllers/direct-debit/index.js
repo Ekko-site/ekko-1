@@ -5,5 +5,5 @@ import post from '@/controllers/direct-debit/post'
 export default {
     '/api/directdebit/initiate': initiate,
     '/api/directdebit/complete': complete,
-    '/directdebit/webhook': post
+    '/api/directdebit/webhook': post
 }

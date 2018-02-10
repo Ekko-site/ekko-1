@@ -7,6 +7,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import raven from 'raven'
 import cors from 'cors'
+import path from 'path'
 import messages from '@/etc/messages'
 import { logger } from '@/etc/logger'
 import router from '@/etc/router'
@@ -40,28 +41,21 @@ const onError = (err, req, res, next) => {
     res.end(res.sentry+'\n');
 }
 
-if(process.env.NODE_ENV == 'production'){
-    app.use(raven.middleware.express.requestHandler(ravenURL))
-    app.use(raven.middleware.express.errorHandler(ravenURL))
-}
+// if(process.env.NODE_ENV == 'production'){
+//     app.use(raven.middleware.express.requestHandler(ravenURL))
+//     app.use(raven.middleware.express.errorHandler(ravenURL))
+// }
 
-// ROUTES
-// ==============================================
+app.use(express.static(path.join(__dirname, 'client/build')))
 
-// we'll create our routes here
-
-app.use('*', (req, res, next) => {
-    if(req.originalUrl == '/'){
-        return res.sendStatus(200)
-    }
+app.use('/api/:controller', (req, res, next) => {
     return router(req, res, next, ravenClient)
 })
 
-// apply the routes to our application
-app.use((req, res) => {
-    res.sendStatus(404)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
 })
 
-app.use(onError)
+//app.use(onError)
 
 export default app

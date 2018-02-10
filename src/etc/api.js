@@ -9,9 +9,9 @@ const whitelist = [
     '/api/users/facebook/page',
     '/api/plans',
     '/api/domains/tlds',
-    '/facebook/page_hook',
-    '/stripe/webhook',
-    '/directdebit/webhook',
+    '/api/facebook/page_hook',
+    '/api/stripe/webhook',
+    '/api/directdebit/webhook',
     '/api/users/change-password',
     '/api/users/request-password-reset'
 ]

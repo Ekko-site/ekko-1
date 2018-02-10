@@ -28,33 +28,19 @@ const respondWithError = ({ e, res, ravenClient }) => {
     })
 }
 
-const router = async (req, res, next, ravenClient) => {
-    const url = req.originalUrl
-    let parts = url.split('/').filter(Boolean)
-    let controller = parts[0] == 'api' ? parts[1] : parts[0]
-    if(parts[0] == 'api') {
-        let result
-        try {
-             result = await api(req)
-        } catch (e) {
-            return respondWithError({
-                e,
-                res,
-                ravenClient
-            })
-        }
-        if(result && result.data){
-            return response({
-                data: result.data,
-                res
-            })
-        }
-    }
+const extractParams = (route) => {
+    let { params } = route
+    const argParams = params.reduce((accum, curr) => {
+        let key = Object.keys(curr)[0]
+        accum[key] = curr[key]
+        return accum
+    }, {})
+    return argParams
+}
+
+const findRoute = (controller, url) => {
     const controllerObject = Controllers[controller]
-    if(!controllerObject) {
-        return res.sendStatus(404)
-    }
-    let routes = Object.keys(controllerObject).map(route => {
+    const routes = Object.keys(controllerObject).map(route => {
         let keys = [],
             re = pathToRegExp(route, keys)
             if(re.test(url)){
@@ -72,25 +58,40 @@ const router = async (req, res, next, ravenClient) => {
             params: keys
         }
     })
-    let matches = routes.filter(route => {
+    let match = routes.find(route => {
         return route.regexp.test(url)
     })
-    const routeMatch = matches.length && matches[0]
-    if(!routeMatch){
+
+    return match
+}
+
+const router = async (req, res, next, ravenClient) => {
+    const url = req.originalUrl
+    const { controller } = req.params
+    let result
+    try {
+        result = await api(req)
+    } catch (e) {
+        return respondWithError({
+            e,
+            res,
+            ravenClient
+        })
+    }
+    if(result && result.data){
+        return response({
+            data: result.data,
+            res
+        })
+    }
+    const route = findRoute(controller, url)
+    if (!route){
         return res.sendStatus(404)
     }
-    let { params } = routeMatch
-    let argParams = params.reduce((accum, curr) => {
-        let key = Object.keys(curr)[0]
-        accum[key] = curr[key]
-        return accum
-    }, {})
+    const argParams = extractParams(route)
     const args = { ...req.body, ...req.query, ...argParams, user: req.user, req }
-    let obj,
-        { method } = routeMatch
-    if(typeof method !== 'function'){
-        method = method[req.method.toLowerCase()]
-    }
+    let obj
+    const { method } = route
     try {
         obj = await method(args)
     } catch (e) {
