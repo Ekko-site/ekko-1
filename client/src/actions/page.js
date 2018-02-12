@@ -4,6 +4,7 @@ import {
 import { toastr } from 'react-redux-toastr'
 
 import * as authActions from '@/actions/auth'
+import { go } from '@/actions/navigation'
 import * as types from '@/constants/action-types'
 
 import intercom from '@/etc/intercom'
@@ -175,10 +176,10 @@ export function pagesFetch() {
                     toastr.info('Just to let you know', 'Your Facebook access expired')
                     dispatch(authActions.facebookReconnect())
                     dispatch(pageFetched([]))
-                    return dispatch(push('/connect-to-facebook'))
+                    return dispatch(go('CONNECT_TO_FACEBOOK'))
                 }
                 if(!res.pages.length){
-                    return dispatch(push('/no-pages'))
+                    return dispatch(go('NO_PAGES'))
                 }
                 dispatch(pageFetched(res.pages))
             })
@@ -217,15 +218,15 @@ export function pageFetch(facebookPageId, accessToken) {
                     if(res.error.match(/already/)){
                         toastr.info('Just to let you know', res.error)
                         dispatch(pageFetched([]))
-                        return dispatch(push('/dashboard'))
+                        return dispatch(go('DASHBOARD'))
                     }
                     toastr.info('Just to let you know', 'Your Facebook access expired')
                     dispatch(authActions.facebookReconnect())
                     dispatch(pageFetched([]))
-                    return dispatch(push('/connect-to-facebook'))
+                    return dispatch(go('CONNECT_TO_FACEBOOK'))
                 }
                 dispatch(pageFetched([res.page]))
-                dispatch(push('/dashboard'))
+                dispatch(go('DASHBOARD'))
                 intercom.track('page_chosen')
             })
     }
@@ -246,7 +247,7 @@ export function pageSync(facebookPageId) {
                 toastr.info('Just to let you know', `We're having a small issue with your Facebook connection`)
                 dispatch(authActions.facebookReconnect())
                 dispatch(pageFetched([]))
-                return dispatch(push('/connect-to-facebook'))
+                return dispatch(go('CONNECT_TO_FACEBOOK'))
             }
             dispatch(pageSynced(res))
             toastr.success('Congratulations', 'We\'ve fetched the latest information from your Facebook Page!')
@@ -269,7 +270,7 @@ export function pagesRefresh() {
                     toastr.info('Just to let you know', 'Your Facebook access expired')
                     dispatch(authActions.facebookReconnect())
                     dispatch(pagesRefreshed([]))
-                    return dispatch(push('/connect-to-facebook'))
+                    return dispatch(go('CONNECT_TO_FACEBOOK'))
                 }
                 dispatch(pagesRefreshed(res))
             })
