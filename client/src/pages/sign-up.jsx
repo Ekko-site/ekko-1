@@ -2,20 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
-import {Field, Form} from 'react-redux-form'
-import {actions as formActions} from 'react-redux-form'
-import { Button } from 'rebass'
+import { Form, Control } from 'react-redux-form'
 import Link from 'redux-first-router-link'
 import Helmet from 'react-helmet'
 
 import * as authActions from '@/actions/auth'
-import { required } from '@/etc/validator'
 import FieldErrors from '@/components/forms/field-errors'
 import FormErrors from '@/components/forms/form-errors'
 import Mailchimp from '@/components/mailchimp'
 import Loading from '@/components/loading'
-
-import * as messages from '@/config/messages'
 
 import { testimonialDuaneImage } from '@/etc/images'
 
@@ -26,9 +21,8 @@ class SignUp extends React.Component {
     };
 
     getForm() {
-        const {signUpForm} = this.props
         const { coupon } = this.props.location
-        const { signing_up } = this.props.authState
+        const signingUp = this.props.signUp.signingUp.value
         return <div>
             <Helmet
                 title="Sign up for Ekko"
@@ -48,77 +42,47 @@ class SignUp extends React.Component {
     						<span className="divide">&#8594;</span>
     						<span>2. Connect Facebook</span>
     					</p>
-                        <Form className="form form--mega" model="signUp" validators={{
-                            firstName: {
-                                required
-                            },
-                            lastName: {
-                                required
-                            },
-                            email: {
-                                required
-                            },
-                            password: {
-                                required
-                            }
-                        }} onSubmit={this.handleSubmit}>
-                            <Field model="signUp.firstName">
-                                <label htmlFor="first-name">First name</label>
-                                <input type="text" className={`full-width i-w-m ${!signUpForm.firstName.valid && signUpForm.firstName.touched ? 'error' : ''}`} id="first-name" />
-                                <FieldErrors model="signUp.firstName" messages={{
-                                    required: messages.FORM_FIRST_NAME_NULL
-                                }} show={signUpForm.submitFailed}/>
-                            </Field>
+                        <Form className="form form--mega" model="signUp" onSubmit={this.handleSubmit}>
+                            <label htmlFor="signUp.firstName">First name</label>
+                            <Control.text model="signUp.firstName" className="full-width i-w-m" required />
 
-                            <Field model="signUp.lastName">
-                                <label htmlFor="last-name">Last name</label>
-                                <input type="text" className={`full-width i-w-m ${!signUpForm.lastName.valid && signUpForm.lastName.touched ? 'error' : ''}`} id="last-name" />
-                                <FieldErrors model="signUp.lastName" messages={{
-                                    required: messages.FORM_LAST_NAME_NULL
-                                }} show={signUpForm.submitFailed}/>
-                            </Field>
+                            <label htmlFor="signUp.lastName">Last name</label>
+                            <Control.text model="signUp.lastName" className="full-width i-w-m" required />
 
-                            <Field model="signUp.email">
-                                <label htmlFor="email-address">Email address</label>
-                                <input type="email" className={`full-width i-w-m ${!signUpForm.email.valid && signUpForm.email.touched ? 'error' : ''}`} id="email-address" />
-                                <FieldErrors model="signUp.email" messages={{
-                                    required: messages.FORM_EMAIL_NULL
-                                }} show={signUpForm.submitFailed}/>
-                            </Field>
+                            <label htmlFor="signUp.email">Email address</label>
+                            <Control.text model="signUp.email" className="full-width i-w-m" required />
 
-                            <Field model="signUp.password" className="half-mb">
-                                <label htmlFor="password">Choose a password <span className="note">— minimum 6 characters</span></label>
-                                <input type="password" className={`full-width i-w-m ${!signUpForm.password.valid && signUpForm.password.touched ? 'error' : ''}`} id="password" />
-                                <FieldErrors model="signUp.password" messages={{
-                                    required: messages.FORM_PASSWORD_NULL
-                                }} show={signUpForm.submitFailed}/>
-                            </Field>
+                            <label htmlFor="signUp.password">Choose a password <span className="note">— minimum 6 characters</span></label>
+                            <Control.password model="signUp.password" className="full-width i-w-m" required />
 
-                            <Field model="signUp.coupon" className="half-mb">
-                                <label htmlFor="coupon">
+                            <label htmlFor="signUp.coupon">
                                 {(!coupon) && (
                                     <span>Do you have a coupon code?</span>
                                 )}
                                 {(coupon) && (
                                     <span>Your coupon code</span>
                                 )}
-                                </label>
-                                <input type="text" readOnly={!!(coupon)} value={ coupon } className={`full-width i-w-m`} id="coupon" />
-                            </Field>
+                            </label>
+                            <Control.text
+                                model="signUp.coupon"
+                                readOnly={!!(coupon)}
+                                className="full-width i-w-m"
+                            />
 
                             <div className="big-mb">
                                 <p>By continuing, you agree to Ekko's <Link to="/terms" target="_BLANK">terms and conditions</Link></p>
                             </div>
 
-                            <FormErrors model="signUp" show="submitFailed"/>
+                            <FormErrors model="signUp" />
 
-                            {(!signing_up) && (
-                                <p className="center big-mb"><button disabled={signUpForm.submitting || signUpForm.validating} className="butt butt--big">Continue</button></p>
-                            )}
+                            { 
+                                !signingUp && 
+                                    <p className="center big-mb">
+                                        <button className="butt butt--big">Continue</button>
+                                    </p>
+                            }
 
-                            {(signing_up) && (
-                                <Loading column />
-                            )}
+                            { signingUp && <Loading column /> }
 
                         </Form>
                     </div>
@@ -161,10 +125,9 @@ SignUp.propTypes = {
 
 function mapStateToProps(state) {
     return {
+        location: state.location,
         authState: state.authState,
-        signUp: state.signUp,
-        signUpForm: state.signUpForm,
-        location: state.location
+        signUp: state.signUp
     }
 }
 

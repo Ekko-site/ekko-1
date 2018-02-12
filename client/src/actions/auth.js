@@ -10,10 +10,9 @@ import { toastr } from 'react-redux-toastr'
 
 import * as messages from '@/config/messages'
 import * as pageActions from '@/actions/page'
+import { go } from '@/actions/navigation'
 import * as types from '@/constants/action-types'
 import intercom from '@/etc/intercom'
-
-let push
 
 export function loginInit() {
     return {
@@ -322,7 +321,7 @@ export function changePassword(new_password, reset_hash) {
                 }
                 dispatch(changedPassword())
                 toastr.success('Password changed', 'You can now login with your new Ekko password.')
-                dispatch(push('/login'))
+                dispatch(go('LOGIN'))
             })
     }
 }
@@ -369,16 +368,19 @@ export function login({
     password
 }) {
     return dispatch => {
+        const cancelLogin = () => dispatch(formActions.change('login.loggingIn', false))
         dispatch(formActions.change('login.loggingIn', true))
         if (!email) {
-            dispatch(formActions.batch('login', [
+            cancelLogin()
+            return dispatch(formActions.batch('login', [
                 formActions.setSubmitFailed('login'),
                 formActions.setFieldsErrors('login', {
                     email: messages.FORM_EMAIL_NULL
                 })
             ]))
         } else if (!password) {
-            dispatch(formActions.batch('login', [
+            cancelLogin()
+            return dispatch(formActions.batch('login', [
                 formActions.setSubmitFailed('login'),
                 formActions.setFieldsErrors('login', {
                     password: messages.FORM_PASSWORD_NULL
@@ -395,7 +397,7 @@ export function login({
                 if (json.error) {
                     dispatch(formActions.setSubmitFailed('login'))
                     dispatch(formActions.setErrors('login', json.error))
-                    dispatch(formActions.change('login.loggingIn', false))
+                    cancelLogin()
                     return setTimeout(() => dispatch(formActions.setErrors('login', false)), 3000)
                 }
                 if (json.user) {
@@ -404,12 +406,12 @@ export function login({
                         formActions.reset('login')
                     ]))
                     dispatch(loggedIn(json.user))
-                    dispatch(push('/dashboard'))
+                    dispatch(go('DASHBOARD'))
                     return intercom.update(json.user)
                 }
-                return dispatch(loginFailed())
+                cancelLogin()
             }).catch(() => {
-                dispatch(loginFailed())
+                cancelLogin()
             })
     }
 }
@@ -426,30 +428,36 @@ export function signUp({
             authState
         } = getState()
 
-        dispatch(signUpInit())
+        const cancelSignUp = () => dispatch(formActions.change('signUp.signingUp', false))
+
+        dispatch(formActions.change('signUp.signingUp', true))
         if (!email) {
-            dispatch(formActions.batch('signUp', [
+            cancelSignUp()
+            return dispatch(formActions.batch('signUp', [
                 formActions.setSubmitFailed('signUp'),
                 formActions.setFieldsErrors('signUp', {
                     email: messages.FORM_EMAIL_NULL
                 })
             ]))
         } else if (!password) {
-            dispatch(formActions.batch('signUp', [
+            cancelSignUp()
+            return dispatch(formActions.batch('signUp', [
                 formActions.setSubmitFailed('signUp'),
                 formActions.setFieldsErrors('signUp', {
                     password: messages.FORM_PASSWORD_NULL
                 })
             ]))
         } else if (!firstName) {
-            dispatch(formActions.batch('signUp', [
+            cancelSignUp()
+            return dispatch(formActions.batch('signUp', [
                 formActions.setSubmitFailed('signUp'),
                 formActions.setFieldsErrors('signUp', {
                     firstName: messages.FORM_FIRST_NAME_NULL
                 })
             ]))
         } else if (!lastName) {
-            dispatch(formActions.batch('signUp', [
+            cancelSignUp()
+            return dispatch(formActions.batch('signUp', [
                 formActions.setSubmitFailed('signUp'),
                 formActions.setFieldsErrors('signUp', {
                     lastName: messages.FORM_LAST_NAME_NULL
@@ -472,7 +480,7 @@ export function signUp({
                         formActions.setSubmitFailed('signUp'),
                         formActions.setErrors('signUp', json.error)
                     ]))
-                    dispatch(signUpFailed())
+                    cancelSignUp()
                     return setTimeout(() => dispatch(formActions.setErrors('signUp', false)), 3000)
                 }
                 if (json.user) {
@@ -482,11 +490,12 @@ export function signUp({
                     ]))
                     dispatch(facebookPageFetched([]))
                     dispatch(signedUp(json.user))
-                    dispatch(push('/connect-to-facebook'))
-                    intercom.update(json.user)
+                    dispatch(go('CONNECT_TO_FACEBOOK'))
+                    return intercom.update(json.user)
                 }
+                cancelSignUp()
             }).catch(() => {
-                dispatch(signUpFailed())
+                cancelSignUp()
             })
     }
 }
@@ -509,13 +518,13 @@ export function facebookFetchPage(params, opts = {
                 }
                 if (!opts.fromHomepage) {
                     if (json.error) {
-                        return dispatch(push('/connect-to-facebook'))
+                        return dispatch(go('CONNECT_TO_FACEBOOK'))
                     }
                     if (!json.pages || !json.pages.length) {
                         dispatch(facebookPageFetched([]))
-                        return dispatch(push('/no-pages'))
+                        return dispatch(go('NO_PAGES'))
                     }
-                    dispatch(push('/pick-facebook-page'))
+                    dispatch(go('PICK_FACEBOOK_PAGE'))
                 }
                 dispatch(facebookPageFetched(json.pages))
             }).catch(() => {
@@ -555,7 +564,7 @@ export function facebookConnect({
                     return
                 }
                 dispatch(facebookConnected(json.user))
-                dispatch(push('/pick-facebook-page'))
+                dispatch(go('PICK_FACEBOOK_PAGE'))
             })
     }
 }

@@ -3,7 +3,8 @@ const initialSignUpState = {
     lastName: '',
     email: '',
     password: '',
-    coupon: ''
+    coupon: '',
+    signingUp: false
 }
 
 const initialLoginState = {
