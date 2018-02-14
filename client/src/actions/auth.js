@@ -39,6 +39,7 @@ export function signUpFailed() {
 }
 
 export function loggedIn(current_user) {
+    store.set('user', JSON.stringify(current_user), 30)
     return {
         type: types.LOGGED_IN,
         current_user
