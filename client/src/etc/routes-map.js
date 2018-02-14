@@ -1,6 +1,6 @@
 import { redirect } from 'redux-first-router'
 
-const requireFacebook = async (dispatch, getState) => {
+const requireFacebook = (dispatch, getState) => {
     const {
         authState
     } = getState()
@@ -14,7 +14,7 @@ const requireFacebook = async (dispatch, getState) => {
     }
 }
 
-const requireAuth = async (dispatch, getState) => {
+const requireAuth = (dispatch, getState) => {
     const {
         authState
     } = getState()
@@ -24,7 +24,7 @@ const requireAuth = async (dispatch, getState) => {
     }
 }
 
-const requireResetHash = async (dispatch,  getState) => {
+const requireResetHash = (dispatch,  getState) => {
     const { reset_hash } = getState().location.query
     if (!reset_hash) {
         dispatch(redirect({ type: 'LOGIN' }))
