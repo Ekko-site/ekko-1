@@ -40,6 +40,7 @@ export function signUpFailed() {
 
 export function loggedIn(current_user) {
     store.set('user', JSON.stringify(current_user), 30)
+    store.set('auth-token', current_user.token, 30)
     return {
         type: types.LOGGED_IN,
         current_user
@@ -359,8 +360,11 @@ export function deleteAccount() {
 export function logout() {
     store.clear()
     intercom.logout()
-    return {
-        type: types.LOGOUT
+    return dispatch => {
+        dispatch({
+            type: types.LOGOUT
+        })
+        return dispatch(go('HOME'))
     }
 }
 
