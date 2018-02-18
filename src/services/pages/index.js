@@ -1,6 +1,7 @@
 import moment from 'moment'
 import { Page } from '@/models'
-import { Themes, Users } from '@/services'
+import Themes from '@/services/themes'
+import Users from '@/services/users'
 import Facebook from '@/etc/facebook'
 
 class Pages {

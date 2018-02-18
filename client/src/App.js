@@ -1,5 +1,6 @@
-import React, {PropTypes} from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
 import {Provider} from 'react-redux'
 import createHistory from 'history/createBrowserHistory'
 import ReduxToastr from 'react-redux-toastr'

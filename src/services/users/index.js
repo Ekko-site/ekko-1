@@ -6,7 +6,8 @@ import ApiError from '@/etc/error'
 import Facebook from '@/etc/facebook'
 import mail from '@/etc/mail'
 import { User, StripeCustomerId, DirectDebitCustomerId, DirectDebitSubscription } from '@/models'
-import { FacebookTokens, Pages } from '@/services'
+import FacebookToken from '@/services/facebookToken'
+import Pages from '@/services/pages'
 import { logger } from '@/etc/logger'
 
 class Users {
@@ -137,7 +138,7 @@ class Users {
     }
     async connectUserToFacebook(userId, facebookUserId, accessToken) {
         const facebook = new Facebook()
-        const facebookTokens = new FacebookTokens()
+        const facebookTokens = new FacebookToken()
         const { access_token, error } = await facebook.extendToken(accessToken)
         const token = await facebookTokens.create(access_token, userId)
         const user = await this.updateUserWithFbId(userId, facebookUserId)

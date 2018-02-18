@@ -19,6 +19,8 @@ const inApp = type => ['THEMES', 'DASHBOARD', 'SETTINGS'].includes(type)
 const onHomepage = type => type == 'HOME'
 const onDashboard = type => type !== 'DASHBOARD'
 
+const handleError = error => console.error(error)
+
 const Switcher = ({ page, authState, authActions, location }) => {
   const { type, pathname } = location
   const user = authState.current_user
@@ -29,7 +31,7 @@ const Switcher = ({ page, authState, authActions, location }) => {
     prefix='fade'
   >
     <Transition key={page}>
-      <UniversalComponent page={page} />
+      <UniversalComponent page={page} onError={handleError} />
     </Transition>
   </TransitionGroup>
   if(inApp(type)) {

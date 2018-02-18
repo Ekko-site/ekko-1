@@ -2,7 +2,7 @@ const config = process.env
 
 const intercom = {
     update: ({ firstName, lastName, email, createdAt }) => {
-        if(config.NODE_ENV !== 'production'){
+        if(config.REACT_APP_NODE_ENV !== 'production'){
             return
         }
         window.Intercom && window.Intercom("update", {

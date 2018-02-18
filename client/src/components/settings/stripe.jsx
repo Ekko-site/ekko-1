@@ -5,7 +5,7 @@ const config = process.env
 
 const Stripe = ({onToken, user}) => {
     return (
-        <StripeCheckout token={onToken} stripeKey={config.STRIPE_TOKEN} email={user.email}>
+        <StripeCheckout token={onToken} stripeKey={config.REACT_APP_STRIPE_TOKEN} email={user.email}>
             <p className="no-mb" style={{
                 display: 'inline-block'
             }}>

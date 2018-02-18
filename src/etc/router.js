@@ -8,6 +8,7 @@ import cleanError from '@/etc/clean-error'
 const respondWithError = ({ e, res, ravenClient }) => {
     const { code, message } = e
     logger.error(code, message)
+    console.log(e.stack)
     ravenClient.captureException(e)
     if(code == 502){
         return response({

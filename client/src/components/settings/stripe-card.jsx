@@ -16,7 +16,7 @@ class StripeCard extends React.Component {
     }
 
     stripeLoaded() {
-        Stripe.setPublishableKey(config.STRIPE_TOKEN)
+        Stripe.setPublishableKey(config.REACT_APP_STRIPE_TOKEN)
         this.setState({ stripeLoaded: true })
     }
 

@@ -179,6 +179,7 @@ export function pagesFetch() {
                     return dispatch(go('CONNECT_TO_FACEBOOK'))
                 }
                 if(!res.pages.length){
+                    dispatch(pageFetched([]))
                     return dispatch(go('NO_PAGES'))
                 }
                 dispatch(pageFetched(res.pages))

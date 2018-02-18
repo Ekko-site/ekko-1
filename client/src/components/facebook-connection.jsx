@@ -1,7 +1,7 @@
 import React from 'react'
 import FacebookLogin from 'react-facebook-login'
 
-const CONFIG = process.env
+const config = process.env
 
 class FacebookConnection extends React.Component {
     constructor(props) {
@@ -23,7 +23,7 @@ class FacebookConnection extends React.Component {
             <span>
                 {
                     (
-                        (this.state.load) && <FacebookLogin appId={CONFIG.FACEBOOK_APP_ID} autoLoad={false} callback={callback} cssClass={cssClass} textButton="Connect with Facebook" scope="manage_pages,user_photos,user_posts"/>
+                        (this.state.load) && <FacebookLogin appId={config.REACT_APP_FACEBOOK_APP_ID} autoLoad={false} callback={callback} cssClass={cssClass} textButton="Connect with Facebook" scope="manage_pages,user_photos,user_posts"/>
                     )
                 }
             </span>

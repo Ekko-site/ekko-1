@@ -26,7 +26,7 @@ const Preview = ({ page, theme, url }) => {
     return (
         <div className="dash-preview-wrap">
             {url && getPageURLShare(url)}
-            <iframe className="preview-iframe" srcDoc={ekkoRenderer(config.NODE_ENV, {
+            <iframe className="preview-iframe" srcDoc={ekkoRenderer(config.REACT_APP_NODE_ENV, {
                 doc: page,
                 theme: theme
             }, null, true)}></iframe>

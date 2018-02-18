@@ -42,7 +42,7 @@ class HomepagePreview extends React.Component {
     if(exampleSite && exampleSite.name == 'Espressini') {
         theme = 8
     }
-    let url = `${config.SITES_URL}${page.id}/preview?theme=${theme}`
+    let url = `${config.REACT_APP_SITES_URL}${page.id}/preview?theme=${theme}`
     if(window.innerWidth < 600){
         return window.open(url)
     }

@@ -74,7 +74,7 @@ class Theme extends React.Component {
                             <p className="big-mb" onClick={() => this.installTheme(page.id, theme.id)}><span className="butt butt--yellow">Activate this theme</span></p>
                         )}
     					<h3 className="big-mb">A preview of this theme</h3>
-                        <iframe className="preview-iframe" srcDoc={ekkoRenderer(config.NODE_ENV, {
+                        <iframe className="preview-iframe" srcDoc={ekkoRenderer(config.REACT_APP_NODE_ENV, {
                             doc: page,
                             theme: theme
                         }, null, true)}></iframe>

@@ -59,6 +59,7 @@ export const fetch = (url, opts = {}) => {
         const { response } = res
         const { data } = response
         if (data.user && data.user.token) {
+            store.set('user', data.user)
             store.set('auth-token', data.user.token)
         }
         if(res.status == 400){

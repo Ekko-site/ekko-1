@@ -5,12 +5,12 @@ const requireFacebook = (dispatch, getState) => {
         authState
     } = getState()
     const { logged_in } = authState
-    if (!logged_in) {
-        dispatch(redirect({ type: 'LOGIN' }))
+    if (!logged_in || !authState.current_user) {
+        return dispatch(redirect({ type: 'LOGIN' }))
     }
     const { facebookUserId } = authState.current_user
     if (!facebookUserId) {
-        dispatch(redirect({ type: 'CONNECT_TO_FACEBOOK' }))
+        return dispatch(redirect({ type: 'CONNECT_TO_FACEBOOK' }))
     }
 }
 

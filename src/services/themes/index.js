@@ -12,9 +12,9 @@ class Themes {
     }
     async getDefault() {
         const theme = await this.db.findById(8)
-        return theme.get({
+        return theme ? theme.get({
             plain: true
-        })
+        }) : null
     }
     async getAll() {
         const themes = await this.db.findAll()
