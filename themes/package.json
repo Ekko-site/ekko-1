@@ -1,0 +1,32 @@
+{
+  "name": "standard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.5.0",
+    "moment": "^2.13.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-linkify": "^0.2.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babelify": "^7.3.0",
+    "node-sass": "^3.8.0",
+    "watchify": "^3.7.0"
+  },
+  "scripts": {
+    "build": "babel src -d ./../etc/ekko-renderer/dist/views/themes && node-sass src/boutique/sass/app.scss -o ./../etc/ekko-renderer/dist/views/themes/boutique/css",
+    "postinstall": "npm run build",
+    "dev": "babel src -w -d dist",
+    "sass": "node-sass --include-path src/boutique/sass/ -w src/boutique/sass/app.scss -o static",
+    "design": "npm run sass & npm run js",
+    "js": "watchify index.js -t babelify -o static/bundle.js"
+  },
+  "keywords": [],
+  "author": "Ben Howdle <hello@benhowdle.im> (http://benhowdle.im/)",
+  "license": "ISC"
+}

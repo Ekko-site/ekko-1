@@ -6,7 +6,7 @@
   ],
   "verbose": true,
   "execMap": {
-    "js": "babel-node src/server.js"
+    "js": "babel-node src/server.js  --source-maps inline"
   },
   "ext": "js json"
 }

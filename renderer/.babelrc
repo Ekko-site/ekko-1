@@ -1,0 +1,13 @@
+{
+    "presets": ["react", "env"],
+    "plugins": [
+        "static-fs",
+        [
+            "module-alias", [{
+                "src": "../../themes/",
+                "expose": "themes"
+            }]
+        ],
+        "add-module-exports"
+    ]
+}
