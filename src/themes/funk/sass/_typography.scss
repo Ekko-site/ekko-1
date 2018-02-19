@@ -1,0 +1,103 @@
+/*------------------------------------*\
+    Theme typography
+\*------------------------------------*/
+
+* {
+	-webkit-font-smoothing: antialiased;
+}
+
+html {
+	font-family: "Poppins", Helvetica, Arial, sans-serif;
+	font-size: 19px;
+	line-height: 1.7;
+	@include grid-media-query(palm) {
+		font-size: 16px;
+	}
+}
+
+h1 {
+	margin: 0 0 0.5em 0;
+}
+
+.headline {
+	font-size: 4.25rem;
+	line-height: 1.1;
+	@include grid-media-query(lap) {
+		font-size: 3rem;
+	}
+	@include grid-media-query(palm) {
+		font-size: 2rem;
+	}
+}
+
+h1,h2,h3 {
+	font-weight: 600;
+}
+
+h2, .h2 {
+	font-size: 1.895rem;
+	margin: 0 0 1em 0;
+	line-height: 1.2;
+	@include grid-media-query(lap) {
+		font-size: 1.5rem;
+	}
+	@include grid-media-query(palm) {
+		font-size: 1.3rem;
+	}
+}
+
+h3 {
+	margin: 0 0 1em 0;
+	font-size: 1.3rem;
+	line-height: 1.45;
+	@include grid-media-query(portable) {
+		font-size: 1.2rem;
+	}
+}
+
+h4 {
+	margin: 0 0 1em 0;
+	font-size: 1.1rem;
+	@include grid-media-query(palm) {
+		font-size: 1.02rem;
+	}
+}
+
+p {
+	margin: 0 0 1.5em 0;
+}
+
+.light-title {
+	font-weight: 300;
+	color: $grey-medium;
+}
+
+.mini-title {
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.emphasised {
+	font-size: 1.474rem;
+	@include grid-media-query(palm) {
+		font-size: 1.2rem;
+	}
+}
+
+.meta {
+	font-size: 0.842rem;
+	color: $grey-medium;
+}
+
+.capitals {
+    text-transform: capitalize;
+}
+
+pre {
+	font-family: inherit;
+	font-size: inherit;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+}

@@ -1,0 +1,58 @@
+.about-area {
+	padding-top: 4rem;
+	padding-bottom: 3.5rem;
+	@include grid-media-query(palm) {
+		padding-top: 3rem;
+		padding-bottom: 2.5rem;
+	}
+}
+
+.info-panel {
+	background: $blue-medium;
+	padding-top: 4rem;
+	padding-bottom: 2.2rem;
+	text-align: center;
+    margin-bottom: 4rem;
+    @include grid-media-query(palm) {
+    	padding-top: 3rem;
+    }
+}
+
+.info-panel__wrap {
+	width: calc(100% + 4%);
+	@include grid-media-query(palm) {
+		width: 100%;
+	}
+}
+
+.info-panel__block {
+	background: #fff;
+	padding: 20px;
+	border-radius: 5px;
+	width: 29.333%;
+	margin: 0 4% 4% 0;
+	display: inline-block;
+	vertical-align: top;
+	text-align: left;
+	@media only screen and (max-width: 1120px) {
+		font-size: 0.9rem;
+	}
+	@include grid-media-query(lap) {
+		width: 46%;
+	}
+	@include grid-media-query(palm) {
+		width: 100%;
+		margin: 0 0 4% 0;
+	}
+}
+
+.info-panel__times__day, .info-panel__times__hours {
+	float: left;
+	width: 50%;
+}
+
+.info-panel__times__day {
+	@media only screen and (max-width: 1045px) {
+		font-size: 14px;
+	}
+}

@@ -1,0 +1,11 @@
+/*------------------------------------*\
+    CSS for links and buttons
+\*------------------------------------*/
+
+a {
+	color: $red;
+	text-decoration: none;
+	&:hover {
+		color: lighten($red, 10%);
+	}
+}

@@ -1,0 +1,17 @@
+{
+  "name": "facebook-fetcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "fetch": "FACEBOOK_APP_ID=902123496574675 FACEBOOK_CLIENT_SECRET=2d312209afb1893af77cb4e0d743a8ed babel-node --use_strict index.js"
+  },
+  "keywords": [],
+  "author": "Ben Howdle <hello@benhowdle.im> (http://benhowdle.im/)",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2017": "^6.16.0"
+  }
+}

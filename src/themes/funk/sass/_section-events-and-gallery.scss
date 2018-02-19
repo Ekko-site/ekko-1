@@ -1,0 +1,78 @@
+/*------------------------------------*\
+    CSS for the events and gallery strips
+\*------------------------------------*/
+
+.upcoming-events {
+	padding-bottom: 3.5rem;
+	@include grid-media-query(palm) {
+		padding-bottom: 2rem;
+	}
+}
+
+.gallery {
+	padding-bottom: 4rem;
+	@include grid-media-query(palm) {
+		padding-bottom: 2rem;
+	}
+}
+
+// Spacer
+
+.info-feed-spacer {
+	height: 4rem;
+	@include grid-media-query(palm) {
+		height: 3rem;
+	}
+}
+
+// Masonry
+
+.masonry-wrap {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	position: relative;
+	left: -20px;
+	width: calc(100% + 20px);
+}
+
+.masonry-wrap__entry {
+	width: 33.333%;
+	padding-left: 20px;
+	padding-bottom: 20px;
+	img {
+		vertical-align: top;
+	}
+	@include grid-media-query(portable) {
+		width: 50%;
+	}
+	@media only screen and (max-width: 415px) {
+		width: 100%;
+	}
+}
+
+// Blog posts
+
+.masonry-wrap__entry__blog {
+	padding: 15px;
+	background-color: #fff;
+	border-radius: 5px;
+	border-top: 6px $red solid;
+	-webkit-box-shadow: 0 0 8px 0 rgba(0,0,0,0.1);
+	box-shadow: 0 0 8px 0 rgba(0,0,0,0.1);
+}
+
+.masonry-wrap__blog-text {
+	font-size: 0.85rem;
+	margin-bottom: 0;
+	word-wrap: break-word;
+	@media only screen and (max-width: 415px) {
+		font-size: 1rem;
+	}
+}
+
+.meta-info {
+	color: $grey-medium;
+	font-size: 0.75rem;
+	margin: 20px 0 10px 0;
+}

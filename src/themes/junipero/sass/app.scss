@@ -1,0 +1,135 @@
+@import "bass";
+
+* {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: PT Serif, sans-serif;
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+}
+
+.bg-gradient {
+    opacity: 0.91;
+    background-image: -webkit-linear-gradient(41deg, #49A09D 0%, #5F2C82 100%);
+    background-image: -o-linear-gradient(41deg, #49A09D 0%, #5F2C82 100%);
+    background-image: linear-gradient(131deg, #49A09D 0%, #5F2C82 100%);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.container {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    overflow: auto;
+}
+
+.inner-wrap {
+    position: relative;
+    height: 100%;
+    min-height: 100%;
+}
+
+.about, .links {
+    font-family: Lato, sans-serif;
+    font-weight: 400;
+}
+
+.avatar {
+    img {
+        max-width: 256px;
+        box-shadow: 0 1px 1px #222;
+    }
+}
+
+.about {
+    letter-spacing: 1px;
+}
+
+.screenname-icon {
+    svg {
+        vertical-align: middle;
+    }
+}
+
+.instagram-icon {
+    position: relative;
+    top: 2px;
+}
+
+.screenname-btn {
+    position: relative;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    &:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+}
+
+@media (max-height: 700px) {
+    .container {
+        height: 100%;
+    }
+    .bg-gradient {
+        position: fixed;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 1rem;
+    }
+    .mb4 {
+        margin-bottom: 2rem;
+    }
+    .container {
+        height: 100%;
+    }
+    .bg-gradient {
+        height: 100%;
+    }
+    .avatar {
+        img {
+            max-width: 128px;
+        }
+    }
+    .screenames {
+        flex-direction: column;
+        align-items: center;
+        .screenname-btn {
+            margin-bottom: 1em;
+        }
+    }
+}

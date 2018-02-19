@@ -1,0 +1,64 @@
+/*------------------------------------*\
+    CSS for the intro area
+\*------------------------------------*/
+
+.intro {
+	padding-bottom: 8rem;
+	background: $blue-dark;
+	color: #fff;
+	position: relative;
+	.container {
+		position: relative;
+		z-index: 1;
+	}
+	@include grid-media-query(palm) {
+		padding-bottom: 5rem;
+	}
+}
+
+.intro__bg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: $blue-dark;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-blend-mode: soft-light;
+	z-index: 0;
+	opacity: .5;
+}
+
+// Header
+
+.site-header {
+	margin-bottom: 8rem;
+	@extend .cf;
+	@include grid-media-query(palm) {
+		margin-bottom: 5rem;
+	}
+}
+
+.site-header__icon {
+	float: left;
+	max-width: 80px;
+	background-color: #fff;
+	border-radius: 0 0 5px 5px;
+	padding: 0 5px 5px 5px;
+	transform-origin: top;
+	transition: 0.2s;
+	img {
+		vertical-align: top;
+		border-radius: 0 0 3px 3px;
+	}
+	&:hover {
+		transform: scale(1.15);
+	}
+}
+
+.site-header__phone {
+	float: right;
+	margin-top: 25px;
+}

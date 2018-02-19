@@ -1,0 +1,161 @@
+@import "bass";
+
+* {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+html {
+    font-size: 16px;
+}
+
+#root, .container {
+    height: 100%;
+}
+
+body {
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1rem;
+  background: #fff;
+}
+
+p, ul {
+    font-family: Arapey, serif;
+    line-height: 22px;
+}
+
+.hero {
+    background-color: #F54123;
+    height: 50vh;
+}
+
+.meta-details {
+    height: 50vh;
+}
+
+a {
+    color: #000;
+    font-weight: bold;
+}
+
+.page-name {
+    margin-left: auto;
+    .h1 {
+        font-size: 6rem;
+        color: #fff;
+        line-height: 0.9;
+    }
+}
+
+.instagram-icon {
+    position: relative;
+    top: 2px;
+}
+
+.caps {
+    letter-spacing: 0 !important;
+}
+
+.h2 {
+    font-size: 3rem;
+}
+
+.thick-border-bottom {
+    border-bottom: 3px solid #000;
+}
+
+.stand-in {
+    background: transparent;
+    height: 29px;
+}
+
+.avatar {
+    img {
+        max-width: 36px;
+    }
+}
+
+.emails, .phone {
+    position: relative;
+    top: 5px;
+}
+
+.contact {
+
+}
+
+.screenname-icon {
+    display: block;
+    svg {
+        vertical-align: middle;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+    .hero {
+        height: auto;
+        &.p3 {
+            padding: 1rem;
+        }
+    }
+    .top-details {
+        flex-direction: column;
+    }
+    .bottom-details {
+        flex-direction: column;
+        > * {
+            width: 100%;
+        }
+    }
+    .meta-details {
+        flex-direction: column;
+        .col-6 {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+    .page-name {
+        margin-left: 0;
+        margin-top: 1rem;
+        .h1 {
+            text-align: left;
+            font-size: 3rem;
+            line-height: 1;
+        }
+    }
+    .contact {
+        flex-direction: column;
+    }
+    .emails, .phone {
+        position: relative;
+        top: 0;
+    }
+    .facebook-icon {
+        top: 0;
+    }
+    .contact {
+        margin-bottom: 1em;
+    }
+    .screenname-btn.mx1 {
+        margin-left: 0;
+        margin-right: 0.5rem;
+    }
+    .meta-details.p3 {
+        padding: 1rem;
+    }
+    .h2 {
+        font-size: 1rem;
+    }
+}

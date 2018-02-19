@@ -1,0 +1,64 @@
+/*------------------------------------*\
+    Setting defaults and the base layout
+\*------------------------------------*/
+
+html, body {
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	box-sizing: border-box;
+	color: $grey-dark;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+img {
+	max-width: 100%;
+}
+
+.cf:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+::selection {
+	background: $blue-medium;
+	color: #fff;
+}
+
+::-moz-selection {
+	background: $blue-medium;
+	color: #fff;
+}
+
+// Layout
+
+.container {
+	max-width: 1160px;
+	margin: auto;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+
+// Helpers
+
+.red {
+	color: $red;
+}
+
+.blue-light {
+	color: $blue-light;
+}
+
+.no-mb {
+	margin-bottom: 0;
+}
+
+.no-mt {
+	margin-top: 0;
+}

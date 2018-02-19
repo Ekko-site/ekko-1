@@ -1,0 +1,336 @@
+@import "bass";
+
+// compileOnSave: true
+
+// Var: Units
+$rem-unit: 14px;
+$border-radius: 3px;
+
+// Var: Colour
+$white: #fff;
+$light-grey: #faf7f7;
+$soft-grey: #E0DEDE;
+$mid-grey: #DBD9D9;
+$dark-grey: #757474;
+$black: #2C3437;
+$jet-black: #000;
+
+// Var: Typography
+$display-face: Oswald, sans-serif;
+$text-face: Lato, sans-serif;
+$weight-reg: 300;
+$weight-bold: 600;
+
+em { outline: 0; }
+
+html {
+    font-size: $rem-unit;
+}
+
+body {
+    margin: 0;
+}
+
+// Styles
+body {
+    background: $light-grey;
+    font-family: $text-face;
+    font-weight: $weight-reg;
+    color: $black;
+}
+
+.container {
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 3rem 0 0;
+    width: 98%;
+    max-width: 1600px;
+    background: $white;
+    box-shadow: 0 10px 80px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+}
+
+.masthead {
+    overflow: hidden;
+    padding: 0 4rem 3rem;
+    h1 {
+        float: left;
+        margin: 0;
+        padding: 1rem 0;
+        width: 25%;
+        font-family: $display-face;
+        font-weight: $weight-reg;
+        font-size: 1.8rem;
+        color: $jet-black;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+    }
+}
+
+.masthead nav {
+    float: right;
+    width: 70%;
+    ul, li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-align: right;
+    }
+    li, a {
+        display: inline-block;
+    }
+    a {
+        padding: 1.5rem 1.75rem;
+        font-size: 1.2rem;
+        color: $black;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: $border-radius;
+        &:hover {
+            background: $soft-grey;
+        }
+        &.button {
+            margin: 0;
+            background: $black;
+            color: $white;
+            &:hover {
+                background: $jet-black;
+            }
+        }
+    }
+    li:last-child a {
+        margin: 0 0 0 1rem;
+    }
+}
+
+.cover-photo {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.cover-photo--background {
+    z-index: 5;
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    -webkit-filter: blur(5px) brightness(0.5);
+    -moz-filter: blur(5px) brightness(0.5);
+    filter: blur(5px) brightness(0.5)
+}
+
+.cover-photo--content {
+    z-index: 10;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 20rem auto;
+    padding: 0 2rem;
+    text-align: center;
+    p {
+        margin: 0 0 1.4rem;
+        font-size: 2.8rem;
+        line-height: 1.6;
+        font-family: $display-face;
+        color: $white;
+    }
+    p.sub-text {
+        margin: 0;
+        font-family: $text-face;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.25rem;
+        &::before, &::after {
+            margin: 0 1rem;
+            content: "—"
+        }
+    }
+}
+
+.content {
+    margin: 8rem 0;
+    padding: 0 4rem 2rem 4rem;
+    width: 66%;
+    h1 {
+        margin: 0 0 3rem;
+        font-weight: $weight-bold;
+        color: $jet-black;
+    }
+    h2 {
+        margin: 0;
+        font-size: 1.6rem;
+    }
+    img {
+        display: block;
+        margin: 0 0 1.5rem;
+        max-width: 100%;
+    }
+    p {
+        margin: 0 0 1.4rem;
+        font-size: 1.4rem;
+        line-height: 1.6;
+        &.meta-info {
+            color: $dark-grey;
+            font-size: 1.2rem;
+        }
+    }
+    >*:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.info-sidebar {
+    margin: 8rem 0;
+    padding: 3rem 4rem 2rem 4rem;
+    width: 33%;
+    section {
+        margin: 0 0 3rem;
+    }
+    h1, p {
+        margin: 0 0 1rem;
+    }
+    h1, td:first-child {
+        font-weight: $weight-bold;
+        color: $jet-black;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    td:last-child {
+        text-align: right;
+    }
+    iframe {
+        display: block;
+        max-width: 100%;
+        height: 180px;
+        margin: 2rem 0;
+    }
+}
+
+.content,
+.info-sidebar,
+.footer {
+    float: left;
+    border-top: 1px solid $mid-grey;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    box-sizing: border-box;
+    a {
+        color: $black;
+        text-decoration: none;
+        border-bottom: 2px solid $mid-grey;
+        &:hover {
+            border-color: $black;
+        }
+    }
+}
+
+.intro,
+.events,
+.latest-posts {
+    padding: 3rem 4rem 0 0;
+}
+
+.events,
+.latest-posts {
+    margin: 6rem 0 0;
+    border-top: 1px solid $mid-grey;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    box-sizing: border-box;
+    article {
+        margin-bottom: 4.5rem;
+        border-bottom: 1px solid $soft-grey;
+        padding-bottom: 4.5rem;
+        &:last-of-type,
+        >:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+}
+
+.primary-footer {
+    float: none;
+    overflow: hidden;
+    clear: both;
+    margin: 8rem 8rem 4rem;
+    padding: 3rem 0 0;
+    font-size: 1.4rem;
+    border-top: 1px solid $mid-grey;
+    p {
+        margin: 0;
+        color: $dark-grey;
+    }
+}
+
+.profile-picture {
+    margin-bottom: 2rem;
+}
+
+.screenname-icon {
+    svg {
+        vertical-align: middle;
+    }
+}
+
+.instagram-icon {
+    position: relative;
+    top: 3px;
+}
+
+@media (max-width: 1100px) {
+    .hours {
+        .hours-unit {
+            float: none !important;
+            padding-left: 0;
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .content {
+        width: 90%;
+        margin: 4rem auto 4rem auto;
+        padding: 0;
+    }
+
+    .content, .info-sidebar, .footer {
+        float: none;
+    }
+
+    .intro, .events, .latest-posts {
+        padding: 3rem 0 0 0;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    .info-sidebar {
+        margin: 2rem auto;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+        width: 90%;
+    }
+
+    .cover-photo--content {
+        margin: 5rem auto;
+        padding: 0 0.5rem;
+    }
+
+    .primary-footer {
+        width: 90%;
+        margin: 4rem auto;
+    }
+
+}

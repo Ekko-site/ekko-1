@@ -1,0 +1,88 @@
+@import "bass";
+
+* {
+    border: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:focus {
+    outline: 0;
+}
+body,
+html {
+    height: 100%;
+}
+body {
+    font-family: system, -apple-system, BlinkMacSystemFont, helvetica neue, lucida grande, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    background: #f7f7f7;
+    color: #222;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+}
+
+.capitalise {
+    text-transform: capitalize;
+}
+
+.fb-icon {
+
+}
+
+.bg-black {
+    background-color: #111111;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.white {
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .px4 {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .location-hours {
+        flex-direction: column;
+    }
+
+    .location {
+        flex-direction: column;
+    }
+
+    .map {
+        margin-left: 0;
+    }
+
+    .hours {
+        margin-left: 0;
+    }
+
+    .pb4 {
+        padding-bottom: 2rem;
+    }
+
+    .mb4 {
+        margin-bottom: 2rem;
+    }
+
+    .py4 {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+}
