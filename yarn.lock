@@ -217,6 +217,10 @@
   version "7.0.0-beta.39"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-async-generators/-/plugin-syntax-async-generators-7.0.0-beta.39.tgz#ace93b8bb53e256a330b21d78304843fd6d72ab4"
 
+"@babel/plugin-syntax-dynamic-import@^7.0.0-beta.40":
+  version "7.0.0-beta.40"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-dynamic-import/-/plugin-syntax-dynamic-import-7.0.0-beta.40.tgz#5d9b58d4fbe1dfabbd44dee2eb267c466d7e9b87"
+
 "@babel/plugin-syntax-jsx@7.0.0-beta.39":
   version "7.0.0-beta.39"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-jsx/-/plugin-syntax-jsx-7.0.0-beta.39.tgz#c7f0d1a7e6bbe503a814a265d7d7322f2b230bf6"
@@ -1063,6 +1067,12 @@ babel-plugin-check-es2015-constants@^6.22.0:
 babel-plugin-detective@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-detective/-/babel-plugin-detective-2.0.0.tgz#6e642e83c22a335279754ebe2d754d2635f49f13"
+
+babel-plugin-dynamic-import-node@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-dynamic-import-node/-/babel-plugin-dynamic-import-node-1.2.0.tgz#f91631e703e0595e47d4beafbb088576c87fbeee"
+  dependencies:
+    babel-plugin-syntax-dynamic-import "^6.18.0"
 
 babel-plugin-espower@^2.2.0:
   version "2.4.0"

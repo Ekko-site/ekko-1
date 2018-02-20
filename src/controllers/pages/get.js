@@ -30,9 +30,8 @@ const get = {
             }
         }
     },
-    async fetchPublicPage ({ id, internal, user }) {
+    async fetchPublicPage ({ id }) {
         const pages = new Pages()
-        const tracks = new Tracks()
         const themes = new Themes()
         let page = await pages.getByFacebookId(id)
         if(!page){
@@ -40,15 +39,11 @@ const get = {
                 page: null
             }
         }
-        if(!internal){
-            const track = tracks.addTrackingForPage(page.id)
-        }
         page = formatPageForDisplay(page)
         const theme = await themes.getById(page.ThemeId)
         return {
             page,
-            theme,
-            user
+            theme
         }
     },
     async fetchPublicPageByHostname ({ hostname, user }) {

@@ -29,13 +29,20 @@ export default (history, preLoadedState) => {
     })
 
     let user = localStore.get('user')
-    let parsedUser = user && JSON.parse(user)
+    let parsedUser
+    if (user) {
+        try {
+            parsedUser = JSON.parse(user)
+        } catch (error) {
+            console.error(error)
+        }
+    }
 
     const preload = {
         ...preLoadedState,
         authState: {
             logged_in: !!(parsedUser),
-            user: parsedUser
+            current_user: parsedUser
         }
     }
 

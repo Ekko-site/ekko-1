@@ -48,7 +48,7 @@
     "start": "sequelize db:migrate --config config/production.js && node scripts/themes.js production && node dist/server.js",
     "client": "cd client && yarn start",
     "server": "nodemon",
-    "dev": "concurrently --names \"API,CLIENT\" --prefix-colors \"magenta,yellow\" --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "dev": "sequelize db:migrate && node scripts/themes.js development && concurrently --names \"API,CLIENT\" --prefix-colors \"magenta,yellow\" --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "ava": {
     "require": [
@@ -67,10 +67,12 @@
     "@babel/core": "^7.0.0-beta.39",
     "@babel/node": "^7.0.0-beta.39",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.39",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.40",
     "@babel/preset-env": "^7.0.0-beta.39",
     "@babel/preset-react": "^7.0.0-beta.39",
     "ava": "^0.16.0",
     "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-root-import": "^5.1.0",
     "babel-plugin-transform-builtin-extend": "^1.1.2",
     "concurrently": "^3.5.0",
