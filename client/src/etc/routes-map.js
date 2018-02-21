@@ -61,7 +61,7 @@ export default {
     },
     SIGN_UP: '/sign-up',
     TERMS: '/terms',
-    THEME: '/theme',
+    THEME: '/themes/:id',
     THEMES: {
         path: '/themes',
         thunk: requireAuth

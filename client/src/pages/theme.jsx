@@ -8,8 +8,9 @@ import Helmet from 'react-helmet'
 import * as authActions from '@/actions/auth'
 import * as pageActions from '@/actions/page'
 import * as themeActions from '@/actions/theme'
-
+import domainHelpers from '@/etc/domain-helpers'
 import Loading from '@/components/loading'
+
 const ekkoRenderer = {}
 
 const config = process.env
@@ -38,7 +39,7 @@ class Theme extends React.Component {
 
     render() {
         const { current_user } = this.props.authState
-        const { params: { id } } = this.props
+        const { location: { payload: { id } } } = this.props
         const { themes } = this.props.themesState
         const theme = (themes || []).find(theme => theme.id == id)
         if(!theme){
@@ -47,9 +48,16 @@ class Theme extends React.Component {
 
         const { pages, current, page_fetched, page_fetching, page_editing, toggling_page_online } = this.props.pageState
         const { switchCurrentPage, activateTheme, pagesRefresh, togglePageOnline, pageSync } = this.props.pageActions
+        const { user_pages } = this.props.domainState
 
         const page = current ? pages.find(p => p.id == current) : pages[0]
         const isCurrentTheme = (page && page.ThemeId) == theme.id
+
+        let pageUrl
+
+        if(page) {
+            pageUrl = user_pages.length && config.REACT_APP_NODE_ENV == 'production' ? domainHelpers.getDomain(page, user_pages) : `${config.REACT_APP_API_URL}/s/${page.facebookPageId}`
+        }
 
         return (
             <div className="container themes">
@@ -74,10 +82,7 @@ class Theme extends React.Component {
                             <p className="big-mb" onClick={() => this.installTheme(page.id, theme.id)}><span className="butt butt--yellow">Activate this theme</span></p>
                         )}
     					<h3 className="big-mb">A preview of this theme</h3>
-                        <iframe className="preview-iframe" srcDoc={ekkoRenderer(config.REACT_APP_NODE_ENV, {
-                            doc: page,
-                            theme: theme
-                        }, null, true)}></iframe>
+              <iframe className="preview-iframe" src={pageUrl}></iframe>
     				</div>
     			</div>
             </div>
@@ -98,7 +103,9 @@ function mapStateToProps(state) {
     return {
         authState: state.authState,
         pageState: state.pageState,
-        themesState: state.themesState
+        themesState: state.themesState,
+        location: state.location,
+        domainState: state.domainState
     }
 }
 

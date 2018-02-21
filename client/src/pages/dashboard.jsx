@@ -10,8 +10,8 @@ import * as domainActions from '@/actions/domain'
 
 import Preview from '@/components/preview'
 import Loading from '@/components/loading'
-import ApiError from '@/components/api-error'
 import domainHelpers from '@/etc/domain-helpers'
+import ApiError from '@/components/api-error'
 
 const config = process.env
 
