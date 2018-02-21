@@ -10,8 +10,11 @@ import * as navActions from '@/actions/navigation'
 import AppContainer from '@/components/app-container'
 import MarketingContainer from '@/components/marketing-container'
 
+import Loading from '@/components/loading'
+
 const UniversalComponent = universal(({ page }) => import(`../pages/${page}`), {
-  minDelay: 500
+  minDelay: 500,
+  loading: Loading
 })
 
 const inApp = type => ['THEMES', 'DASHBOARD', 'SETTINGS'].includes(type)
