@@ -17,7 +17,7 @@ const UniversalComponent = universal(({ page }) => import(`../pages/${page}`), {
 const inApp = type => ['THEMES', 'DASHBOARD', 'SETTINGS'].includes(type)
 
 const onHomepage = type => type == 'HOME'
-const onDashboard = type => type !== 'DASHBOARD'
+const onDashboard = type => type == 'DASHBOARD'
 
 const handleError = error => console.error(error)
 
