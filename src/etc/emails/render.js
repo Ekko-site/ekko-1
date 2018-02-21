@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactHTMLEmail, { Email, Box, Item, Span, A, Image, renderEmail } from 'react-html-email'
 
-ReactHTMLEmail.injectReactEmailAttributes()
+// ReactHTMLEmail.injectReactEmailAttributes()
 
 const textStyles = {
     fontSize: 16

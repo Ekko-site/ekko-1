@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default ({ title, description, children }) => {
+export default ({ title, description, children, css, analytics_code, freeTrial, expired, data }) => {
     return (
         <html>
             <head>
@@ -10,17 +10,17 @@ export default ({ title, description, children }) => {
                 <style type="text/css">
                     <span dangerouslySetInnerHTML={{ __html: `em{outline:none;}${css}` }}></span>
                 </style>
-                {
+                {/* {
                     (analytics_code) && (
                         <Analytics analytics_code={analytics_code} />
                     )
-                }
+                } */}
             </head>
             <body>
                 <div id="root">
                     {children}
                 </div>
-                {
+                {/* {
                     (freeTrial) && (
                         <div style={{
                                 color: 'white',
@@ -40,8 +40,8 @@ export default ({ title, description, children }) => {
                     (expired) && (
                         <Expired />
                     )
-                }
-                {/* <script id="data" type="application/json" dangerouslySetInnerHTML={{
+                } */}
+                <script id="data" type="application/json" dangerouslySetInnerHTML={{
                     __html: JSON.stringify({doc: {
                         data: Object.keys(data).filter(k => k !== 'access_token').reduce((a, c) => {
                             return Object.assign({}, a, {
@@ -50,7 +50,7 @@ export default ({ title, description, children }) => {
                         }, {})
                     }})
                 }}></script>
-                <script dangerouslySetInnerHTML={{
+                {/* <script dangerouslySetInnerHTML={{
                     __html: clientJS
                 }}></script> */}
             </body>
