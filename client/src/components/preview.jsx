@@ -3,7 +3,6 @@ import BrowserWindow from '@/components/browser-window'
 import TwitterIcon from '@/components/dashboard/twitter'
 import FacebookIcon from '@/components/dashboard/facebook'
 
-const ekkoRenderer = {}
 const config = process.env
 
 const getPageURLShare = url => {
@@ -26,10 +25,7 @@ const Preview = ({ page, theme, url }) => {
     return (
         <div className="dash-preview-wrap">
             {url && getPageURLShare(url)}
-            <iframe className="preview-iframe" srcDoc={ekkoRenderer(config.REACT_APP_NODE_ENV, {
-                doc: page,
-                theme: theme
-            }, null, true)}></iframe>
+            <iframe className="preview-iframe" src={url}></iframe>
         </div>
     )
 }

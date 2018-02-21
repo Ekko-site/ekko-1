@@ -45,7 +45,7 @@ class Dashboard extends React.Component {
         let theme
 
         if(page) {
-            pageUrl = user_pages.length && config.REACT_APP_NODE_ENV == 'production' ? domainHelpers.getDomain(page, user_pages) : `${config.REACT_APP_SITES_URL}${page.facebookPageId}`
+            pageUrl = user_pages.length && config.REACT_APP_NODE_ENV == 'production' ? domainHelpers.getDomain(page, user_pages) : `${config.REACT_APP_API_URL}/s/${page.facebookPageId}`
             theme = themes.find(theme => theme.id == page.ThemeId)
         }
 

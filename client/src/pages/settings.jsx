@@ -35,7 +35,7 @@ class Settings extends React.Component {
             this.props.domainActions.tldsFetch()
             this.props.domainActions.userPagesFetch()
             const user = this.props.authState.current_user
-            const redirectFlowId = this.props.location.query.redirect_flow_id
+            const redirectFlowId = this.props.location.query && this.props.location.query.redirect_flow_id
             if(user.DirectDebitCustomerId && !user.DirectDebitCustomerId.customerId && redirectFlowId) {
                 this.props.authActions.completeDirectDebit()
             }
@@ -211,7 +211,8 @@ function mapStateToProps(state) {
         authState: state.authState,
         pageState: state.pageState,
         billingState: state.billingState,
-        domainState: state.domainState
+        domainState: state.domainState,
+        location: state.location
     }
 }
 

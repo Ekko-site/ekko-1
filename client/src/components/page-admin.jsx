@@ -38,7 +38,7 @@ class PageAdmin extends React.Component {
         if(!page){
             return <span></span>
         }
-        const pageUrl = user_pages.length && config.REACT_APP_NODE_ENV == 'production' ? domainHelpers.getDomain(page, user_pages) : `${config.REACT_APP_SITES_URL}${page.facebookPageId}`
+        const pageUrl = user_pages.length && config.REACT_APP_NODE_ENV == 'production' ? domainHelpers.getDomain(page, user_pages) : `${config.REACT_APP_API_URL}/s/${page.facebookPageId}`
 
         return <header className={`dash-header ${marginUnderPageAdmin && 'big-mb'}`}>
             <div className="container cf">
