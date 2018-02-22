@@ -9,8 +9,7 @@ import Layout from "@/themes/layouts/default";
 
 export default async (
   { params: { facebookPageID }, query: { theme: themeID, preview } },
-  res,
-  next
+  res
 ) => {
   const args = {
     id: facebookPageID,

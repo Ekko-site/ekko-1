@@ -53,7 +53,6 @@ const get = {
   },
   async fetchPublicPageByHostname({ hostname, user }) {
     const pages = new Pages();
-    const tracks = new Tracks();
     const themes = new Themes();
     const domains = new Domains();
     const domain = await domains.getByDomain(hostname);
@@ -68,13 +67,11 @@ const get = {
         page: null
       };
     }
-    const track = tracks.addTrackingForPage(page.id);
     const theme = await themes.getById(page.ThemeId);
     page = formatPageForDisplay(page);
     return {
       page,
-      theme,
-      user
+      theme
     };
   },
   async fetchPages({ userId, user }) {
