@@ -1,0 +1,11 @@
+{
+  "name": "boutique",
+  "version": "1.0.0",
+  "main": "js/layout.js",
+  "license": "MIT",
+  "dependencies": {
+    "moment": "^2.20.1",
+    "react": "^16.2.0",
+    "react-linkify": "^0.2.2"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "element",
+  "version": "1.0.0",
+  "main": "js/layout.js",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.2.0"
+  }
+}
