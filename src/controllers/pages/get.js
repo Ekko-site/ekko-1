@@ -1,21 +1,30 @@
 import Facebook from '@/etc/facebook'
-import { Pages, Tracks, Themes, FacebookToken, Domains } from '@/services'
+import {
+    Pages,
+    Tracks,
+    Themes,
+    FacebookToken,
+    Domains
+} from '@/services'
 import ApiError from '@/etc/error'
 import mail from '@/etc/mail'
 import formatPageForDisplay from '@/etc/format-page-for-display'
 import Slack from '@/etc/slack'
 
 const get = {
-    async fetchPublicPageForPreview ({ id, theme }) {
+    async fetchPublicPageForPreview({
+        id,
+        theme
+    }) {
         const token = process.env.EKKO_FB_TOKEN
         const facebook = new Facebook()
         const themes = new Themes()
         const themeObj = theme ? await themes.getById(theme) : await themes.getDefault()
         let page
         try {
-             page = await facebook.fetchPage(id, token, false, {
-                 preview: true
-             })
+            page = await facebook.fetchPage(id, token, false, {
+                preview: true
+            })
         } catch (e) {
             throw new Error(e)
         }
@@ -30,35 +39,44 @@ const get = {
             }
         }
     },
-    async fetchPublicPage ({ id }) {
+    async fetchPublicPage({
+        id,
+        themeId
+    }) {
         const pages = new Pages()
         const themes = new Themes()
         let page = await pages.getByFacebookId(id)
-        if(!page){
+        if (!page) {
             return {
                 page: null
             }
         }
         page = formatPageForDisplay(page)
-        const theme = await themes.getById(page.ThemeId)
+        let theme = await themes.getById(themeId || page.ThemeId)
+        if (!theme) {
+            theme = await themes.getDefault()
+        }
         return {
             page,
             theme
         }
     },
-    async fetchPublicPageByHostname ({ hostname, user }) {
+    async fetchPublicPageByHostname({
+        hostname,
+        user
+    }) {
         const pages = new Pages()
         const tracks = new Tracks()
         const themes = new Themes()
         const domains = new Domains()
         const domain = await domains.getByDomain(hostname)
-        if(!domain){
+        if (!domain) {
             return {
                 page: null
             }
         }
         let page = await pages.getById(domain.PageId, true)
-        if(!page){
+        if (!page) {
             return {
                 page: null
             }
@@ -72,8 +90,13 @@ const get = {
             user
         }
     },
-    async fetchPages ({ userId, user }) {
-        const { facebookUserId } = user
+    async fetchPages({
+        userId,
+        user
+    }) {
+        const {
+            facebookUserId
+        } = user
         if (!facebookUserId) {
             throw new ApiError(400, 'Not connected to Facebook')
         }
@@ -83,7 +106,10 @@ const get = {
             pages: allPages.map(page => formatPageForDisplay(page))
         }
     },
-    async refreshPages ({ userId, facebookUserId }){
+    async refreshPages({
+        userId,
+        facebookUserId
+    }) {
         if (!facebookUserId) {
             throw new ApiError(400, 'Not connected to Facebook')
         }
@@ -102,19 +128,26 @@ const get = {
             facebookPages
         }
     },
-    async fetchPage ({ facebookPageId, user, access_token }) {
-        const { id, facebookUserId } = user
+    async fetchPage({
+        facebookPageId,
+        user,
+        access_token
+    }) {
+        const {
+            id,
+            facebookUserId
+        } = user
         const pages = new Pages()
         const themes = new Themes()
         const existing = await pages.getByUserId(id)
-        if(existing.length){
+        if (existing.length) {
             throw new ApiError(400, 'You already have a Facebook Page connected to Ekko')
         }
         const fb = new Facebook(access_token, facebookUserId)
         const theme = await themes.getDefault()
         const facebookPage = await fb.fetchPage(facebookPageId, access_token)
         const userPage = await pages.updateOrCreatePage(facebookPage, id, theme)
-        if(!userPage){
+        if (!userPage) {
             return {
                 page: {}
             }
