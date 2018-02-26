@@ -32,6 +32,11 @@ const get = {
       }
     };
   },
+  async fetchPublicPageByURL({ url }) {
+    return {
+      page: Facebook.parsePageURL(url)
+    };
+  },
   async fetchPublicPage({ id, themeId }) {
     const pages = new Pages();
     const themes = new Themes();
