@@ -48,7 +48,6 @@
     "winston": "^2.2.0"
   },
   "scripts": {
-    "test": "NODE_ENV=test ava test/**/*.js",
     "build": "babel src --out-dir dist",
     "start": "sequelize db:migrate --config config/production.js && babel-node scripts/themes.js production && node dist/server.js",
     "client": "cd client && yarn start",
