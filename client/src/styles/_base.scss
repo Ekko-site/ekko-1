@@ -573,20 +573,21 @@ body .home-intro__headline {
 .final-cta-row {
 	// margin-top: -100px;
 	background-color: $grey-pale;
+	padding: 90px 0 110px 0;
     .faq-link {
         padding-top: 30px;
     }
 }
 
 .final-cta-row__block {
-	background: #fff;
-	padding: 30px;
-	border-radius: 10px;
+	// background: #fff;
+	// padding: 30px;
+	// border-radius: 10px;
 	// margin-top: -100px;
-	-webkit-box-shadow: 0 15px 35px 0 rgba(0,0,0,0.1),
-						0 0 0 1px rgba(0,0,0,0.03);
-	box-shadow: 0 15px 35px 0 rgba(0,0,0,0.1),
-				0 0 0 1px rgba(0,0,0,0.03);
+	// -webkit-box-shadow: 0 15px 35px 0 rgba(0,0,0,0.1),
+	// 					0 0 0 1px rgba(0,0,0,0.03);
+	// box-shadow: 0 15px 35px 0 rgba(0,0,0,0.1),
+	// 			0 0 0 1px rgba(0,0,0,0.03);
     @include grid-media-query(palm) {
 		margin-top: 0;
 	}

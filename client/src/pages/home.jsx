@@ -38,11 +38,11 @@ class Home extends React.Component {
     return (
       <div>
         <Helmet
-          title="Ekko - Create your business website in seconds, using your Facebook page"
+          title="Ekko - Create your website in seconds, using your Facebook page"
           meta={[
             {
               name: "description",
-              content: `Ekko is a service that allows people to create business websites using only their Facebook Page. Once they connect their Facebook Page to Ekko, we host the website and update the content every time they update their Facebook Page. There's no HTML or CSS to worry about, users can pick from a great selection of themes for their website. In 45 seconds, you can sign up and have your site online, and never have to touch it again. We offer free domains with annual plans, with SSL & WHOIS privacy included`
+              content: `Ekko is a service that allows people to create websites using only their Facebook Page. They can download it instantly and host it themselves, or we host the website and update the content every time they update their Facebook Page. There's no HTML or CSS to worry about, users can pick from a great selection of themes for their website. In 45 seconds, you can sign up and have your site online, and never have to touch it again.`
             }
           ]}
         />
@@ -66,7 +66,7 @@ class Home extends React.Component {
                 </span>
                 Create your{" "}
                 <span className="home-intro__headline__create-website">
-                  business website
+                  website
                 </span>{" "}
                 in seconds, using your{" "}
                 <span className="home-intro__headline__fb-page">
@@ -134,15 +134,6 @@ class Home extends React.Component {
         <div className="no-technical">
           <div className="container">
             <div className="grid">
-              <div className="grid__item palm--one-whole lap--one-whole desk--one-half">
-                <h2 className="h1">No technical jargon</h2>
-                <p>
-                  We deal with the domains and the hosting and the code and the
-                  DNS and the&hellip;
-                </p>
-              </div>
-            </div>
-            <div className="grid">
               <div className="grid__item palm--one-whole lap--five-sixths push--lap--one-twelfth desk--one-half push--desk--one-sixth">
                 <div className="no-technical__designs">
                   <p className="half-mb">
@@ -185,22 +176,16 @@ class Home extends React.Component {
         </div>
         <div className="final-cta-row">
           <div className="container">
-            <div className="grid">
-              <div className="grid__item desk--one-half palm--one-whole lap--one-half">
-                <h2 className="h3 faq-link">
-                  Have any questions? Check our <Link to="/faq">FAQ</Link> page.
-                </h2>
-              </div>
+            <div className="grid center">
               <div className="grid__item desk--one-half palm--one-whole lap--one-half">
                 <div className="final-cta-row__block center">
                   <p className="emphasised">
-                    Ekko's aim is to have your new site online in under a
-                    minute.
+                    Ekko's aim is to generate your new site in under a minute.
                     <br />
                     <em>Ready?</em>
                   </p>
                   <p className="no-mb">
-                    <Link to="/sign-up" className="butt butt--big butt--yellow">
+                    <Link to="/create" className="butt butt--big butt--yellow">
                       Create my new website now
                     </Link>
                   </p>

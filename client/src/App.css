@@ -2681,19 +2681,14 @@ body .home-intro__headline {
       padding-top: 40px; } }
 
 .final-cta-row {
-  background-color: #F5F5F5; }
+  background-color: #F5F5F5;
+  padding: 90px 0 110px 0; }
   .final-cta-row .faq-link {
     padding-top: 30px; }
 
-.final-cta-row__block {
-  background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  -webkit-box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.03);
-  box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.03); }
-  @media only screen and (max-width: 680px) {
-    .final-cta-row__block {
-      margin-top: 0; } }
+@media only screen and (max-width: 680px) {
+  .final-cta-row__block {
+    margin-top: 0; } }
 
 .faq {
   background: #142642;
@@ -3340,7 +3335,6 @@ input[readonly], input[disabled] {
 // Styles for the main footer
 **/
 .site-footer {
-  background-color: #F5F5F5;
   padding-top: 30px;
   padding-bottom: 30px;
   font-size: 25px;
