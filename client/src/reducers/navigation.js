@@ -7,6 +7,7 @@ const components = {
     ABOUT: 'about',
     CHANGE_PASSWORD: 'change-password',
     CONNECT_TO_FACEBOOK: 'connect-to-facebook',
+    CREATE: 'create',
     DASHBOARD: 'dashboard',
     FAQ: 'faq',
     LOGIN: 'login',

@@ -24,7 +24,7 @@ const requireAuth = (dispatch, getState) => {
     }
 }
 
-const requireResetHash = (dispatch,  getState) => {
+const requireResetHash = (dispatch, getState) => {
     const { reset_hash } = getState().location.query
     if (!reset_hash) {
         dispatch(redirect({ type: 'LOGIN' }))
@@ -36,17 +36,18 @@ export default {
     LOGIN: '/login',
     ABOUT: '/about',
     CHANGE_PASSWORD: {
-       path: '/change-password',
-       thunk: requireResetHash
+        path: '/change-password',
+        thunk: requireResetHash
     },
     CONNECT_TO_FACEBOOK: {
         path: '/connect-to-facebook',
         thunk: requireAuth
     },
+    CREATE: '/create',
     DASHBOARD: {
         path: '/dashboard',
         thunk: requireFacebook
-    } ,
+    },
     FAQ: '/faq',
     LOGIN: '/login',
     NO_PAGES: '/no-pages',
