@@ -13,10 +13,6 @@ class Facebook {
     this.facebook_id = facebook_id;
   }
 
-  static parsePageURL(url) {
-    return url;
-  }
-
   async extendToken(token) {
     let res;
     try {
@@ -283,6 +279,18 @@ class Facebook {
     }
     logger.info("Unsubscribed FB Page", facebookPageId);
     return {};
+  }
+
+  async fetchFBPageByURL(url, token) {
+    FB.setAccessToken(token);
+    let res;
+    try {
+      res = await FB.api(url);
+    } catch (e) {
+      throw new ApiError(502, e);
+    }
+    const { id } = res;
+    return id;
   }
 
   async fetchPage(

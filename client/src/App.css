@@ -4247,6 +4247,25 @@ iframe.preview-iframe {
   .about-contributors .founder-connect a {
     color: #fff; }
 
+.create-header {
+  background-image: linear-gradient(135deg, rgba(188, 44, 95, 0.97), rgba(244, 90, 144, 0.97));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 90px 25px; }
+  @media only screen and (max-width: 680px) {
+    .create-header {
+      height: 200px; } }
+  .create-header h1 {
+    color: #fff; }
+  .create-header p {
+    color: rgba(255, 255, 255, 0.9); }
+
+.create-content {
+  padding-top: 70px;
+  padding-bottom: 70px; }
+
 .NavItem.active {
   border-bottom: 1px solid #e9eaec;
   align-self: auto !important; }

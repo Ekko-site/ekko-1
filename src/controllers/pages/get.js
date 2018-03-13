@@ -33,8 +33,17 @@ const get = {
     };
   },
   async fetchPublicPageByURL({ url }) {
+    const token = process.env.EKKO_FB_TOKEN;
+    const facebook = new Facebook();
+    let page;
+    try {
+      page = await facebook.fetchFBPageByURL(url, token);
+    } catch (error) {
+      throw new Error(error);
+    }
+
     return {
-      page: Facebook.parsePageURL(url)
+      page
     };
   },
   async fetchPublicPage({ id, themeId }) {

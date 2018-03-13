@@ -13,7 +13,7 @@ export default async (
 ) => {
   const args = {
     id: facebookPageID,
-    themeId: themeID || null
+    themeId: themeID || false
   };
   const { page, theme } = preview
     ? await fetchPublicPageForPreview(args)

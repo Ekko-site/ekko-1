@@ -1,0 +1,22 @@
+.create-header {
+    background-image: linear-gradient(135deg, rgba(188, 44, 95, 0.97), rgba(244, 90, 144, 0.97));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 90px 25px;
+    @include grid-media-query(palm) {
+        height: 200px;
+    }
+    h1 {
+        color: #fff;
+    }
+    p {
+        color: rgba(255, 255, 255, 0.9)
+    }
+}
+
+.create-content {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
