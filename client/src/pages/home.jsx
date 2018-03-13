@@ -81,56 +81,6 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
-        <div className="testimonials">
-          <div className="container">
-            <div className="grid">
-              <div className="grid__item one-whole desk--two-thirds push--desk--one-sixth">
-                <blockquote className="large-quote center">
-                  "Ekko's so easy to use and the site it generates looks great.
-                  A lot of businesses don't need a bespoke site with a complex
-                  CMS. I think they'd be much happier managing a simpler website
-                  with Facebook, the 'CMS' they're familiar with."
-                </blockquote>
-                <p className="mini center">
-                  <img
-                    src={testimonialMelissaImage}
-                    className="testimonial-row__img"
-                  />
-                  <a href="https://twitter.com/keizgoesboom">Melissa Keizer</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="just-works cf">
-          <div className="just-works__bg-area">
-            <div className="just-works__slide just-works__slide--1">
-              <span>Your Facebook page&hellip;</span>
-            </div>
-            <div className="just-works__slide just-works__slide--2">
-              <span>&hellip;transformed into a website</span>
-            </div>
-          </div>
-          <div className="container">
-            <div className="grid">
-              <div className="grid__item palm--one-whole lap--one-half desk--one-third just-works__copy">
-                <h2 className="h1 big-mb raspberry">It just works</h2>
-                <h3 className="h2 big-mb just-works__subtitle">
-                  Nothing to learn.<br />
-                  Always up to date.
-                </h3>
-                <p>
-                  As you make a change on your Facebook Page, or post a new
-                  status, your website is instantly updated. No more out-of-date
-                  content.
-                </p>
-                <p>
-                  If you know how to use Facebook, you know how to use Ekko.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="no-technical">
           <div className="container">
             <div className="grid">
@@ -174,14 +124,66 @@ class Home extends React.Component {
             </div>
           </div>
         </div>
+        <div className="just-works cf">
+          <div className="just-works__bg-area">
+            <div className="just-works__slide just-works__slide--1">
+              <span>Your Facebook page&hellip;</span>
+            </div>
+            <div className="just-works__slide just-works__slide--2">
+              <span>&hellip;transformed into a website</span>
+            </div>
+          </div>
+          <div className="container">
+            <div className="grid">
+              <div className="grid__item palm--one-whole lap--one-half desk--one-third just-works__copy">
+                <h3 className="h2 big-mb raspberry">
+                  Nothing to learn, it just
+                  <span className="italic">&hellip;works</span>
+                </h3>
+                <h3 className="h2 big-mb just-works__subtitle" />
+                <p>
+                  In Ekko's hosted version, as you make a change on your
+                  Facebook Page, or post a new status, your website is instantly
+                  updated. No more out-of-date content.
+                </p>
+                <p>
+                  If you know how to use Facebook, you know how to use Ekko.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="testimonials">
+          <div className="container">
+            <div className="grid">
+              <div className="grid__item one-whole desk--two-thirds push--desk--one-sixth">
+                <blockquote className="large-quote center">
+                  "Ekko's so easy to use and the generated sites look great. A
+                  lot of businesses don't need a bespoke site with a complex
+                  CMS. I think they'd be much happier managing a simpler website
+                  with Facebook, the 'CMS' they're familiar with."
+                </blockquote>
+                <p className="mini center">
+                  <img
+                    src={testimonialMelissaImage}
+                    className="testimonial-row__img"
+                  />
+                  <a href="https://twitter.com/keizgoesboom">Melissa Keizer</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="final-cta-row">
           <div className="container">
             <div className="grid center">
               <div className="grid__item desk--one-half palm--one-whole lap--one-half">
                 <div className="final-cta-row__block center">
                   <p className="emphasised">
-                    Ekko's aim is to generate your new site in under a minute.
-                    <br />
+                    Ekko's aim is to generate your new site in under a
+                    minute&hellip;
+                  </p>
+                  <p className="emphasised">
                     <em>Ready?</em>
                   </p>
                   <p className="no-mb">

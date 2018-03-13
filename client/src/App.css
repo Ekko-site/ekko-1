@@ -2478,7 +2478,8 @@ body .home-intro__headline {
 
 .just-works__copy {
   position: relative;
-  z-index: 2; }
+  z-index: 2;
+  min-height: 410px; }
 
 .just-works__slide {
   position: absolute;
@@ -2965,6 +2966,9 @@ h3, .h3 {
 
 .bold {
   font-weight: bold; }
+
+.italic {
+  font-style: italic; }
 
 blockquote {
   margin-left: 0;
