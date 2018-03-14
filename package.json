@@ -6,8 +6,10 @@
   "dependencies": {
     "asyncro": "^2.0.1",
     "aws-sdk": "2.3.0",
+    "babelify": "github:ylemkimon/babelify",
     "bcryptjs": "^2.3.0",
     "body-parser": "1.15.2",
+    "browserify": "^16.1.1",
     "cors": "^2.7.1",
     "crypto-js": "^3.1.9-1",
     "currency-converter": "^0.1.12",
@@ -55,7 +57,8 @@
     "server": "nodemon",
     "dev": "sequelize db:migrate && babel-node scripts/themes.js development && concurrently --names \"API,CLIENT\" --prefix-colors \"magenta,yellow\" --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "themes:build:css": "babel-node scripts/themes-sass.js",
-    "themes:build:install": "babel-node scripts/themes-install.js"
+    "themes:build:install": "babel-node scripts/themes-install.js",
+    "themes:client:build": "babel-node scripts/themes-client-build.js"
   },
   "ava": {
     "require": [

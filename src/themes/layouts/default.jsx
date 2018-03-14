@@ -1,26 +1,36 @@
-import React from 'react'
+import React from "react";
 
-export default ({ title, description, children, css, analytics_code, freeTrial, expired, data }) => {
-    return (
-        <html>
-            <head>
-                <title>{title}</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <meta name="description" content={description} />
-                <style type="text/css">
-                    <span dangerouslySetInnerHTML={{ __html: `em{outline:none;}${css}` }}></span>
-                </style>
-                {/* {
+export default ({
+  title,
+  description,
+  children,
+  css,
+  analytics_code,
+  freeTrial,
+  expired,
+  data,
+  clientJS
+}) => {
+  return (
+    <html>
+      <head>
+        <title>{title}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content={description} />
+        <style type="text/css">
+          <span
+            dangerouslySetInnerHTML={{ __html: `em{outline:none;}${css}` }}
+          />
+        </style>
+        {/* {
                     (analytics_code) && (
                         <Analytics analytics_code={analytics_code} />
                     )
                 } */}
-            </head>
-            <body>
-                <div id="root">
-                    {children}
-                </div>
-                {/* {
+      </head>
+      <body>
+        <div id="root">{children}</div>
+        {/* {
                     (freeTrial) && (
                         <div style={{
                                 color: 'white',
@@ -41,19 +51,29 @@ export default ({ title, description, children, css, analytics_code, freeTrial, 
                         <Expired />
                     )
                 } */}
-                <script id="data" type="application/json" dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({doc: {
-                        data: Object.keys(data).filter(k => k !== 'access_token').reduce((a, c) => {
-                            return Object.assign({}, a, {
-                                [c]: data[c]
-                            })
-                        }, {})
-                    }})
-                }}></script>
-                {/* <script dangerouslySetInnerHTML={{
-                    __html: clientJS
-                }}></script> */}
-            </body>
-        </html>
-    )
-}
+        <script
+          id="data"
+          type="application/json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              doc: {
+                data: Object.keys(data)
+                  .filter(k => k !== "access_token")
+                  .reduce((a, c) => {
+                    return Object.assign({}, a, {
+                      [c]: data[c]
+                    });
+                  }, {})
+              }
+            })
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: clientJS
+          }}
+        />
+      </body>
+    </html>
+  );
+};

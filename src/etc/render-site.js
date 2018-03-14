@@ -21,12 +21,16 @@ export default async (
   const { name } = theme;
   const themePath = `../themes/${name}`;
   const Theme = await import(`${themePath}/js/layout`);
+  const themeClient = await fse.readFile(
+    `${__dirname}/../themes/${name}/js/built.js`,
+    "utf-8"
+  );
   const css = await fse.readFile(
     `${__dirname}/../themes/${name}/css/app.css`,
     "utf-8"
   );
   const html = ReactDOMServer.renderToString(
-    <Layout data={page.data} css={css}>
+    <Layout data={page.data} css={css} clientJS={themeClient}>
       <Theme doc={page} />
     </Layout>
   );
