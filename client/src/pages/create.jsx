@@ -10,49 +10,95 @@ import Loading from "@/components/loading";
 import Preview from "@/components/preview";
 
 import * as pageActions from "@/actions/page";
+import * as themeActions from "@/actions/theme";
 
 const config = process.env;
 
 class Create extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentTheme: null
+    };
+  }
+
+  componentDidMount() {
+    if (!this.props.themesState.themes.length) {
+      this.props.themeActions.themesFetch();
+    }
+  }
+
   handleSubmit = fbPage => {
     return this.props.pageActions.pageFetchByFBURL(fbPage);
   };
 
+  changeTheme = id => this.setState({ currentTheme: id });
+
+  createPageURL() {
+    const { fbUrlPage } = this.props;
+    const { currentTheme } = this.state;
+    const extra = currentTheme ? `&theme=${currentTheme}` : "";
+    return `${config.REACT_APP_API_URL}/s/${fbUrlPage}?preview=true${extra}`;
+  }
+
   render() {
     const fetching = this.props.fbPageForm.fetching.value;
-    const { fbUrlPage } = this.props;
-    const pageUrl = `${config.REACT_APP_API_URL}/s/${fbUrlPage}?preview=true`;
+    const { fbUrlPage, themesState: { themes } } = this.props;
+    const pageUrl = fbUrlPage && this.createPageURL();
     return (
       <div>
-        <div className="create-header">
-          <h1 className="h1 headline">Lets create your website</h1>
-          <p className="half-mb">Enter your Facebook Page URL to begin.</p>
-          <Form
-            className="form form--mega"
-            model="fbPage"
-            onSubmit={this.handleSubmit}>
-            <Control.text
-              model="fbPage.url"
-              className="full-width i-w-m"
-              required
-            />
+        {!fbUrlPage && (
+          <div className="create-header">
+            <h1 className="h1 headline">Lets create your website</h1>
+            <p className="half-mb">Enter your Facebook Page URL to begin.</p>
+            <Form
+              className="form form--mega"
+              model="fbPage"
+              onSubmit={this.handleSubmit}>
+              <Control.text
+                model="fbPage.url"
+                className="full-width i-w-m"
+                required
+              />
 
-            <FormErrors model="fbPage" />
+              <FormErrors model="fbPage" />
 
-            {!fetching && (
-              <p className="center big-mb">
-                <button className="butt butt--big">Continue</button>
-              </p>
-            )}
+              {!fetching && (
+                <p className="center big-mb">
+                  <button className="butt butt--big">Continue</button>
+                </p>
+              )}
 
-            {fetching && <Loading column />}
-          </Form>
-        </div>
+              {fetching && <Loading column />}
+            </Form>
+          </div>
+        )}
         {fbUrlPage && (
           <div className="container create-content">
             <div className="grid">
               <div className="grid__item one-whole" />
-              <Preview url={pageUrl} />
+              <Preview url={pageUrl} basic />
+              <div className="grid">
+                {themes.map(theme => {
+                  const { name, id, description } = theme;
+                  const themeImage = require(`../images/themes/${name}.png`);
+                  return (
+                    <div
+                      className="grid__item palm--one-whole one-half"
+                      key={id}
+                      onClick={() => this.changeTheme(id)}>
+                      <span className="themes__entry big-mb">
+                        <span className="themes__entry__preview">
+                          Preview theme
+                        </span>
+                        <img src={themeImage} />
+                        <h3 className="no-mb title">{name}</h3>
+                        <p className="mini no-mb">{description}</p>
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         )}
@@ -71,7 +117,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    pageActions: bindActionCreators(pageActions, dispatch)
+    pageActions: bindActionCreators(pageActions, dispatch),
+    themeActions: bindActionCreators(themeActions, dispatch)
   };
 }
 
