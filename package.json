@@ -47,6 +47,7 @@
     "shelljs": "^0.8.1",
     "stripe": "^4.5.0",
     "supertest": "^2.0.1",
+    "uglifyify": "^4.0.5",
     "winston": "^2.2.0"
   },
   "scripts": {

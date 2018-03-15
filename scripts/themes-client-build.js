@@ -6,7 +6,10 @@ import babelify from "babelify";
 const build = async theme => {
   return new Promise((resolve, reject) => {
     const themePath = `${__dirname}/../src/themes/${theme}`;
-    browserify(`${themePath}/js/client.js`)
+    browserify(`${themePath}/js/client.js`, {
+      debug: false
+    })
+      .transform("uglifyify", { global: true })
       .transform(babelify)
       .bundle()
       .pipe(fse.createWriteStream(`${themePath}/js/built.js`));

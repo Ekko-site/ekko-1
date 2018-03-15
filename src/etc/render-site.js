@@ -11,13 +11,22 @@ export default async (
   { params: { facebookPageID }, query: { theme: themeID, preview } },
   res
 ) => {
+  const site = await fetchSite({ facebookPageID, themeID, preview });
+  const html = await render(site);
+  return res.send(html);
+};
+
+const fetchSite = async ({ facebookPageID, themeID, preview }) => {
   const args = {
     id: facebookPageID,
     themeId: themeID || false
   };
-  const { page, theme } = preview
+  return preview
     ? await fetchPublicPageForPreview(args)
     : await fetchPublicPage(args);
+};
+
+const render = async ({ page, theme }) => {
   const { name } = theme;
   const themePath = `../themes/${name}`;
   const Theme = await import(`${themePath}/js/layout`);
@@ -34,5 +43,8 @@ export default async (
       <Theme doc={page} />
     </Layout>
   );
-  return res.send(html);
+  return html;
 };
+
+export { fetchSite };
+export { render };
