@@ -57,6 +57,12 @@ export function fetchedFBPage(page) {
   };
 }
 
+export function clearFBURLPage() {
+  return {
+    type: types.FB_PAGE_CLEAR
+  };
+}
+
 export function analyticsSaveInit() {
   return {
     type: types.ANALYTICS_SAVE_INIT

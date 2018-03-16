@@ -27,6 +27,10 @@ class Create extends React.Component {
     }
   }
 
+  clearCurrentPage = () => {
+    return this.props.pageActions.clearFBURLPage();
+  };
+
   handleSubmit = fbPage => {
     return this.props.pageActions.pageFetchByFBURL(fbPage);
   };
@@ -34,17 +38,20 @@ class Create extends React.Component {
   changeTheme = id => this.setState({ selectedTheme: id });
 
   createPageURL(theme) {
-    const { fbUrlPage } = this.props;
+    const { fbUrlPage: { id } } = this.props;
     const extra = theme ? `&theme=${theme}` : "";
-    return `${config.REACT_APP_API_URL}/s/${fbUrlPage}?preview=true${extra}`;
+    return `${config.REACT_APP_API_URL}/s/${id}?preview=true${extra}`;
   }
 
   render() {
     const fetching = this.props.fbPageForm.fetching.value;
-    const { fbUrlPage, themesState: { themes } } = this.props;
+    const {
+      fbUrlPage: { id, name: pageName },
+      themesState: { themes }
+    } = this.props;
     return (
       <div>
-        {!fbUrlPage && (
+        {!id && (
           <div className="create-header">
             <h1 className="h1 headline">Lets create your website</h1>
             <p className="half-mb">Enter your Facebook Page URL to begin.</p>
@@ -70,39 +77,59 @@ class Create extends React.Component {
             </Form>
           </div>
         )}
-        {fbUrlPage && (
+        {id && (
           <div className="container create-content">
+            <div className="grid big-mb">
+              <div className="grid__item one-sixth">
+                <div className="create__flow__circle">1</div>
+              </div>
+              <div className="grid__item five-sixths">
+                <h2 className="h2 create-name">
+                  {pageName}{" "}
+                  <button
+                    onClick={this.clearCurrentPage}
+                    className="create-edit-nam butt butt--yellow">
+                    Different page?
+                  </button>
+                </h2>
+              </div>
+            </div>
             <div className="grid">
-              <div className="grid__item one-whole">
-                {themes.map(theme => {
-                  const { name, id, description } = theme;
-                  const themeImage = require(`../images/themes/${name}.png`);
-                  return (
-                    <div
-                      className="grid__item palm--one-whole one-half"
-                      key={id}
-                      onClick={() => this.changeTheme(id)}>
-                      <span className="themes__entry big-mb">
-                        <span className="themes__entry__preview">
-                          Select theme
+              <div className="grid__item one-sixth">
+                <div className="create__flow__circle">2</div>
+              </div>
+              <div className="grid__item five-sixths">
+                <div className="grid">
+                  {themes.map(theme => {
+                    const { name, id, description } = theme;
+                    const themeImage = require(`../images/themes/${name}.png`);
+                    return (
+                      <div
+                        className="grid__item palm--one-whole one-half"
+                        key={id}
+                        onClick={() => this.changeTheme(id)}>
+                        <span className="themes__entry big-mb">
+                          <span className="themes__entry__preview text-link">
+                            Select theme
+                          </span>
+                          <a
+                            href={this.createPageURL(theme.id)}
+                            target="_BLANK"
+                            className="themes__entry__open">
+                            Full preview
+                            <span className="inline-icon new-tab no-mr" />
+                          </a>
+                          {/* <img src={themeImage} /> */}
+                          <div className="basic-preview half-mb">
+                            <iframe src={this.createPageURL(theme.id)} />
+                          </div>
+                          <h3 className="no-mb title">{name}</h3>
+                          <p className="mini no-mb">{description}</p>
                         </span>
-                        <a
-                          href={this.createPageURL(theme.id)}
-                          target="_BLANK"
-                          className="themes__entry__open">
-                          Full preview
-                          <span className="inline-icon new-tab no-mr" />
-                        </a>
-                        {/* <img src={themeImage} /> */}
-                        <div className="basic-preview">
-                          <iframe src={this.createPageURL(theme.id)} />
-                        </div>
-                        <h3 className="no-mb title">{name}</h3>
-                        <p className="mini no-mb">{description}</p>
-                      </span>
-                    </div>
-                  );
-                })}
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>

@@ -289,8 +289,7 @@ class Facebook {
     } catch (e) {
       throw new ApiError(502, e);
     }
-    const { id } = res;
-    return id;
+    return res;
   }
 
   async fetchPage(

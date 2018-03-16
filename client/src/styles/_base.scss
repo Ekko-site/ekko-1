@@ -223,6 +223,18 @@ body .home-intro__headline {
 	font-weight: 200;
 }
 
+.create__flow__circle {
+	width: 60px;
+	height: 60px;
+	border-radius: 30px;
+	text-align: center;
+	font-size: 26px;
+	color: $raspberry;
+	padding-top: 12px;
+	font-weight: 200;
+	background: $yellow;
+}
+
 .home-extended-intro__flow__triangle {
 	width: 0;
 	height: 0;

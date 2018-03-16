@@ -13,7 +13,8 @@ import {
   LOGOUT,
   ANALYTICS_SAVED,
   ANALYTICS_SAVE_INIT,
-  FB_PAGE_FETCHED
+  FB_PAGE_FETCHED,
+  FB_PAGE_CLEAR
 } from "@/constants/action-types";
 
 import store from "@/etc/store";
@@ -29,7 +30,10 @@ const initialState = {
   toggling_page_online: false,
   analytics_saving: false,
   analytics_saved: false,
-  fb_url_page: null
+  fb_url_page: {
+    name: "It's Always Sunny in Philadelphia",
+    id: "10473091455"
+  }
 };
 
 export default function pageState(state = initialState, action) {
@@ -81,6 +85,11 @@ export default function pageState(state = initialState, action) {
       return {
         ...state,
         fb_url_page: action.page
+      };
+    case FB_PAGE_CLEAR:
+      return {
+        ...state,
+        fb_url_page: {}
       };
     case SWITCH_CURRENT_PAGE:
       if (action.id === state.current) return state;

@@ -2382,6 +2382,17 @@ body .home-intro__headline {
   padding-top: 12px;
   font-weight: 200; }
 
+.create__flow__circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  text-align: center;
+  font-size: 26px;
+  color: #DA4177;
+  padding-top: 12px;
+  font-weight: 200;
+  background: #FFE952; }
+
 .home-extended-intro__flow__triangle {
   width: 0;
   height: 0;
@@ -4280,6 +4291,10 @@ iframe.preview-iframe {
 .create-content {
   padding-top: 70px;
   padding-bottom: 70px; }
+
+.create-name .create-edit-name {
+  font-size: 0.8rem;
+  color: #313131; }
 
 .NavItem.active {
   border-bottom: 1px solid #e9eaec;

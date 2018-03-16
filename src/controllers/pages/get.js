@@ -5,8 +5,11 @@ import mail from "@/etc/mail";
 import formatPageForDisplay from "@/etc/format-page-for-display";
 import Slack from "@/etc/slack";
 
+const cache = {};
+
 const get = {
   async fetchPublicPageForPreview({ id, themeId }) {
+    if (cache[`${id}|${themeId}`]) return cache[`${id}|${themeId}`];
     const token = process.env.EKKO_FB_TOKEN;
     const facebook = new Facebook();
     const themes = new Themes();
@@ -24,6 +27,14 @@ const get = {
 
     page = formatPageForDisplay(page);
 
+    cache[`${id}|${themeId}`] = {
+      page,
+      theme: themeObj,
+      user: {
+        full_user: true
+      }
+    };
+
     return {
       page,
       theme: themeObj,
@@ -33,6 +44,7 @@ const get = {
     };
   },
   async fetchPublicPageByURL({ url }) {
+    if (cache[url]) return cache[url];
     const token = process.env.EKKO_FB_TOKEN;
     const facebook = new Facebook();
     let page;
@@ -41,7 +53,7 @@ const get = {
     } catch (error) {
       throw new Error(error);
     }
-
+    cache[url] = { page };
     return {
       page
     };
