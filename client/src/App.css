@@ -2285,6 +2285,11 @@ body .mt-big {
     width: 22px;
     height: 22px;
     margin-left: 8px; }
+  .inline-icon.new-tab {
+    background-image: url("./images/new-tab-icon.svg");
+    width: 22px;
+    height: 22px;
+    margin-left: 8px; }
   .inline-icon.no-mr {
     margin-right: 0; }
 
@@ -3695,9 +3700,9 @@ iframe.preview-iframe {
   @media only screen and (max-width: 680px) {
     .themes__entry {
       margin-bottom: 30px; } }
-  .themes__entry:hover .themes__entry__preview {
+  .themes__entry:hover .themes__entry__preview, .themes__entry:hover .themes__entry__open {
     opacity: 1; }
-  .themes__entry .themes__entry__preview {
+  .themes__entry .themes__entry__preview, .themes__entry .themes__entry__open {
     transition: all 0.2s ease-in-out;
     opacity: 0; }
   .themes__entry.themes-cta {
@@ -3712,6 +3717,16 @@ iframe.preview-iframe {
   position: absolute;
   top: 8px;
   right: 8px;
+  background-color: #FFE952;
+  border-radius: 3px;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+  color: #313131; }
+
+.themes__entry__open {
+  position: absolute;
+  top: 8px;
+  left: 8px;
   background-color: #FFE952;
   border-radius: 3px;
   padding: 2px 8px;
@@ -4277,6 +4292,11 @@ iframe.preview-iframe {
     left: 0;
     width: 100%;
     height: calc(100vh - 73px - 16px - 70px - 20px); }
+
+.basic-preview iframe {
+  border: 0;
+  width: 100%;
+  min-height: 500px; }
 
 .errors span {
   background: #db6a64;

@@ -7,7 +7,6 @@ import YouTube from "react-youtube";
 import FieldErrors from "@/components/forms/field-errors";
 import FormErrors from "@/components/forms/form-errors";
 import Loading from "@/components/loading";
-import Preview from "@/components/preview";
 
 import * as pageActions from "@/actions/page";
 import * as themeActions from "@/actions/theme";
@@ -18,7 +17,7 @@ class Create extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentTheme: null
+      selectedTheme: null
     };
   }
 
@@ -32,19 +31,17 @@ class Create extends React.Component {
     return this.props.pageActions.pageFetchByFBURL(fbPage);
   };
 
-  changeTheme = id => this.setState({ currentTheme: id });
+  changeTheme = id => this.setState({ selectedTheme: id });
 
-  createPageURL() {
+  createPageURL(theme) {
     const { fbUrlPage } = this.props;
-    const { currentTheme } = this.state;
-    const extra = currentTheme ? `&theme=${currentTheme}` : "";
+    const extra = theme ? `&theme=${theme}` : "";
     return `${config.REACT_APP_API_URL}/s/${fbUrlPage}?preview=true${extra}`;
   }
 
   render() {
     const fetching = this.props.fbPageForm.fetching.value;
     const { fbUrlPage, themesState: { themes } } = this.props;
-    const pageUrl = fbUrlPage && this.createPageURL();
     return (
       <div>
         {!fbUrlPage && (
@@ -76,9 +73,7 @@ class Create extends React.Component {
         {fbUrlPage && (
           <div className="container create-content">
             <div className="grid">
-              <div className="grid__item one-whole" />
-              <Preview url={pageUrl} basic />
-              <div className="grid">
+              <div className="grid__item one-whole">
                 {themes.map(theme => {
                   const { name, id, description } = theme;
                   const themeImage = require(`../images/themes/${name}.png`);
@@ -89,9 +84,19 @@ class Create extends React.Component {
                       onClick={() => this.changeTheme(id)}>
                       <span className="themes__entry big-mb">
                         <span className="themes__entry__preview">
-                          Preview theme
+                          Select theme
                         </span>
-                        <img src={themeImage} />
+                        <a
+                          href={this.createPageURL(theme.id)}
+                          target="_BLANK"
+                          className="themes__entry__open">
+                          Full preview
+                          <span className="inline-icon new-tab no-mr" />
+                        </a>
+                        {/* <img src={themeImage} /> */}
+                        <div className="basic-preview">
+                          <iframe src={this.createPageURL(theme.id)} />
+                        </div>
                         <h3 className="no-mb title">{name}</h3>
                         <p className="mini no-mb">{description}</p>
                       </span>

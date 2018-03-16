@@ -20,6 +20,14 @@
     }
 }
 
+.basic-preview {
+    iframe {
+        border: 0;
+        width: 100%;
+        min-height: 500px;
+    }
+}
+
 .errors {
     span {
         background: #db6a64;

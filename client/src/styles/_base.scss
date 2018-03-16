@@ -103,6 +103,12 @@ body .mt-big {
 		height: 22px;
 		margin-left: 8px;
 	}
+	&.new-tab {
+		background-image: url("./images/new-tab-icon.svg");
+		width: 22px;
+		height: 22px;
+		margin-left: 8px;
+	}
 	&.no-mr {
 		margin-right: 0;
 	}

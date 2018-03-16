@@ -323,11 +323,11 @@ iframe.preview-iframe {
 		margin-bottom: 30px;
 	}
 	&:hover {
-		.themes__entry__preview {
+		.themes__entry__preview, .themes__entry__open {
 			opacity: 1;
 		}
 	}
-	.themes__entry__preview {
+	.themes__entry__preview, .themes__entry__open {
         transition: all 0.2s ease-in-out;
 		opacity: 0;
 	}
@@ -345,6 +345,17 @@ iframe.preview-iframe {
 	position: absolute;
 	top: 8px;
 	right: 8px;
+	background-color: $yellow;
+	border-radius: 3px;
+	padding: 2px 8px;
+	font-size: 0.8rem;
+	color: $off-black;
+}
+
+.themes__entry__open {
+	position: absolute;
+	top: 8px;
+	left: 8px;
 	background-color: $yellow;
 	border-radius: 3px;
 	padding: 2px 8px;
