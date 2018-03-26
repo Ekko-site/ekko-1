@@ -14,7 +14,8 @@ const whitelist = [
   "/api/directdebit/webhook",
   "/api/users/change-password",
   "/api/users/request-password-reset",
-  "/api/pages/public/by-url"
+  "/api/pages/public/by-url",
+  "/api/themes/"
 ];
 
 const getUserFromToken = async (
@@ -60,7 +61,7 @@ const hasTokenInHeader = req => {
 };
 
 const api = async req => {
-  if (whitelist.indexOf(req.originalUrl) > -1) {
+  if (whitelist.includes(req.originalUrl)) {
     req.user = await getUserFromToken(req, { whitelist: true });
     return req;
   }

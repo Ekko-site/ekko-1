@@ -4291,10 +4291,24 @@ iframe.preview-iframe {
 .create-content {
   padding-top: 70px;
   padding-bottom: 70px; }
+  .create-content .h2 {
+    margin-bottom: 0; }
+  .create-content .grid__item {
+    vertical-align: middle; }
 
 .create-name .create-edit-name {
   font-size: 0.8rem;
   color: #313131; }
+
+.create-theme-name {
+  text-transform: capitalize; }
+
+.create-preview-link {
+  margin-left: 10px;
+  font-weight: 400; }
+
+.create-buy {
+  margin-right: 10px; }
 
 .NavItem.active {
   border-bottom: 1px solid #e9eaec;

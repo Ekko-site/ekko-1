@@ -3,6 +3,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Form, Control } from "react-redux-form";
 import YouTube from "react-youtube";
+import Link from "redux-first-router-link";
 
 import FieldErrors from "@/components/forms/field-errors";
 import FormErrors from "@/components/forms/form-errors";
@@ -11,13 +12,15 @@ import Loading from "@/components/loading";
 import * as pageActions from "@/actions/page";
 import * as themeActions from "@/actions/theme";
 
+import Stripe from "@/components/settings/stripe";
+
 const config = process.env;
 
 class Create extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTheme: null
+      selectedTheme: 3
     };
   }
 
@@ -31,6 +34,8 @@ class Create extends React.Component {
     return this.props.pageActions.clearFBURLPage();
   };
 
+  clearCurrentTheme = () => this.setState({ selectedTheme: null });
+
   handleSubmit = fbPage => {
     return this.props.pageActions.pageFetchByFBURL(fbPage);
   };
@@ -43,12 +48,48 @@ class Create extends React.Component {
     return `${config.REACT_APP_API_URL}/s/${id}?preview=true${extra}`;
   }
 
+  themeNameById(id) {
+    if (!this.props.themesState.themes.length) return;
+    return this.props.themesState.themes.find(t => t.id === id).name;
+  }
+
+  createPreviewLink(id) {
+    return (
+      <a
+        href={this.createPageURL(id)}
+        target="_BLANK"
+        className="themes__entry__open">
+        Full preview
+        <span className="inline-icon new-tab no-mr" />
+      </a>
+    );
+  }
+
+  getCTA() {
+    return (
+      <div className="grid">
+        <div className="grid__item one-sixth">
+          <div className="create__flow__circle">3</div>
+        </div>
+        <div className="grid__item five-sixths">
+          <Stripe />
+          <Link
+            to="/sign-up"
+            className="create-sign-up butt butt--big butt--yellow">
+            Sign Up
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
   render() {
     const fetching = this.props.fbPageForm.fetching.value;
     const {
       fbUrlPage: { id, name: pageName },
       themesState: { themes }
     } = this.props;
+    const { selectedTheme } = this.state;
     return (
       <div>
         {!id && (
@@ -88,50 +129,64 @@ class Create extends React.Component {
                   {pageName}{" "}
                   <button
                     onClick={this.clearCurrentPage}
-                    className="create-edit-nam butt butt--yellow">
+                    className="create-edit-name butt butt--yellow">
                     Different page?
                   </button>
                 </h2>
               </div>
             </div>
-            <div className="grid">
+            <div className="grid big-mb">
               <div className="grid__item one-sixth">
                 <div className="create__flow__circle">2</div>
               </div>
               <div className="grid__item five-sixths">
-                <div className="grid">
-                  {themes.map(theme => {
-                    const { name, id, description } = theme;
-                    const themeImage = require(`../images/themes/${name}.png`);
-                    return (
-                      <div
-                        className="grid__item palm--one-whole one-half"
-                        key={id}
-                        onClick={() => this.changeTheme(id)}>
-                        <span className="themes__entry big-mb">
-                          <span className="themes__entry__preview text-link">
-                            Select theme
+                {!!selectedTheme && (
+                  <div>
+                    <h2 className="h2 create-theme-name">
+                      {this.themeNameById(selectedTheme)}{" "}
+                      <button
+                        onClick={this.clearCurrentTheme}
+                        className="create-edit-name butt butt--yellow">
+                        Different theme?
+                      </button>
+                      <a
+                        href={this.createPageURL(selectedTheme)}
+                        target="_BLANK"
+                        className="create-preview-link butt butt--yellow ml-1">
+                        Full preview
+                        <span className="inline-icon new-tab no-mr" />
+                      </a>
+                    </h2>
+                  </div>
+                )}
+                {!selectedTheme && (
+                  <div className="grid">
+                    {themes.map(theme => {
+                      const { name, id, description } = theme;
+                      return (
+                        <div
+                          className="grid__item palm--one-whole one-half"
+                          key={id}
+                          onClick={() => this.changeTheme(id)}>
+                          <span className="themes__entry big-mb">
+                            <span className="themes__entry__preview text-link">
+                              Select theme
+                            </span>
+                            {this.createPreviewLink(theme.id)}
+                            <div className="basic-preview half-mb">
+                              <iframe src={this.createPageURL(theme.id)} />
+                            </div>
+                            <h3 className="no-mb title">{name}</h3>
+                            <p className="mini no-mb">{description}</p>
                           </span>
-                          <a
-                            href={this.createPageURL(theme.id)}
-                            target="_BLANK"
-                            className="themes__entry__open">
-                            Full preview
-                            <span className="inline-icon new-tab no-mr" />
-                          </a>
-                          {/* <img src={themeImage} /> */}
-                          <div className="basic-preview half-mb">
-                            <iframe src={this.createPageURL(theme.id)} />
-                          </div>
-                          <h3 className="no-mb title">{name}</h3>
-                          <p className="mini no-mb">{description}</p>
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             </div>
+            {!!selectedTheme && this.getCTA()}
           </div>
         )}
       </div>
