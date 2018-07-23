@@ -53,7 +53,7 @@ const About = () => {
                   <p>
                     👉
                     <a href="mailto:ben@ekko.site">Email</a>
-                    <a href="http://twitter.com/benhowdle">Twitter</a>
+                    <a href="http://twitter.com/ben_howdle">Twitter</a>
                     <a href="https://blog.ekko.site/@benhowdle">Blog</a>
                   </p>
                 </div>

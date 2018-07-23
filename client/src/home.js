@@ -15,17 +15,6 @@ $(window).scroll(function() {
 });
 
 const homepageInit = () => {
-  // Fade in effects
-
-  // const waypoint = new Waypoint({
-  //     element: document.querySelector('.home-extended-intro'),
-  //     handler: direction => {
-  //         $('.home-extended-intro').addClass('visible');
-  //     },
-  //     offset: '60%',
-  //     triggerOnce: true
-  // })
-
   // The intro fade ins
 
   setTimeout(function() {
