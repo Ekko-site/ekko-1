@@ -19,9 +19,7 @@ const config = process.env;
 class Create extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      selectedTheme: 3
-    };
+    this.state = {};
   }
 
   componentDidMount() {

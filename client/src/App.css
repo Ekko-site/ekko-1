@@ -4152,17 +4152,20 @@ iframe.preview-iframe {
       .about-content .founders, .about-contributors .founders {
         flex-direction: column; } }
     .about-content .founders .founder, .about-contributors .founders .founder {
-      width: 45%;
-      margin-right: 22.5px;
-      margin-left: 22.5px;
-      margin-bottom: 45px; }
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 45px;
+      text-align: center;
+      width: 75%; }
       @media only screen and (max-width: 680px) {
         .about-content .founders .founder, .about-contributors .founders .founder {
           width: 100%;
           margin-right: 0;
           margin-left: 0; } }
-      .about-content .founders .founder:last-of-type, .about-contributors .founders .founder:last-of-type {
-        margin-right: 0; }
       .about-content .founders .founder .founder-media, .about-contributors .founders .founder .founder-media {
         display: flex;
         align-items: flex-start;
@@ -4191,7 +4194,7 @@ iframe.preview-iframe {
             .about-content .founders .founder .founder-media .avatar, .about-contributors .founders .founder .founder-media .avatar {
               margin: auto; } }
           .about-content .founders .founder .founder-media .avatar#founder-ben, .about-contributors .founders .founder .founder-media .avatar#founder-ben {
-            background-image: url("./images/people/ben.png"); }
+            background-image: url("./images/people/ben.jpg"); }
           .about-content .founders .founder .founder-media .avatar#founder-sam, .about-contributors .founders .founder .founder-media .avatar#founder-sam {
             background-image: url("./images/people/sam.png"); }
           .about-content .founders .founder .founder-media .avatar#founder-luke, .about-contributors .founders .founder .founder-media .avatar#founder-luke {
@@ -4204,14 +4207,12 @@ iframe.preview-iframe {
             background-image: url("./images/people/dan-edwards.jpg"); }
         .about-content .founders .founder .founder-media h3, .about-contributors .founders .founder .founder-media h3 {
           margin-bottom: 5px; }
-      .about-content .founders .founder .founder-connect, .about-contributors .founders .founder .founder-connect {
-        margin-right: auto; }
-        .about-content .founders .founder .founder-connect a, .about-contributors .founders .founder .founder-connect a {
-          margin: 0 12.5px;
-          border-right: 2px rgba(0, 0, 0, 0.1) solid;
-          padding-right: 25px; }
-          .about-content .founders .founder .founder-connect a:last-of-type, .about-contributors .founders .founder .founder-connect a:last-of-type {
-            border-right: none; }
+      .about-content .founders .founder .founder-connect a, .about-contributors .founders .founder .founder-connect a {
+        margin: 0 12.5px;
+        border-right: 2px rgba(0, 0, 0, 0.1) solid;
+        padding-right: 25px; }
+        .about-content .founders .founder .founder-connect a:last-of-type, .about-contributors .founders .founder .founder-connect a:last-of-type {
+          border-right: none; }
 
 .about-contributors {
   background: #f5f5f5; }

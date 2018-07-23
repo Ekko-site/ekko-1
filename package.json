@@ -16,6 +16,7 @@
     "dnsimple": "2.4.0",
     "dotenv": "^5.0.0",
     "es6-promise": "^4.0.5",
+    "eslint": "^5.1.0",
     "express": "4.14.0",
     "fb": "^2.0.0-alpha1",
     "fs-extra": "^5.0.0",
@@ -52,11 +53,13 @@
   },
   "scripts": {
     "test": "",
+    "postinstall": "npm run themes",
     "build": "babel src --out-dir dist",
     "start": "sequelize db:migrate --config config/production.js && babel-node scripts/themes.js production && node dist/server.js",
     "client": "cd client && yarn start",
     "server": "nodemon",
     "dev": "sequelize db:migrate && babel-node scripts/themes.js development && concurrently --names \"API,CLIENT\" --prefix-colors \"magenta,yellow\" --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "themes": "npm-run-all themes:*:*",
     "themes:build:css": "babel-node scripts/themes-sass.js",
     "themes:build:install": "babel-node scripts/themes-install.js",
     "themes:client:build": "babel-node scripts/themes-client-build.js"

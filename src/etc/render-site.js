@@ -11,9 +11,14 @@ export default async (
   { params: { facebookPageID }, query: { theme: themeID, preview } },
   res
 ) => {
-  const site = await fetchSite({ facebookPageID, themeID, preview });
-  const html = await render(site);
-  return res.send(html);
+  try {
+    const site = await fetchSite({ facebookPageID, themeID, preview });
+    const html = await render(site);
+    return res.send(html);  
+  } catch (error) {
+    return res.sendStatus(500)
+  }
+  
 };
 
 const fetchSite = async ({ facebookPageID, themeID, preview }) => {
