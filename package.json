@@ -49,7 +49,22 @@
     "stripe": "^4.5.0",
     "supertest": "^2.0.1",
     "uglifyify": "^4.0.5",
-    "winston": "^2.2.0"
+    "winston": "^2.2.0",
+    "@babel/core": "^7.0.0-beta.39",
+    "@babel/node": "^7.0.0-beta.39",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.39",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.39",
+    "@babel/preset-react": "^7.0.0-beta.39",
+    "ava": "^0.16.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
+    "babel-plugin-root-import": "^5.1.0",
+    "babel-plugin-transform-builtin-extend": "^1.1.2",
+    "concurrently": "^3.5.0",
+    "nodemon": "1.11.0",
+    "sinon": "^1.17.5"
   },
   "scripts": {
     "test": "true",
@@ -78,20 +93,6 @@
   "author": "Ben Howdle <hello@benhowdle.im> (http://benhowdle.im/)",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.39",
-    "@babel/node": "^7.0.0-beta.39",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.39",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.40",
-    "@babel/preset-env": "^7.0.0-beta.39",
-    "@babel/preset-react": "^7.0.0-beta.39",
-    "ava": "^0.16.0",
-    "babel-cli": "^6.26.0",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-dynamic-import-node": "^1.2.0",
-    "babel-plugin-root-import": "^5.1.0",
-    "babel-plugin-transform-builtin-extend": "^1.1.2",
-    "concurrently": "^3.5.0",
-    "nodemon": "1.11.0",
-    "sinon": "^1.17.5"
+    
   }
 }
