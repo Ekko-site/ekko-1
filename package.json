@@ -54,6 +54,7 @@
   "scripts": {
     "test": "true",
     "build": "babel src --out-dir dist",
+    "heroku-postbuild": "cd client/ && yarn install && yarn install --only=dev --no-shrinkwrap && yarn build",
     "start": "npm run themes && sequelize db:migrate --config config/production.js && babel-node scripts/themes.js production && node dist/server.js",
     "client": "cd client && yarn start",
     "server": "nodemon",
