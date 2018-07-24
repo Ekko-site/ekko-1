@@ -69,7 +69,7 @@
     "test": "true",
     "build": "babel src --out-dir dist",
     "heroku-postbuild": "cd client/ && npm install --only=dev && npm install && npm run build",
-    "start": "npm run themes && sequelize db:migrate --config config/production.js && babel-node scripts/themes.js production && node dist/server.js",
+    "start": "npm run build && npm run themes && sequelize db:migrate --config config/production.js && babel-node scripts/themes.js production && node dist/server.js",
     "client": "cd client && yarn start",
     "server": "nodemon",
     "dev": "npm run themes && sequelize db:migrate && babel-node scripts/themes.js development && concurrently --names \"API,CLIENT\" --prefix-colors \"magenta,yellow\" --kill-others-on-fail \"yarn server\" \"yarn client\"",
