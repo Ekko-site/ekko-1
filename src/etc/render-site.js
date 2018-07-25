@@ -14,11 +14,10 @@ export default async (
   try {
     const site = await fetchSite({ facebookPageID, themeID, preview });
     const html = await render(site);
-    return res.send(html);  
+    return res.send(html);
   } catch (error) {
-    return res.sendStatus(500)
+    return res.sendStatus(500);
   }
-  
 };
 
 const fetchSite = async ({ facebookPageID, themeID, preview }) => {
@@ -37,10 +36,6 @@ const render = async ({ page, theme }) => {
   const Theme = await import(`${themePath}/js/layout`);
   const themeClient = await fse.readFile(
     `${__dirname}/../themes/${name}/js/built.js`,
-    "utf-8"
-  );
-  const css = await fse.readFile(
-    `${__dirname}/../themes/${name}/css/app.css`,
     "utf-8"
   );
   const html = ReactDOMServer.renderToString(

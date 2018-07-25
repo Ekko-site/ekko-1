@@ -10,7 +10,6 @@ const build = async theme => {
       debug: false
     })
       .transform("uglifyify", { global: true })
-      .transform(babelify)
       .bundle()
       .pipe(fse.createWriteStream(`${themePath}/js/built.js`));
     return resolve();
