@@ -335,12 +335,14 @@ body.toastr-confirm-active {
   margin: 10px auto;
   max-width: 100%; }
 
-/*------------------------------------*    STYLE.CSS
+/*------------------------------------*\
+    STYLE.CSS
 \*------------------------------------*/
 /**
  * Setup/imports
  */
-/*------------------------------------*    $CSSWIZARDRY-GRIDS
+/*------------------------------------*\
+    $CSSWIZARDRY-GRIDS
 \*------------------------------------*/
 /**
  * CONTENTS
@@ -352,7 +354,8 @@ body.toastr-confirm-active {
  * PUSH.................Push classes.
  * PULL.................Pull classes.
  */
-/*------------------------------------*    $INTRODUCTION
+/*------------------------------------*\
+    $INTRODUCTION
 \*------------------------------------*/
 /**
  * csswizardry grids provides you with widths to suit a number of breakpoints
@@ -394,7 +397,8 @@ body.toastr-confirm-active {
  *
    `class="grid__item  palm--one-third  desk--five-twelfths"`
  */
-/*------------------------------------*    $VARIABLES
+/*------------------------------------*\
+    $VARIABLES
 \*------------------------------------*/
 /**
  * If you are building a non-responsive site but would still like to use
@@ -444,7 +448,8 @@ body.toastr-confirm-active {
  * You do not need to edit anything from this line onward; csswizardry-grids is
  * good to go. Happy griddin’!
  */
-/*------------------------------------*    $MIXINS
+/*------------------------------------*\
+    $MIXINS
 \*------------------------------------*/
 /**
  * These mixins are for the library to use only, you should not need to modify
@@ -456,7 +461,8 @@ body.toastr-confirm-active {
  * Drop relative positioning into silent classes which can’t take advantage of
  * the `[class*="push--"]` and `[class*="pull--"]` selectors.
  */
-/*------------------------------------*    $GRID SETUP
+/*------------------------------------*\
+    $GRID SETUP
 \*------------------------------------*/
 /**
  * 1. Allow the grid system to be used on lists.
@@ -559,7 +565,8 @@ body.toastr-confirm-active {
   .grid--wide > .grid__item {
     padding-left: 70px; }
 
-/*------------------------------------*    $WIDTHS
+/*------------------------------------*\
+    $WIDTHS
 \*------------------------------------*/
 /**
  * Create our width classes, prefixed by the specified namespace.
@@ -977,7 +984,8 @@ body.toastr-confirm-active {
   .desk--eleven-twelfths {
     width: 91.666%; } }
 
-/*------------------------------------*    $PUSH
+/*------------------------------------*\
+    $PUSH
 \*------------------------------------*/
 /**
  * Push classes, to move grid items over to the right by certain amounts.
@@ -1395,7 +1403,8 @@ body.toastr-confirm-active {
   .push--desk--eleven-twelfths {
     left: 91.666%; } }
 
-/*------------------------------------*    $PULL
+/*------------------------------------*\
+    $PULL
 \*------------------------------------*/
 /**
  * Pull classes, to move grid items back to the left by certain amounts.
