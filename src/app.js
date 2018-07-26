@@ -53,7 +53,7 @@ const onError = (err, req, res, next) => {
 //     app.use(raven.middleware.express.errorHandler(ravenURL))
 // }
 
-app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.join(__dirname, "/../client/build")));
 
 app.use("/api/:controller", (req, res, next) => {
   return router(req, res, next, ravenClient);
@@ -62,7 +62,7 @@ app.get("/download/:facebookPageID", downloadSite);
 app.get("/s/:facebookPageID", renderSite);
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
+  res.sendFile(path.join(__dirname + "/../client/build/index.html"));
 });
 
 //app.use(onError)
