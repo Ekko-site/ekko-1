@@ -37,10 +37,10 @@
     "lodash.groupby": "^4.6.0",
     "moment": "^2.20.1",
     "namecheap-api": "^1.0.2",
-    "node-slack": "0.0.7",
-    "nodemon": "1.11.0",
     "node-sass": "^4.7.2",
     "node-sass-chokidar": "^0.0.3",
+    "node-slack": "0.0.7",
+    "nodemon": "1.11.0",
     "npm-run-all": "^4.1.2",
     "parse-domain": "^1.0.0",
     "path-to-regexp": "^1.7.0",
@@ -65,8 +65,8 @@
   "scripts": {
     "test": "true",
     "build": "babel src --out-dir dist --copy-files --include-dotfiles --ignore 'node_modules'",
-    "heroku-postbuild": "cd client/ && npm install --only=dev && npm install && npm run build",
-    "start": "npm run build && npm run themes && sequelize db:migrate --config config/production.js && babel-node scripts/themes.js production && node dist/server.js",
+    "heroku-postbuild": "npm run webpack && npm run themes && npm run build && cd client/ && npm install --only=dev && npm install && npm run build",
+    "start": "sequelize db:migrate --config config/production.js && babel-node scripts/themes.js production && node dist/server.js",
     "client": "cd client && yarn start",
     "server": "nodemon",
     "dev": "sequelize db:migrate && babel-node scripts/themes.js development && concurrently --names \"API,CLIENT\" --prefix-colors \"magenta,yellow\" --kill-others-on-fail \"yarn server\" \"yarn client\"",
@@ -92,6 +92,7 @@
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1"
+    "babel-preset-react": "^6.24.1",
+    "webpack-command": "^0.4.1"
   }
 }
