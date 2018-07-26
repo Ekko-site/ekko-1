@@ -21,7 +21,7 @@ const build = async theme => {
     const themeDirs = await fse.readdir(`${__dirname}/../src/themes/`);
     const themes = themeDirs
       .filter(junk.not)
-      .filter(d => !["components", "layouts"].includes(d));
+      .filter(d => !["components", "layouts", "webpack.config.js"].includes(d));
     const built = await Promise.all(themes.map(build));
   } catch (error) {
     console.error(error);

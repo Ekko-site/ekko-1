@@ -1,16 +1,16 @@
 {
-  "presets": ["@babel/preset-env", "@babel/react"],
-  "plugins": [
-    "@babel/plugin-proposal-object-rest-spread",
-    "add-module-exports",
-    ["babel-plugin-root-import", {
-      "rootPathSuffix": "src",
-      "rootPathPrefix": "@"
-    }],
-    "@babel/plugin-syntax-dynamic-import",
-    "dynamic-import-node",
-    ["babel-plugin-transform-builtin-extend", {
-        "globals": ["Error"]
-    }]
-  ]
-}
+    "presets": ["env", "react"],
+    "plugins": [
+      "transform-object-rest-spread",
+      "add-module-exports",
+      ["babel-plugin-root-import", {
+        "rootPathSuffix": "src",
+        "rootPathPrefix": "@"
+      }],
+      "syntax-dynamic-import",
+      "dynamic-import-node",
+      ["babel-plugin-transform-builtin-extend", {
+          "globals": ["Error"]
+      }]
+    ]
+  }

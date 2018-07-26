@@ -16,6 +16,7 @@ export default async (
     const html = await render(site);
     return res.send(html);
   } catch (error) {
+    console.error(error);
     return res.sendStatus(500);
   }
 };
@@ -39,7 +40,7 @@ const render = async ({ page, theme }) => {
     "utf-8"
   );
   const html = ReactDOMServer.renderToString(
-    <Layout data={page.data} css={css} clientJS={themeClient}>
+    <Layout data={page.data} clientJS={themeClient}>
       <Theme doc={page} />
     </Layout>
   );
