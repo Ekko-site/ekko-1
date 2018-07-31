@@ -51,6 +51,7 @@
     "react-redux-toastr": "^7.2.1",
     "react-slick": "^0.17.1",
     "react-stripe-checkout": "^2.6.3",
+    "react-stripe-elements": "^2.0.1",
     "react-universal-component": "^2.5.0",
     "react-youtube": "^7.5.0",
     "rebass": "^1.0.4",
