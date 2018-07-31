@@ -142,7 +142,7 @@ class Settings extends React.Component {
         </div>
         <div className="grid">
           <div className="grid__item palm--one-whole one-half">
-            <div className="block big-mb">
+            <div className="block mb--palm">
               <h3 className="half-mb">Your subscription</h3>
               {user &&
                 user.StripeCustomerId && [
@@ -192,6 +192,8 @@ class Settings extends React.Component {
                   />
                 )}
             </div>
+          </div>
+          <div className="grid__item palm--one-whole one-half">
             <Account
               updating_password={updating_password}
               updated_password={updated_password}
@@ -202,7 +204,8 @@ class Settings extends React.Component {
               handleCancel={this.props.authActions.deleteAccount}
             />
           </div>
-          {fullUser && (
+        </div>
+        {/* {fullUser && (
             <div className="grid__item palm--one-whole one-half">
               <div className="block mb--palm">
                 <h3 className="half-mb">Your domain</h3>
@@ -255,8 +258,7 @@ class Settings extends React.Component {
                   )}
               </div>
             </div>
-          )}
-        </div>
+          )} */}
       </div>
     );
   }
