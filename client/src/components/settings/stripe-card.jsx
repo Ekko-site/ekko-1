@@ -26,9 +26,9 @@ class StripeCard extends React.Component {
 
   formSubmitted = async event => {
     event.preventDefault();
-    const { token } = await this.createToken();
+    const result = await this.createToken();
     this.props.onTokenFetch();
-    this.stripeResponseHandler(token);
+    this.stripeResponseHandler(result);
     return false;
   };
 
