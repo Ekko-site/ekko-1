@@ -38,7 +38,7 @@ class Home extends React.Component {
     return (
       <div>
         <Helmet
-          title="Ekko - Create your website in seconds, using your Facebook page"
+          title="Ekko - Always up-to-date marketing for your business"
           meta={[
             {
               name: "description",
@@ -64,17 +64,17 @@ class Home extends React.Component {
                     className="big-circle animated-slow"
                   />
                 </span>
-                Create your{" "}
+                Always up-to-date{" "}
                 <span className="home-intro__headline__create-website">
-                  website
+                  marketing
                 </span>{" "}
-                in seconds, using your{" "}
+                for{" "}
                 <span className="home-intro__headline__fb-page">
-                  Facebook page
+                  your business
                 </span>
                 <p className="main-cta animated-faster no-mb">
                   <Link to="/create" className="butt butt--big">
-                    Create my website
+                    Start Your Free Trial
                   </Link>
                 </p>
               </h1>
@@ -127,7 +127,7 @@ class Home extends React.Component {
         <div className="just-works cf">
           <div className="just-works__bg-area">
             <div className="just-works__slide just-works__slide--1">
-              <span>Your Facebook page&hellip;</span>
+              <span>Your Facebook content&hellip;</span>
             </div>
             <div className="just-works__slide just-works__slide--2">
               <span>&hellip;transformed into a website</span>
@@ -142,9 +142,9 @@ class Home extends React.Component {
                 </h3>
                 <h3 className="h2 big-mb just-works__subtitle" />
                 <p>
-                  In Ekko's hosted version, as you make a change on your
-                  Facebook Page, or post a new status, your website is instantly
-                  updated. No more out-of-date content.
+                  As you make a change on your Facebook Page, or post a new
+                  status, your website is instantly updated. No more out-of-date
+                  content.
                 </p>
                 <p>
                   If you know how to use Facebook, you know how to use Ekko.
@@ -188,7 +188,7 @@ class Home extends React.Component {
                   </p>
                   <p className="no-mb">
                     <Link to="/create" className="butt butt--big butt--yellow">
-                      Create my new website now
+                      Start Your Free Trial
                     </Link>
                   </p>
                 </div>
@@ -218,4 +218,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);
