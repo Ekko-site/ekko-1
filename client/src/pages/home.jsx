@@ -5,6 +5,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import Slider from "react-slick";
 import Helmet from "react-helmet";
+import YouTube from "react-youtube";
 
 import * as authActions from "@/actions/auth";
 import Mailchimp from "@/components/mailchimp";
@@ -78,6 +79,107 @@ class Home extends React.Component {
                   </Link>
                 </p>
               </h1>
+            </div>
+          </div>
+        </div>
+        <div className="home-extended-intro cf" id="learn-more">
+          <div className="container">
+            <div className="grid">
+              <div className="grid__item one-whole">
+                <div className="video-container">
+                  <YouTube
+                    videoId="aRTUe5kUGYI"
+                    opts={{
+                      height: "540",
+                      width: "960",
+                      playerVars: {
+                        rel: 0,
+                        controls: 1,
+                        modestbranding: 1,
+                        showinfo: 0
+                      }
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="pricing" id="pricing">
+          <div className="container">
+            <div className="grid">
+              <div className="grid__item palm--one-whole desk--one-half">
+                <ol className="home-extended-intro__flow">
+                  <span className="border" />
+                  <li>
+                    <div className="grid cf">
+                      <div className="grid__item one-sixth">
+                        <div className="home-extended-intro__flow__circle">
+                          1
+                        </div>
+                      </div>
+                      <div className="grid__item five-sixths">
+                        <div className="home-extended-intro__flow__text">
+                          <p>
+                            Update your Facebook page — whether that’s a new
+                            status, biography, a photo, or simply new opening
+                            hours.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="grid cf">
+                      <div className="grid__item one-sixth">
+                        <div className="home-extended-intro__flow__triangle">
+                          <span>2</span>
+                        </div>
+                      </div>
+                      <div className="grid__item five-sixths">
+                        <div className="home-extended-intro__flow__text">
+                          <p>
+                            Facebook informs Ekko of this update and we fetch
+                            your latest Page content.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li className="home-extended-intro__flow__final">
+                    <div className="grid cf">
+                      <div className="grid__item one-sixth">
+                        <div className="home-extended-intro__flow__circle">
+                          3
+                        </div>
+                      </div>
+                      <div className="grid__item five-sixths">
+                        <div className="home-extended-intro__flow__text">
+                          <p className="no-mb">
+                            Your site content is instantly updated to reflect
+                            your Facebook Page's content. You don't need to do a
+                            thing!
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+              <div className="grid__item palm--one-whole desk--one-half push--one-twelfth">
+                <div className="pricing__copy-content">
+                  <p>
+                    <span className="card-icon" />
+                  </p>
+                  <h2
+                    className="h1"
+                    style={{
+                      lineHeight: "1.35"
+                    }}>
+                    Just <strong>&#36;9.99</strong> a month
+                  </h2>
+                </div>
+              </div>
             </div>
           </div>
         </div>

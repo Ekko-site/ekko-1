@@ -2377,9 +2377,6 @@ body .home-intro__headline {
     -webkit-transition: all 3.5s ease-in-out;
     transition: all 3.5s ease-in-out; }
 
-.home-extended-intro__flow__final {
-  background-color: #FFE952; }
-
 .home-extended-intro__flow__circle {
   background-color: #fff;
   width: 60px;
@@ -2667,12 +2664,9 @@ body .home-intro__headline {
 
 .pricing {
   background-color: #DA4177;
-  background-image: url("./images/thin-white-arrow.svg");
-  background-repeat: no-repeat;
-  background-position: center 200px;
   color: #fff;
   padding-top: 70px;
-  padding-bottom: 120px; }
+  padding-bottom: 70px; }
   @media only screen and (max-width: 680px) {
     .pricing {
       background-image: none; } }

@@ -208,7 +208,7 @@ body .home-intro__headline {
 }
 
 .home-extended-intro__flow__final {
-	background-color: $yellow;
+	
 }
 
 .home-extended-intro__flow__circle {
@@ -543,12 +543,9 @@ body .home-intro__headline {
 
 .pricing {
 	background-color: $raspberry;
-	background-image: url("./images/thin-white-arrow.svg");
-	background-repeat: no-repeat;
-	background-position: center 200px;
 	color: #fff;
 	padding-top: 70px;
-	padding-bottom: 120px;
+	padding-bottom: 70px;
 	@include grid-media-query(palm) {
 		background-image: none;
 	}

@@ -21,25 +21,25 @@ const homepageInit = () => {
     $(".home-intro__headline__fb-page").addClass("active");
     $(".fb-circle-img")
       .addClass("flipInX")
-      .delay(1000)
+      .delay(500)
       .queue(function(next) {
         next();
         $(".loader")
           .addClass("spinning")
-          .delay(1000)
+          .delay(500)
           .queue(function(next) {
             next();
             $(".home-intro__headline__fb-page").removeClass("active");
             $(".loader").addClass("hide");
             $(".triangle")
               .addClass("fadeInUpLeft")
-              .delay(600)
+              .delay(400)
               .queue(function(next) {
                 next();
                 $(".home-intro__headline__create-website").addClass("active");
                 $(".big-circle")
                   .addClass("bounceIn")
-                  .delay(800)
+                  .delay(500)
                   .queue(function(next) {
                     next();
                     $(".shape-wrapper")
