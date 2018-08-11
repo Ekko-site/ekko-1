@@ -73,7 +73,7 @@ class Home extends React.Component {
                   your business
                 </span>
                 <p className="main-cta animated-faster no-mb">
-                  <Link to="/create" className="butt butt--big">
+                  <Link to="/sign-up" className="butt butt--big">
                     Start Your Free Trial
                   </Link>
                 </p>
@@ -187,7 +187,7 @@ class Home extends React.Component {
                     <em>Ready?</em>
                   </p>
                   <p className="no-mb">
-                    <Link to="/create" className="butt butt--big butt--yellow">
+                    <Link to="/sign-up" className="butt butt--big butt--yellow">
                       Start Your Free Trial
                     </Link>
                   </p>

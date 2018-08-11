@@ -72,6 +72,7 @@
     "dev": "sequelize db:migrate && babel-node scripts/themes.js development && concurrently --names \"API,CLIENT\" --prefix-colors \"magenta,yellow\" --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "themes": "npm-run-all themes:*:*",
     "themes:build:install": "babel-node scripts/themes-install.js",
+    "themes:build:sass": "babel-node scripts/themes-sass.js",
     "webpack": "webpack --config src/themes/webpack.config.js; true;"
   },
   "ava": {

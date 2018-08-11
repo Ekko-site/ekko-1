@@ -39,8 +39,12 @@ const render = async ({ page, theme }) => {
     `${__dirname}/../themes/${name}/js/built.js`,
     "utf-8"
   );
+  const themeCSS = await fse.readFile(
+    `${__dirname}/../themes/${name}/css/app.css`,
+    "utf-8"
+  );
   const html = ReactDOMServer.renderToString(
-    <Layout data={page.data} clientJS={themeClient}>
+    <Layout css={themeCSS} data={page.data} clientJS={themeClient}>
       <Theme doc={page} />
     </Layout>
   );
