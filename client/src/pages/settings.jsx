@@ -129,9 +129,7 @@ class Settings extends React.Component {
         <div className="grid">
           <div className="grid__item palm--one-whole two-thirds">
             <h1>Settings</h1>
-            <p className="big-mb">
-              Manage your subscription, account and domain.
-            </p>
+            <p className="big-mb">Manage your account.</p>
             {!!Object.keys(this.props.authState.upgrade_error).length && (
               <UpgradeErrors error={this.props.authState.upgrade_error} />
             )}
