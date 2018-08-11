@@ -46,20 +46,21 @@ class StripeCard extends React.Component {
             {user.StripeCustomerId.last4}
           </p>
         </div>
-        {!this.state.showUpdateCardDetails && (
-          <p className="half-mb">
-            Update your{" "}
-            <span
-              className="text-button"
-              onClick={() =>
-                this.setState({
-                  showUpdateCardDetails: true
-                })
-              }>
-              card details?
-            </span>
-          </p>
-        )}
+        {!this.state.showUpdateCardDetails &&
+          1 == 2 && (
+            <p className="half-mb">
+              Update your{" "}
+              <span
+                className="text-button"
+                onClick={() =>
+                  this.setState({
+                    showUpdateCardDetails: true
+                  })
+                }>
+                card details?
+              </span>
+            </p>
+          )}
         {cardUpdated && <p>Card details updated!</p>}
         {this.state.showUpdateCardDetails &&
           !cardUpdated && (

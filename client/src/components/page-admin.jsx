@@ -79,7 +79,7 @@ class PageAdmin extends React.Component {
                     href={pageUrl}
                     target="_BLANK"
                     className="butt butt--positive butt--view-site">
-                    View website{" "}
+                    View your site{" "}
                     <span className="inline-icon green-check no-mr" />
                   </a>,
                   page_fetching ? (

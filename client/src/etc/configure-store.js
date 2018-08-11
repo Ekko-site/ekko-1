@@ -54,6 +54,14 @@ export default (history, preLoadedState) => {
   const enhancers = composeEnhancers(enhancer, middlewares);
   const store = createStore(rootReducer, preload, enhancers);
 
+  store.subscribe(() => {
+    localStore.set(
+      "user",
+      JSON.stringify(store.getState().authState.current_user),
+      30
+    );
+  });
+
   return { store, thunk };
 };
 
