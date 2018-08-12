@@ -76,6 +76,7 @@ app.use((req, res, next) => {
   if (!hostname.match(/(ekko|localhost)/)) {
     return fetchSiteByHostname({ req, res, hostname });
   }
+  next();
 });
 
 app.use("/api/:controller", (req, res, next) => {
