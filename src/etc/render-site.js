@@ -3,7 +3,8 @@ import ReactDOMServer from "react-dom/server";
 import fse from "fs-extra";
 import {
   fetchPublicPage,
-  fetchPublicPageForPreview
+  fetchPublicPageForPreview,
+  fetchPublicPageByHostname
 } from "@/controllers/pages/get";
 import Layout from "@/themes/layouts/default";
 
@@ -51,5 +52,17 @@ const render = async ({ page, theme }) => {
   return html;
 };
 
+const fetchSiteByHostname = async ({ req, res, hostname }) => {
+  try {
+    const site = await fetchPublicPageByHostname({ hostname });
+    const html = await render(site);
+    return res.send(html);
+  } catch (error) {
+    console.error(error);
+    return res.sendStatus(500);
+  }
+};
+
+export { fetchSiteByHostname };
 export { fetchSite };
 export { render };

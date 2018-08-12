@@ -8,10 +8,11 @@ import bodyParser from "body-parser";
 import raven from "raven";
 import cors from "cors";
 import path from "path";
+import url from "url";
 import messages from "@/etc/messages";
 import { logger } from "@/etc/logger";
 import router from "@/etc/router";
-import renderSite from "@/etc/render-site";
+import renderSite, { fetchSiteByHostname } from "@/etc/render-site";
 import downloadSite from "@/etc/download-site";
 
 const ravenURL =
@@ -68,6 +69,14 @@ const onError = (err, req, res, next) => {
 // }
 
 app.use(express.static(path.join(__dirname, "/../client/build")));
+
+app.use((req, res, next) => {
+  const { hostname } = url.parse("https://" + req.headers.host);
+  if (!hostname.match(/ekko|localhost/)) {
+    return fetchSiteByHostname({ req, res, hostname });
+  }
+  next();
+});
 
 app.use("/api/:controller", (req, res, next) => {
   return router(req, res, next, ravenClient);

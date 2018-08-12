@@ -77,7 +77,7 @@ const get = {
       theme
     };
   },
-  async fetchPublicPageByHostname({ hostname, user }) {
+  async fetchPublicPageByHostname({ hostname }) {
     const pages = new Pages();
     const themes = new Themes();
     const domains = new Domains();
