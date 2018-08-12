@@ -72,7 +72,8 @@ app.use(express.static(path.join(__dirname, "/../client/build")));
 
 app.use((req, res, next) => {
   const { hostname } = url.parse("https://" + req.headers.host);
-  if (!hostname.match(/ekko|localhost/)) {
+  console.log(hostname);
+  if (!hostname.match(/(ekko|localhost)/)) {
     return fetchSiteByHostname({ req, res, hostname });
   }
   next();
