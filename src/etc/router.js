@@ -110,20 +110,20 @@ router.get("/themes/:id", wrap(controllers.themes.get.one));
 
 router.post("/users/sign-up", wrap(controllers.users.signUp));
 router.post("/users/login", wrap(controllers.users.login));
-router.get("/users/upgrade", wrap(controllers.users.stripe.upgrade));
+router.post("/users/upgrade", wrap(controllers.users.stripe.upgrade));
 router.get("/users/facebook/page", wrap(controllers.users.facebook.page));
 router.get("/users/facebook/connect", wrap(controllers.users.facebook.connect));
-router.get("/users/password", wrap(controllers.users.update.password));
-router.get("/users/cancel", wrap(controllers.users.cancel));
-router.get(
+router.post("/users/password", wrap(controllers.users.update.password));
+router.post("/users/cancel", wrap(controllers.users.cancel));
+router.post(
   "/users/change-password",
   wrap(controllers.users.update.changePassword)
 );
-router.get(
+router.post(
   "/users/request-password-reset",
   wrap(controllers.users.update.requestPasswordReset)
 );
-router.get("/users/card-update", wrap(controllers.users.stripe.cardUpdate));
+router.post("/users/card-update", wrap(controllers.users.stripe.cardUpdate));
 router.get("/users/:facebook_id", wrap(controllers.users.get.getByFacebookId));
 
 router.use((req, res) => {
