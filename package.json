@@ -64,8 +64,8 @@
   },
   "scripts": {
     "test": "true",
-    "build": "babel src --out-dir dist --copy-files --include-dotfiles --ignore 'node_modules'",
-    "heroku-postbuild": "npm run webpack && npm run themes && npm run build && cd client/ && npm install --only=dev && npm install && npm run build",
+    "build": "babel src --out-dir dist --ignore 'node_modules' --copy-files --include-dotfiles",
+    "heroku-postbuild": "npm run webpack && npm run build && npm run themes && cd client/ && npm install --only=dev && npm install && npm run build",
     "start": "sequelize db:migrate --config config/production.js && babel-node scripts/themes.js production && node dist/server.js",
     "client": "cd client && yarn start",
     "server": "nodemon",

@@ -4,7 +4,7 @@ import sass from "node-sass";
 
 const processSass = async theme => {
   return new Promise((resolve, reject) => {
-    const themePath = `${__dirname}/../src/themes/${theme}`;
+    const themePath = `${__dirname}/../dist/themes/${theme}`;
     sass.render(
       {
         file: `${themePath}/sass/app.scss`,
@@ -30,7 +30,7 @@ const processSass = async theme => {
 
 (async () => {
   try {
-    const themeDirs = await fse.readdir(`${__dirname}/../src/themes/`);
+    const themeDirs = await fse.readdir(`${__dirname}/../dist/themes/`);
     const themes = themeDirs
       .filter(junk.not)
       .filter(d => !["components", "layouts", "webpack.config.js"].includes(d));
