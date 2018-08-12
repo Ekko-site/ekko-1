@@ -45,7 +45,11 @@ class Theme extends React.Component {
 
   render() {
     const { current_user } = this.props.authState;
-    const { location: { payload: { id } } } = this.props;
+    const {
+      location: {
+        payload: { id }
+      }
+    } = this.props;
     const { themes } = this.props.themesState;
     const theme = (themes || []).find(theme => theme.id == id);
     if (!theme) {
@@ -75,12 +79,9 @@ class Theme extends React.Component {
     let pageUrl;
 
     if (page) {
-      pageUrl =
-        user_pages.length && config.REACT_APP_NODE_ENV == "production"
-          ? domainHelpers.getDomain(page, user_pages)
-          : `${config.REACT_APP_API_URL}/s/${page.facebookPageId}?theme=${
-              theme.id
-            }`;
+      pageUrl = `${config.REACT_APP_API_URL}/s/${page.facebookPageId}?theme=${
+        theme.id
+      }`;
     }
 
     return (
@@ -147,4 +148,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Theme);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Theme);
