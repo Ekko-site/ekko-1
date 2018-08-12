@@ -1,12 +1,14 @@
-# React Demo
+# Ekko
+
+[![Build Status](https://travis-ci.org/Ekko-site/ekko.svg?branch=master)](https://travis-ci.org/Ekko-site/ekko)
 
 ## Installation
 
-`npm install`
+`yarn`
 
 ## Usage
 
-`npm run start`
+`yarn dev`
 
 
 ## Database
