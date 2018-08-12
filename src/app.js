@@ -15,18 +15,18 @@ import router from "@/etc/router";
 import renderSite, { fetchSiteByHostname } from "@/etc/render-site";
 import downloadSite from "@/etc/download-site";
 
-const ravenURL =
-  "https://d843860d83844ce3900cb959145e4e2e:b39570c7ea4c4ab89c3c84e7c0465b89@sentry.io/104015";
+// const ravenURL =
+//   "https://d843860d83844ce3900cb959145e4e2e:b39570c7ea4c4ab89c3c84e7c0465b89@sentry.io/104015";
 
 const app = express();
 
-const ravenClient = new raven.Client(
-  process.env.NODE_ENV == "production" && ravenURL
-);
-ravenClient.patchGlobal(() => {
-  logger.info("Shutting down");
-  process.exit(1);
-});
+// const ravenClient = new raven.Client(
+//   process.env.NODE_ENV == "production" && ravenURL
+// );
+// ravenClient.patchGlobal(() => {
+//   logger.info("Shutting down");
+//   process.exit(1);
+// });
 
 const requireHTTPS = (req, res, next) => {
   if (
@@ -64,13 +64,13 @@ app.use((req, res, next) => {
   next();
 });
 
-const onError = (err, req, res, next) => {
-  if (process.env.NODE_ENV !== "production") {
-    return;
-  }
-  res.statusCode = 500;
-  res.end(res.sentry + "\n");
-};
+// const onError = (err, req, res, next) => {
+//   if (process.env.NODE_ENV !== "production") {
+//     return;
+//   }
+//   res.statusCode = 500;
+//   res.end(res.sentry + "\n");
+// };
 
 // if(process.env.NODE_ENV == 'production'){
 //     app.use(raven.middleware.express.requestHandler(ravenURL))
@@ -79,9 +79,7 @@ const onError = (err, req, res, next) => {
 
 app.use(express.static(path.join(__dirname, "/../client/build")));
 
-app.use("/api/:controller", (req, res, next) => {
-  return router(req, res, next, ravenClient);
-});
+app.use("/api", router);
 app.get("/download/:facebookPageID", downloadSite);
 app.get("/s/:facebookPageID", renderSite);
 

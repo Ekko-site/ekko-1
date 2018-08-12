@@ -1,111 +1,133 @@
-import pathToRegExp from 'path-to-regexp'
-import Controllers from '@/controllers'
-import response from '@/etc/response'
-import api from '@/etc/api'
-import { logger } from '@/etc/logger'
-import cleanError from '@/etc/clean-error'
+import express from "express";
+import pathToRegExp from "path-to-regexp";
+import controllers from "@/controllers";
+import response from "@/etc/response";
+import { logger } from "@/etc/logger";
+import cleanError from "@/etc/clean-error";
+import auth from "@/etc/api";
 
-const respondWithError = ({ e, res, ravenClient }) => {
-    const { code, message } = e
-    logger.error(code, message)
-    console.log(e.stack)
-    ravenClient.captureException(e)
-    if(code == 502){
-        return response({
-            status: 400,
-            data: {
-                error: cleanError(message)
-            },
-            res
-        })
-    }
-    const userFriendlyMessage = cleanError(message)
+const router = express.Router();
+
+const respondWithError = ({ error, res, ravenClient }) => {
+  const { code, message } = error;
+  logger.error(code, message);
+  //ravenClient.captureException(e);
+  if (code == 502) {
     return response({
-        status: code,
-        data: {
-            error: userFriendlyMessage
-        },
-        res
-    })
-}
+      status: 400,
+      data: {
+        error: cleanError(message)
+      },
+      res
+    });
+  }
+  const userFriendlyMessage = cleanError(message);
+  return response({
+    status: code,
+    data: {
+      error: userFriendlyMessage
+    },
+    res
+  });
+};
 
-const extractParams = (route) => {
-    let { params } = route
-    const argParams = params.reduce((accum, curr) => {
-        let key = Object.keys(curr)[0]
-        accum[key] = curr[key]
-        return accum
-    }, {})
-    return argParams
-}
-
-const findRoute = (controller, url) => {
-    const controllerObject = Controllers[controller]
-    const routes = Object.keys(controllerObject).map(route => {
-        let keys = [],
-            re = pathToRegExp(route, keys)
-            if(re.test(url)){
-                let result = re.exec(url)
-                keys = keys.map((key, i) => {
-                    return {
-                        [key.name]: result[i + 1]
-                    }
-                })
-            }
-        return {
-            route,
-            regexp: re,
-            method: controllerObject[route],
-            params: keys
-        }
-    })
-    let match = routes.find(route => {
-        return route.regexp.test(url)
-    })
-
-    return match
-}
-
-const router = async (req, res, next, ravenClient) => {
-    const url = req.originalUrl
-    const { controller } = req.params
-    let result
+const wrap = fn => {
+  return async (req, res, next) => {
+    const args = {
+      ...req,
+      ...req.params,
+      ...req.body,
+      ...req.query
+    };
     try {
-        result = await api(req)
-    } catch (e) {
-        return respondWithError({
-            e,
-            res,
-            ravenClient
-        })
+      const data = await fn(args, res, next);
+      return response({
+        res,
+        data
+      });
+    } catch (error) {
+      respondWithError({ error, res });
     }
-    if(result && result.data){
-        return response({
-            data: result.data,
-            res
-        })
-    }
-    const route = findRoute(controller, url)
-    if (!route){
-        return res.sendStatus(404)
-    }
-    const argParams = extractParams(route)
-    const args = { ...req.body, ...req.query, ...argParams, user: req.user, req }
-    let obj
-    const { method } = route
-    try {
-        obj = await method(args)
-    } catch (e) {
-        return respondWithError({
-            e,
-            res,
-            ravenClient
-        })
-    }
-    return response({
-        data: obj || {},
-        res
-    })
-}
+  };
+};
 
-export default router
+router.use(async (req, res, next) => {
+  try {
+    await auth(req, res, next);
+  } catch (error) {
+    return respondWithError({ error, res });
+  }
+});
+
+router.get("/directdebit/initiate", wrap(controllers.directdebit.initiate));
+router.get("/directdebit/complete", wrap(controllers.directdebit.complete));
+router.post("/directdebit/webhook", wrap(controllers.directdebit.post));
+
+router.post("/domainrequests/add", wrap(controllers.domainrequests.add));
+
+router.post("/domains/search", wrap(controllers.domains.get.search));
+router.post("/domains/contact", wrap(controllers.domains.contact.add));
+router.get("/domains/tlds", wrap(controllers.domains.get.tlds));
+router.get("/domains/page", wrap(controllers.domains.get.byUserPages));
+router.get("/domains/user", wrap(controllers.domains.add.addDomain));
+
+router.get("/facebook/page_hook", wrap(controllers.facebook.get));
+router.post("/facebook/page_hook", wrap(controllers.facebook.post));
+
+router.get(
+  "/pages/public/hostname/:hostname",
+  wrap(controllers.pages.get.fetchPublicPageByHostname)
+);
+router.get(
+  "/pages/public/:id/preview",
+  wrap(controllers.pages.get.fetchPublicPageForPreview)
+);
+router.get(
+  "/pages/public/by-url",
+  wrap(controllers.pages.get.fetchPublicPageByURL)
+);
+router.get("/pages/public/:id", wrap(controllers.pages.get.fetchPublicPage));
+router.get("/pages/:userId/sync/:pageId", wrap(controllers.pages.sync));
+router.get("/pages/online/:id", wrap(controllers.pages.togglePageOnline));
+router.get("/pages/:userId", wrap(controllers.pages.get.fetchPages));
+router.get(
+  "/pages/page/:facebookPageId",
+  wrap(controllers.pages.get.fetchPage)
+);
+router.get(
+  "/pages/:pageId/theme/:themeId",
+  wrap(controllers.pages.updateTheme)
+);
+router.get("/pages/:userId/refresh", wrap(controllers.pages.get.refreshPages));
+router.get("/pages/:pageId/analytics", wrap(controllers.pages.saveAnalytics));
+
+router.get("/plans/", wrap(controllers.plans.get.all));
+
+router.post("/stripe/webhook", wrap(controllers.stripe.post));
+
+router.get("/themes/", wrap(controllers.themes.get.all));
+router.get("/themes/:id", wrap(controllers.themes.get.one));
+
+router.post("/users/sign-up", wrap(controllers.users.signUp));
+router.post("/users/login", wrap(controllers.users.login));
+router.get("/users/upgrade", wrap(controllers.users.stripe.upgrade));
+router.get("/users/facebook/page", wrap(controllers.users.facebook.page));
+router.get("/users/facebook/connect", wrap(controllers.users.facebook.connect));
+router.get("/users/password", wrap(controllers.users.update.password));
+router.get("/users/cancel", wrap(controllers.users.cancel));
+router.get(
+  "/users/change-password",
+  wrap(controllers.users.update.changePassword)
+);
+router.get(
+  "/users/request-password-reset",
+  wrap(controllers.users.update.requestPasswordReset)
+);
+router.get("/users/card-update", wrap(controllers.users.stripe.cardUpdate));
+router.get("/users/:facebook_id", wrap(controllers.users.get.getByFacebookId));
+
+router.use((req, res) => {
+  return res.sendStatus(404);
+});
+
+export default router;
