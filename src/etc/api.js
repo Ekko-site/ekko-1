@@ -55,7 +55,7 @@ const hasTokenInHeader = req => {
 };
 
 const api = async (req, res, next) => {
-  if (whitelist.includes(req.originalUrl)) {
+  if (whitelist.some(url => new RegExp(url, "i").test(req.originalUrl))) {
     return next();
   }
   const token = hasTokenInHeader(req);

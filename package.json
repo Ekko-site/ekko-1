@@ -8,7 +8,6 @@
   "main": "server.js",
   "dependencies": {
     "asyncro": "^2.0.1",
-    "ava": "^0.16.0",
     "aws-sdk": "2.3.0",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-dynamic-import-node": "^1.2.0",
@@ -74,17 +73,6 @@
     "themes:build:install": "babel-node scripts/themes-install.js",
     "themes:build:sass": "babel-node scripts/themes-sass.js",
     "webpack": "webpack --config src/themes/webpack.config.js; true;"
-  },
-  "ava": {
-    "require": [
-      "babel-polyfill",
-      "babel-register"
-    ],
-    "babel": "inherit",
-    "failFast": true,
-    "verbose": true,
-    "noCache": true,
-    "noPowerAssert": true
   },
   "author": "Ben Howdle <hello@benhowdle.im> (http://benhowdle.im/)",
   "license": "ISC",
