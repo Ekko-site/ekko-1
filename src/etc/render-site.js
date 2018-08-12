@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 import fse from "fs-extra";
+import { logger } from "@/etc/logger";
 import {
   fetchPublicPage,
   fetchPublicPageForPreview,
@@ -17,7 +18,7 @@ export default async (
     const html = await render(site);
     return res.send(html);
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     return res.sendStatus(500);
   }
 };
@@ -58,7 +59,7 @@ const fetchSiteByHostname = async ({ req, res, hostname }) => {
     const html = await render(site);
     return res.send(html);
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     return res.sendStatus(500);
   }
 };
