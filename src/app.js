@@ -51,6 +51,13 @@ app.use(
 );
 
 app.use((req, res, next) => {
+  const { hostname } = url.parse("https://" + req.headers.host);
+  logger.info(
+    "hostname",
+    hostname,
+    req.headers,
+    hostname.match(/(ekko|localhost)/)
+  );
   logger.info("REQUEST", req.url, req.method);
   next();
 });
