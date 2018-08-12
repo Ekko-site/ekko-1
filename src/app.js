@@ -51,6 +51,15 @@ app.use(
 );
 
 app.use((req, res, next) => {
+  const { hostname } = url.parse("https://" + req.headers.host);
+  if (hostname !== "localhost" && !hostname.match(/ekko/)) {
+    return fetchSiteByHostname({ req, res, hostname });
+  } else {
+    next();
+  }
+});
+
+app.use((req, res, next) => {
   logger.info("REQUEST", req.url, req.method);
   next();
 });
@@ -69,15 +78,6 @@ const onError = (err, req, res, next) => {
 // }
 
 app.use(express.static(path.join(__dirname, "/../client/build")));
-
-app.use((req, res, next) => {
-  const { hostname } = url.parse("https://" + req.headers.host);
-  if (hostname !== "localhost" && !hostname.match(/ekko/)) {
-    return fetchSiteByHostname({ req, res, hostname });
-  } else {
-    next();
-  }
-});
 
 app.use("/api/:controller", (req, res, next) => {
   return router(req, res, next, ravenClient);
