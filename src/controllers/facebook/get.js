@@ -1,5 +1,3 @@
-const get = async args => {
-  return args["hub.challenge"];
-};
+const get = args => args["hub.challenge"];
 
 export default get;
