@@ -274,10 +274,10 @@ class Facebook {
     logger.info("Unsubscribing FB Page", facebookPageId);
     try {
       await FB.api(`${facebookPageId}/subscribed_apps`, "delete");
+      logger.info("Unsubscribed FB Page", facebookPageId);
     } catch (e) {
       logger.error(e);
     }
-    logger.info("Unsubscribed FB Page", facebookPageId);
     return {};
   }
 
