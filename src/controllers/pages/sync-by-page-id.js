@@ -27,7 +27,7 @@ const syncByPageId = async ({ pageId }) => {
   const user = await users.getById(userId);
 
   const outOfFreeTrial = moment().diff(moment(page.createdAt), "days");
-  if (outOfFreeTrial > 14 && !user.get("full_user")) {
+  if (outOfFreeTrial > freeTrialDays && !user.get("full_user")) {
     return pages.unsubscribeWebhook(page, user.get("facebookUserId"));
   }
 

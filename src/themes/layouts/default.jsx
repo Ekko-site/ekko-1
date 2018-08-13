@@ -1,5 +1,19 @@
 import React from "react";
 
+const Expired = () => {
+  return (
+    <div className="paywall">
+      <div className="paywall-inner">
+        <h1>Free trial over!</h1>
+        <p>
+          Visit the <a href="https://ekko.site/dashboard">Ekko dashboard</a> to
+          upgrade!
+        </p>
+      </div>
+    </div>
+  );
+};
+
 export default ({
   title,
   description,
@@ -22,13 +36,47 @@ export default ({
             dangerouslySetInnerHTML={{ __html: `em{outline:none;}${css}` }}
           />
         </style>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              .paywalled {
+                overflow: hidden;
+              }
+              .paywall {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.9);
+                top: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10000;
+              }
+              .paywall-inner {
+                color: #fff;
+                font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+              }
+              .paywall-inner p, h1 {
+                text-align: center;
+              }
+              .paywall-inner h1 {
+                font-size: 48px;
+              }
+              .paywall-inner p {
+                font-size: 24px;
+              }
+            `
+          }}
+        />
         {/* {
                     (analytics_code) && (
                         <Analytics analytics_code={analytics_code} />
                     )
                 } */}
       </head>
-      <body>
+      <body className={expired && "paywalled"}>
         <div id="root">{children}</div>
         {/* {
                     (freeTrial) && (
@@ -46,11 +94,8 @@ export default ({
                         </div>
                     )
                 }
-                {
-                    (expired) && (
-                        <Expired />
-                    )
-                } */}
+                */}
+        {expired && <Expired />}
         <script
           id="data"
           type="application/json"

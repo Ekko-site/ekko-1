@@ -33,7 +33,7 @@ const fetchSite = async ({ facebookPageID, themeID, preview }) => {
     : await fetchPublicPage(args);
 };
 
-const render = async ({ page, theme }) => {
+const render = async ({ page, theme, user = {} }) => {
   const { name } = theme;
   const themePath = `../themes/${name}`;
   const Theme = await import(`${themePath}/js/layout`);
@@ -45,8 +45,13 @@ const render = async ({ page, theme }) => {
     `${__dirname}/../themes/${name}/css/app.css`,
     "utf-8"
   );
+  const paywall = !user.full_user;
   const html = ReactDOMServer.renderToString(
-    <Layout css={themeCSS} data={page.data} clientJS={themeClient}>
+    <Layout
+      css={themeCSS}
+      data={page.data}
+      clientJS={themeClient}
+      expired={paywall}>
       <Theme doc={page} />
     </Layout>
   );

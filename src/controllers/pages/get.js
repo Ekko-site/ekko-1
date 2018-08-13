@@ -1,5 +1,12 @@
 import Facebook from "@/etc/facebook";
-import { Pages, Tracks, Themes, FacebookToken, Domains } from "@/services";
+import {
+  Pages,
+  Tracks,
+  Themes,
+  FacebookToken,
+  Domains,
+  Users
+} from "@/services";
 import ApiError from "@/etc/error";
 import mail from "@/etc/mail";
 import formatPageForDisplay from "@/etc/format-page-for-display";
@@ -67,6 +74,8 @@ const get = {
         page: null
       };
     }
+    const users = new Users();
+    const user = await users.getById(page.UserId);
     page = formatPageForDisplay(page);
     let theme = await themes.getById(themeId || page.ThemeId);
     if (!theme) {
@@ -74,7 +83,10 @@ const get = {
     }
     return {
       page,
-      theme
+      theme,
+      user: {
+        full_user: !user.outOfFreeTrial
+      }
     };
   },
   async fetchPublicPageByHostname({ hostname }) {
