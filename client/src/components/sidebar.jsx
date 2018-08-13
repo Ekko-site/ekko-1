@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "redux-first-router-link";
 
-import FreeTrial from "@/components/dashboard/free-trial";
+import freeTrial from "@/etc/out-of-free-trial";
 
 import { logoImage, stopwatchImage } from "@/etc/images";
 
@@ -19,6 +19,7 @@ const getDayPeriod = () => {
 
 const Sidebar = ({ user = {}, logout }) => {
   user = user || {};
+  const { left } = freeTrial(user);
   return (
     <section className="dash-sidebar cf">
       <span className="dash-sidebar__intro">
@@ -62,12 +63,12 @@ const Sidebar = ({ user = {}, logout }) => {
           </p>
           <p>
             <span className="trial-alert__no-palm">
-              Your website is currently in <strong>preview mode</strong>.
+              {left} days left in your free trial.
             </span>
           </p>
-          <p className="no-mb">
-            <Link to="/settings">Activate</Link> now.
-          </p>
+          <h4 className="no-mb">
+            <Link to="/settings">Upgrade</Link> now.
+          </h4>
         </div>
       )}
     </section>

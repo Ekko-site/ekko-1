@@ -10,6 +10,7 @@ import LastUpdated from "@/components/last-updated";
 import Sync from "@/components/sync";
 import Loading from "@/components/loading";
 import domainHelpers from "@/etc/domain-helpers";
+import freeTrial from "@/etc/out-of-free-trial";
 
 const config = process.env;
 
@@ -38,7 +39,8 @@ class PageAdmin extends React.Component {
       pageState,
       pageActions,
       domainState,
-      marginUnderPageAdmin
+      marginUnderPageAdmin,
+      user
     } = this.props;
     const { togglePageOnline, pageSync } = pageActions;
     const { user_pages } = domainState;
@@ -51,6 +53,9 @@ class PageAdmin extends React.Component {
       user_pages.length && config.REACT_APP_NODE_ENV == "production"
         ? domainHelpers.getDomain(page, user_pages)
         : `${config.REACT_APP_API_URL}/s/${page.facebookPageId}`;
+
+    const { outOfFreeTrial } = freeTrial(user);
+    const hidePageButtons = !user.full_user && outOfFreeTrial;
 
     return (
       <header className={`dash-header ${marginUnderPageAdmin && "big-mb"}`}>
@@ -66,40 +71,42 @@ class PageAdmin extends React.Component {
               {page.online &&
                 this.getPageOnline(page, togglePageOnline, pageSync)}
             </div>
-            <div className="grid__item one-whole lap--one-half desk--one-half tr--lap tr--desk">
-              {!page.online ? (
-                <span
-                  onClick={togglePageOnline.bind(this, page.id)}
-                  className="butt butt--big butt--positive butt--view-site">
-                  Switch site online
-                </span>
-              ) : (
-                [
-                  <a
-                    href={pageUrl}
-                    target="_BLANK"
-                    className="butt butt--positive butt--view-site">
-                    View your site{" "}
-                    <span className="inline-icon green-check no-mr" />
-                  </a>,
-                  page_fetching ? (
-                    <Loading
-                      style={{
-                        float: "right",
-                        position: "relative",
-                        top: "8px"
-                      }}
-                    />
-                  ) : (
-                    <span
-                      onClick={() => pageSync(page.facebookPageId)}
-                      className="butt butt--positive butt--sync-site">
-                      Sync with Facebook Page
-                    </span>
-                  )
-                ]
-              )}
-            </div>
+            {hidePageButtons ? null : (
+              <div className="grid__item one-whole lap--one-half desk--one-half tr--lap tr--desk">
+                {!page.online ? (
+                  <span
+                    onClick={togglePageOnline.bind(this, page.id)}
+                    className="butt butt--big butt--positive butt--view-site">
+                    Switch site online
+                  </span>
+                ) : (
+                  [
+                    <a
+                      href={pageUrl}
+                      target="_BLANK"
+                      className="butt butt--positive butt--view-site">
+                      View your site{" "}
+                      <span className="inline-icon green-check no-mr" />
+                    </a>,
+                    page_fetching ? (
+                      <Loading
+                        style={{
+                          float: "right",
+                          position: "relative",
+                          top: "8px"
+                        }}
+                      />
+                    ) : (
+                      <span
+                        onClick={() => pageSync(page.facebookPageId)}
+                        className="butt butt--positive butt--sync-site">
+                        Sync with Facebook Page
+                      </span>
+                    )
+                  ]
+                )}
+              </div>
+            )}
           </div>
         </div>
       </header>
