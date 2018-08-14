@@ -5,6 +5,7 @@
 
 import express from "express";
 import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
 import raven from "raven";
 import cors from "cors";
 import path from "path";
@@ -49,6 +50,7 @@ app.use(
     extended: false
   })
 );
+app.use(cookieParser());
 
 app.use((req, res, next) => {
   const { hostname } = url.parse("https://" + req.headers.host);

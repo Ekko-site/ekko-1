@@ -105,11 +105,16 @@ const get = {
         page: null
       };
     }
+    const users = new Users();
+    const user = await users.getById(page.UserId);
     const theme = await themes.getById(page.ThemeId);
     page = formatPageForDisplay(page);
     return {
       page,
-      theme
+      theme,
+      user: {
+        full_user: !user.outOfFreeTrial
+      }
     };
   },
   async fetchPages({ userId, user }) {

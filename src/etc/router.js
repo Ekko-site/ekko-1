@@ -114,8 +114,11 @@ router.get("/themes/:id", wrap(controllers.themes.get.one));
 router.post("/users/sign-up", wrap(controllers.users.signUp));
 router.post("/users/login", wrap(controllers.users.login));
 router.post("/users/upgrade", wrap(controllers.users.stripe.upgrade));
-router.get("/users/facebook/page", wrap(controllers.users.facebook.page));
-router.get("/users/facebook/connect", wrap(controllers.users.facebook.connect));
+router.post("/users/facebook/page", wrap(controllers.users.facebook.page));
+router.post(
+  "/users/facebook/connect",
+  wrap(controllers.users.facebook.connect)
+);
 router.post("/users/password", wrap(controllers.users.update.password));
 router.post("/users/cancel", wrap(controllers.users.cancel));
 router.post(
@@ -127,6 +130,7 @@ router.post(
   wrap(controllers.users.update.requestPasswordReset)
 );
 router.post("/users/card-update", wrap(controllers.users.stripe.cardUpdate));
+router.get("/users/whoami", wrap(controllers.users.get.whoAmI));
 router.get("/users/:facebook_id", wrap(controllers.users.get.getByFacebookId));
 
 router.use((req, res) => {

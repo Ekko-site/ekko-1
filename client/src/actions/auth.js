@@ -212,10 +212,8 @@ export function deletedAccount() {
 
 export function whoami() {
   return dispatch =>
-    fetch("api/whoami").then((json = {}) => {
-      return (
-        json.user && dispatch(loggedIn(json.user)) && intercom.update(json.user)
-      );
+    fetch("api/users/whoami").then((json = {}) => {
+      return json.user && dispatch(loggedIn(json.user));
     });
 }
 
