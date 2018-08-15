@@ -22,6 +22,7 @@
     "cors": "^2.7.1",
     "crypto-js": "^3.1.9-1",
     "currency-converter": "^0.1.12",
+    "cypress": "^3.1.0",
     "dnsimple": "2.4.0",
     "dotenv": "^5.0.0",
     "es6-promise": "^4.0.5",
@@ -74,7 +75,8 @@
     "themes": "npm-run-all themes:*:*",
     "themes:build:install": "babel-node scripts/themes-install.js",
     "themes:build:sass": "babel-node scripts/themes-sass.js",
-    "webpack": "webpack --config src/themes/webpack.config.js; true;"
+    "webpack": "webpack --config src/themes/webpack.config.js; true;",
+    "cypress:open": "cypress open"
   },
   "author": "Ben Howdle <hello@benhowdle.im> (http://benhowdle.im/)",
   "license": "ISC",
