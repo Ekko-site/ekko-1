@@ -93,7 +93,7 @@ router.get("/pages/public/:id", wrap(controllers.pages.get.fetchPublicPage));
 router.get("/pages/:userId/sync/:pageId", wrap(controllers.pages.sync));
 router.get("/pages/online/:id", wrap(controllers.pages.togglePageOnline));
 router.get("/pages/:userId", wrap(controllers.pages.get.fetchPages));
-router.get(
+router.post(
   "/pages/page/:facebookPageId",
   wrap(controllers.pages.get.fetchPage)
 );

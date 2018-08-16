@@ -162,7 +162,7 @@ class Pages {
       facebookPageId: id,
       UserId: userId,
       data,
-      online: false,
+      online: true,
       access_token,
       ThemeId: theme.id,
       subscribed_to_webhook: subscribed

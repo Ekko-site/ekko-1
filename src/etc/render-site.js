@@ -16,6 +16,10 @@ export default async (
   try {
     const site = await fetchSite({ facebookPageID, themeID, preview });
     const html = await render(site);
+    if (!html) {
+      logger.error(`Page ID ${facebookPageID} not found`);
+      return res.sendStatus(404);
+    }
     return res.send(html);
   } catch (error) {
     logger.error(error);
@@ -33,7 +37,10 @@ const fetchSite = async ({ facebookPageID, themeID, preview }) => {
     : await fetchPublicPage(args);
 };
 
-const render = async ({ page, theme, user }) => {
+const render = async ({ page, theme = {}, user }) => {
+  if (!page) {
+    return null;
+  }
   const { name } = theme;
   const themePath = `../themes/${name}`;
   const Theme = await import(`${themePath}/js/layout`);

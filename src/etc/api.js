@@ -6,7 +6,6 @@ import { Users, Pages, Domains } from "@/services";
 const whitelist = [
   "/api/users/sign-up",
   "/api/users/login",
-  "/api/users/facebook/page",
   "/api/plans",
   "/api/domains/tlds",
   "/api/facebook/page_hook",
