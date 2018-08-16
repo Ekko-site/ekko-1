@@ -5,10 +5,8 @@ import { actions as formActions } from "react-redux-form";
 import { toastr } from "react-redux-toastr";
 
 import * as messages from "@/config/messages";
-import * as pageActions from "@/actions/page";
 import { go } from "@/actions/navigation";
 import * as types from "@/constants/action-types";
-import intercom from "@/etc/intercom";
 
 export function loginInit() {
   return {
@@ -364,7 +362,7 @@ export function deleteAccount() {
 
 export function logout() {
   store.clear();
-  intercom.logout();
+  //intercom.logout();
   return dispatch => {
     dispatch({
       type: types.LOGOUT
@@ -424,7 +422,7 @@ export function login({ email, password }) {
           );
           dispatch(loggedIn(json.user));
           dispatch(go("DASHBOARD"));
-          return intercom.update(json.user);
+          //return intercom.update(json.user);
         }
         cancelLogin();
       })
@@ -517,7 +515,7 @@ export function signUp({ email, password, firstName, lastName, coupon }) {
           dispatch(facebookPageFetched([]));
           dispatch(signedUp(json.user));
           dispatch(go("CONNECT_TO_FACEBOOK"));
-          return intercom.update(json.user);
+          //return intercom.update(json.user);
         }
         cancelSignUp();
       })

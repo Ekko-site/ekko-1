@@ -7,10 +7,6 @@ import * as types from "@/constants/action-types";
 
 import { actions as formActions } from "react-redux-form";
 
-import intercom from "@/etc/intercom";
-
-let push;
-
 export function pageFetchInit() {
   return {
     type: types.PAGE_FETCH_INIT
@@ -233,7 +229,7 @@ export function pageFetch(facebookPageId, accessToken) {
       }
       dispatch(pageFetched([res.page]));
       dispatch(go("DASHBOARD"));
-      intercom.track("page_chosen");
+      //intercom.track("page_chosen");
     });
   };
 }
