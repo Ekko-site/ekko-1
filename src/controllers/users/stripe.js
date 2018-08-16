@@ -1,52 +1,61 @@
-import { Stripe, Users, Domains, Heroku } from '@/services'
-import { emails as demoEmails, freeStripePlanId } from './../../../config/demo.js'
-import Slack from '@/etc/slack'
-import mail from '@/etc/mail'
+import { Stripe, Users, Domains, Heroku } from "@/services";
+import {
+  emails as demoEmails,
+  freeStripePlanId
+} from "./../../../config/demo.js";
+import Slack from "@/etc/slack";
+import mail from "@/etc/mail";
 
-const upgrade = async ({ stripe_token_id, plan_id = 'pro', user }) => {
-    let token = stripe_token_id,
-        planId = plan_id,
-        { id, email } = user
-    const stripeService = new Stripe()
-    const users = new Users()
+const STRIPE_PLAN_ID = process.env.STRIPE_PLAN_ID_MONTHLY;
 
-    planId = (demoEmails.indexOf(user.email) > -1) ? freeStripePlanId : planId
+const upgrade = async ({ stripe_token_id, plan_id = STRIPE_PLAN_ID, user }) => {
+  let token = stripe_token_id,
+    planId = plan_id,
+    { id, email } = user;
+  const stripeService = new Stripe();
+  const users = new Users();
 
-    // Stripe customer creation
-    const customer = await stripeService.createCustomer(user, token, planId)
+  planId = demoEmails.indexOf(user.email) > -1 ? freeStripePlanId : planId;
 
-    // Set user to upgraded
-    const updatedUser = await users.upgradeUser(id)
+  // Stripe customer creation
+  const customer = await stripeService.createCustomer(user, token, planId);
 
-    Slack.newUserUpgrade({
-        userId: id,
-        plan: planId,
-        email
-    })
+  // Set user to upgraded
+  const updatedUser = await users.upgradeUser(id);
 
-    mail.send({
-        to: email,
-        type: 'userUpgrade'
-    })
+  Slack.newUserUpgrade({
+    userId: id,
+    plan: planId,
+    email
+  });
 
-    return {
-        user: updatedUser
-    }
-}
+  mail.send({
+    to: email,
+    type: "userUpgrade"
+  });
+
+  return {
+    user: updatedUser
+  };
+};
 
 const cardUpdate = async ({ stripe_token_id, card, user }) => {
-    let token = stripe_token_id
-    const stripeService = new Stripe()
-    const users = new Users()
-    const stripeCustomer = await stripeService.getByUserId(user.id)
-    await stripeService.updateCustomerCard(stripeCustomer.customerId, token, card)
-    const updatedUser = await users.getById(user.id)
-    return {
-        user: updatedUser
-    }
-}
+  let token = stripe_token_id;
+  const stripeService = new Stripe();
+  const users = new Users();
+  const stripeCustomer = await stripeService.getByUserId(user.id);
+  await stripeService.updateCustomerCard(
+    stripeCustomer.customerId,
+    token,
+    card
+  );
+  const updatedUser = await users.getById(user.id);
+  return {
+    user: updatedUser
+  };
+};
 
 export default {
-    upgrade,
-    cardUpdate
-}
+  upgrade,
+  cardUpdate
+};

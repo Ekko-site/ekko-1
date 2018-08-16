@@ -1,6 +1,6 @@
 module.exports = [
   {
-    cost: 9.99,
+    cost: 9,
     id: "ekko-monthly",
     name: "ekko monthly",
     interval: "month",

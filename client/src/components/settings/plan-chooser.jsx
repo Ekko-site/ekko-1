@@ -4,6 +4,8 @@ import StripeCheckout from "@/components/settings/stripe";
 import FreeTrial from "@/components/dashboard/free-trial";
 import Loading from "@/components/loading";
 
+const STRIPE_PLAN_ID = process.env.REACT_STRIPE_PLAN_ID_MONTHLY;
+
 class PlanChooser extends React.Component {
   render() {
     const {
@@ -40,7 +42,7 @@ class PlanChooser extends React.Component {
     }
     return (
       <div>
-        <p>Ready to activate?</p>
+        <p>Ready to upgrade?</p>
         <div className="decent-mb">
           <strong className="raspberry">
             &#36;
@@ -48,7 +50,7 @@ class PlanChooser extends React.Component {
           </strong>
         </div>
         <StripeCheckout
-          onToken={token => onToken(token, plan.id)}
+          onToken={token => onToken(token, STRIPE_PLAN_ID)}
           user={user}
         />
         <p
