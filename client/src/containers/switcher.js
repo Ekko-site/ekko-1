@@ -14,7 +14,7 @@ import Loading from "@/components/loading";
 
 const UniversalComponent = universal(({ page }) => import(`../pages/${page}`), {
   minDelay: 500,
-  loading: Loading
+  loading: <Loading full />
 });
 
 const inApp = type => ["THEMES", "DASHBOARD", "SETTINGS"].includes(type);
@@ -35,11 +35,13 @@ class Switcher extends React.Component {
     const { logout } = authActions;
     const marginUnderPageAdmin = !onDashboard(type);
     const child = (
-      <TransitionGroup duration={500} prefix="fade">
-        <Transition key={page}>
-          <UniversalComponent page={page} onError={handleError} />
-        </Transition>
-      </TransitionGroup>
+      <UniversalComponent
+        style={{
+          position: "relative"
+        }}
+        page={page}
+        onError={handleError}
+      />
     );
     if (inApp(type)) {
       return (
