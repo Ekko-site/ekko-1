@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "redux-first-router-link";
+import { NavLink } from "redux-first-router-link";
 
 import freeTrial from "@/etc/out-of-free-trial";
 
@@ -24,9 +24,9 @@ const Sidebar = ({ user = {}, logout }) => {
     <section className="dash-sidebar cf">
       <span className="dash-sidebar__intro">
         <div className="cf">
-          <Link to="/" className="dash-sidebar__logo">
+          <NavLink to="/" className="dash-sidebar__logo">
             <img src={logoImage} />
-          </Link>
+          </NavLink>
         </div>
         <p className="dash-sidebar__welcome faded mini">
           Good {getDayPeriod()} <span className="title">{user.firstName}</span>{" "}
@@ -36,19 +36,19 @@ const Sidebar = ({ user = {}, logout }) => {
       <nav className="dash-sidebar__nav">
         <ul>
           <li>
-            <Link activeClassName="current" to="/dashboard">
+            <NavLink activeClassName="current" to="/dashboard">
               Dashboard
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link activeClassName="current" to="/themes">
+            <NavLink activeClassName="current" to="/themes">
               Themes
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link activeClassName="current" to="/settings">
+            <NavLink activeClassName="current" to="/settings">
               Settings
-            </Link>
+            </NavLink>
           </li>
           <li className="dash-sidebar__nav__logout">
             <span onClick={logout}>Log out</span>
@@ -67,7 +67,7 @@ const Sidebar = ({ user = {}, logout }) => {
             </span>
           </p>
           <h4 className="no-mb">
-            <Link to="/settings">Upgrade</Link> now.
+            <NavLink to="/settings">Upgrade</NavLink> now.
           </h4>
         </div>
       )}

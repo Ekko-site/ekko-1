@@ -176,7 +176,7 @@ class Home extends React.Component {
                     style={{
                       lineHeight: "1.35"
                     }}>
-                    Just <strong>&#36;9.99</strong> a month
+                    Just <strong>&#36;9</strong> a month
                   </h2>
                 </div>
               </div>
