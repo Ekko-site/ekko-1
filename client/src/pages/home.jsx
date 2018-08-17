@@ -25,7 +25,7 @@ const sliderSettings = {
   arrows: false,
   speed: 500,
   autoplay: true,
-  autoplaySpeed: 5000,
+  autoplaySpeed: 3000,
   slidesToShow: 1,
   slidesToScroll: 1,
   useCSS: true
@@ -140,7 +140,7 @@ class Home extends React.Component {
                         <div className="home-extended-intro__flow__text">
                           <p>
                             Facebook informs Ekko of this update and we fetch
-                            your latest Page content.
+                            your latest Facebook Page content.
                           </p>
                         </div>
                       </div>
@@ -156,7 +156,7 @@ class Home extends React.Component {
                       <div className="grid__item five-sixths">
                         <div className="home-extended-intro__flow__text">
                           <p className="no-mb">
-                            Your site content is instantly updated to reflect
+                            Your website content is instantly updated to reflect
                             your Facebook Page's content. You don't need to do a
                             thing!
                           </p>
