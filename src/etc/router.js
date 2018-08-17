@@ -8,10 +8,12 @@ import auth from "@/etc/api";
 
 const router = express.Router();
 
+let _ravenClient;
+
 const respondWithError = ({ error, res, ravenClient }) => {
   const { code, message } = error;
   logger.error(code, message);
-  //ravenClient.captureException(e);
+  ravenClient.captureException(e);
   if (code == 502) {
     return response({
       status: 400,
@@ -46,7 +48,7 @@ const wrap = fn => {
         data
       });
     } catch (error) {
-      respondWithError({ error, res });
+      respondWithError({ error, res, _ravenClient });
     }
   };
 };
@@ -55,7 +57,7 @@ router.use(async (req, res, next) => {
   try {
     await auth(req, res, next);
   } catch (error) {
-    return respondWithError({ error, res });
+    return respondWithError({ error, res, _ravenClient });
   }
 });
 
@@ -137,4 +139,7 @@ router.use((req, res) => {
   return res.sendStatus(404);
 });
 
-export default router;
+export default ravenClient => {
+  _ravenClient = ravenClient;
+  return router;
+};

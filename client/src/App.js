@@ -24,6 +24,8 @@ class Main extends React.Component {
               timeOut={4000}
               newestOnTop={false}
               position="top-right"
+              progressBar
+              preventDuplicates
             />
           </div>
         </StripeProvider>
