@@ -3452,7 +3452,7 @@ input[readonly], input[disabled] {
 **/
 .progress-list {
   color: #989898;
-  font-size: 14px; }
+  font-size: 16px; }
   .progress-list .divide {
     display: inline-block;
     margin: 0 10px; }
