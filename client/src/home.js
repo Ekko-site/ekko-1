@@ -15,6 +15,7 @@ $(window).scroll(function() {
 });
 
 const homepageInit = () => {
+  return;
   // The intro fade ins
 
   setTimeout(function() {

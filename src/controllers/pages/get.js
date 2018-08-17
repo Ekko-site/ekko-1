@@ -171,13 +171,13 @@ const get = {
       userId: id,
       pageName: facebookPage.data.name,
       facebookPageId,
-      siteURL: `http://sites.ekko.site/${facebookPageId}`
+      siteURL: `https://ekko.site/s/${facebookPageId}`
     });
     mail.send({
       to: user.email,
       type: "pagePicked",
       data: {
-        siteURL: `http://sites.ekko.site/${facebookPageId}`,
+        siteURL: `https://ekko.site/s/${facebookPageId}`,
         pageName: facebookPage.data.name
       }
     });

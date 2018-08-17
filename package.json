@@ -66,6 +66,7 @@
   },
   "scripts": {
     "test": "true",
+    "test1": "start-server-and-test start http://localhost:3000 cypress:run",
     "build": "babel src --out-dir dist --ignore 'node_modules' --copy-files --include-dotfiles",
     "heroku-postbuild": "npm run webpack && npm run build && npm run themes && cd client/ && npm install --only=dev && npm install && npm run build",
     "start": "sequelize db:migrate --config config/production.js && babel-node scripts/themes.js production && node dist/server.js",
@@ -76,7 +77,8 @@
     "themes:build:install": "babel-node scripts/themes-install.js",
     "themes:build:sass": "babel-node scripts/themes-sass.js",
     "webpack": "webpack --config src/themes/webpack.config.js; true;",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "author": "Ben Howdle <hello@benhowdle.im> (http://benhowdle.im/)",
   "license": "ISC",
@@ -87,6 +89,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "start-server-and-test": "^1.7.0",
     "webpack-cli": "^3.1.0"
   }
 }
