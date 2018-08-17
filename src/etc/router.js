@@ -10,10 +10,10 @@ const router = express.Router();
 
 let _ravenClient;
 
-const respondWithError = ({ error, res, ravenClient }) => {
+const respondWithError = ({ error, res, _ravenClient: ravenClient }) => {
   const { code, message } = error;
   logger.error(code, message);
-  ravenClient.captureException(e);
+  ravenClient.captureException(error);
   if (code == 502) {
     return response({
       status: 400,
