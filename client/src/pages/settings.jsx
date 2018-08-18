@@ -111,10 +111,7 @@ class Settings extends React.Component {
       updated_password,
       updating_password
     } = this.props.authState;
-    const fullUser =
-      user &&
-      user.fullUser &&
-      (user.StripeCustomerId || user.DirectDebitCustomerId);
+    const fullUser = user && user.fullUser;
     return (
       <div className="container themes huge-mb">
         <Helmet
@@ -137,8 +134,7 @@ class Settings extends React.Component {
               <UpgradeErrors error={this.props.authState.card_updating_error} />
             )}
           </div>
-        </div>
-        <div className="grid">
+
           <div className="grid__item palm--one-whole one-half">
             <div className="block mb--palm">
               <h3 className="half-mb">Your subscription</h3>
@@ -191,6 +187,53 @@ class Settings extends React.Component {
                 )}
             </div>
           </div>
+          {fullUser && (
+            <div className="grid__item palm--one-whole one-half">
+              <div className="block mb--palm">
+                <h3 className="half-mb">Your domain</h3>
+                {!this.props.domainState.user_pages.length && (
+                  <div>
+                    <p>
+                      We're happy to sort your domain out for you, just add it
+                      below and we'll handle everything.
+                    </p>
+                  </div>
+                )}
+                {!!this.props.domainState.user_pages.length && (
+                  <DomainsAssigned
+                    pages={this.props.pageState.pages}
+                    userDomains={this.props.domainState.user_pages}
+                    onAddDomain={this.onAddDomain}
+                    domainRequest={this.props.domainActions.domainRequest}
+                    tlds={this.props.domainState.tlds}
+                    plans={this.props.billingState.billing}
+                    userPlan={
+                      user.StripeCustomerId || user.DirectDebitCustomerId
+                    }
+                    addingDomain={this.props.domainState.adding_domain}
+                    onDomainSelection={this.handleDomainSelection}
+                  />
+                )}
+                {!this.props.domainState.user_pages.length && (
+                  <DomainSearch
+                    domains={this.props.domainState.domains}
+                    onSearch={this.props.domainActions.domainsFetch}
+                    searching={this.props.domainState.domains_fetching}
+                    onDomainSelection={this.handleDomainSelection}
+                    pages={this.props.pageState.pages}
+                    addingDomain={this.props.domainState.adding_domain}
+                    tlds={this.props.domainState.tlds}
+                    plans={this.props.billingState.billing}
+                    userPlan={
+                      user.StripeCustomerId || user.DirectDebitCustomerId
+                    }
+                  />
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+        <div className="grid">
           <div className="grid__item palm--one-whole one-half">
             <Account
               updating_password={updating_password}
@@ -203,60 +246,6 @@ class Settings extends React.Component {
             />
           </div>
         </div>
-        {/* {fullUser && (
-            <div className="grid__item palm--one-whole one-half">
-              <div className="block mb--palm">
-                <h3 className="half-mb">Your domain</h3>
-                {fullUser &&
-                  !this.props.domainState.user_pages.length && (
-                    <div>
-                      <p>
-                        We're happy to sort your domain out for you, just email
-                        us at{" "}
-                        <a href="mailto:support@ekko.site">support@ekko.site</a>{" "}
-                        and we'll handle everything.
-                      </p>
-                      <p>
-                        Or, if you're happy to use one of our built-in solutions
-                        below, do carry on!
-                      </p>
-                    </div>
-                  )}
-                {fullUser &&
-                  !!this.props.domainState.user_pages.length && (
-                    <DomainsAssigned
-                      pages={this.props.pageState.pages}
-                      userDomains={this.props.domainState.user_pages}
-                      onAddDomain={this.onAddDomain}
-                      domainRequest={this.props.domainActions.domainRequest}
-                      tlds={this.props.domainState.tlds}
-                      plans={this.props.billingState.billing}
-                      userPlan={
-                        user.StripeCustomerId || user.DirectDebitCustomerId
-                      }
-                      addingDomain={this.props.domainState.adding_domain}
-                      onDomainSelection={this.handleDomainSelection}
-                    />
-                  )}
-                {fullUser &&
-                  !this.props.domainState.user_pages.length && (
-                    <DomainSearch
-                      domains={this.props.domainState.domains}
-                      onSearch={this.props.domainActions.domainsFetch}
-                      searching={this.props.domainState.domains_fetching}
-                      onDomainSelection={this.handleDomainSelection}
-                      pages={this.props.pageState.pages}
-                      addingDomain={this.props.domainState.adding_domain}
-                      tlds={this.props.domainState.tlds}
-                      plans={this.props.billingState.billing}
-                      userPlan={
-                        user.StripeCustomerId || user.DirectDebitCustomerId
-                      }
-                    />
-                  )}
-              </div>
-            </div>
-          )} */}
       </div>
     );
   }

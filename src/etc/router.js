@@ -71,7 +71,7 @@ router.post("/domains/search", wrap(controllers.domains.get.search));
 router.post("/domains/contact", wrap(controllers.domains.contact.add));
 router.get("/domains/tlds", wrap(controllers.domains.get.tlds));
 router.get("/domains/page", wrap(controllers.domains.get.byUserPages));
-router.get("/domains/user", wrap(controllers.domains.add.addDomain));
+router.post("/domains/user", wrap(controllers.domains.add.addDomain));
 
 router.get("/facebook/page_hook", (req, res) => {
   const result = controllers.facebook.get(req.query);
