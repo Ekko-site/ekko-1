@@ -123,7 +123,7 @@ class Settings extends React.Component {
             }
           ]}
         />
-        <div className="grid">
+        <div className="grid big-mb">
           <div className="grid__item palm--one-whole two-thirds">
             <h1>Settings</h1>
             <p className="big-mb">Manage your account.</p>
