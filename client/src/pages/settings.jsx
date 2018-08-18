@@ -113,7 +113,7 @@ class Settings extends React.Component {
     } = this.props.authState;
     const fullUser =
       user &&
-      user.full_user &&
+      user.fullUser &&
       (user.StripeCustomerId || user.DirectDebitCustomerId);
     return (
       <div className="container themes huge-mb">

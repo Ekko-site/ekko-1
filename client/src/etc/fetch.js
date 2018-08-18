@@ -10,8 +10,6 @@ const authPaths = ["dashboard", "login", "sign-up", "themes", "settings"];
 
 const { API_URL } = config;
 
-let browserHistory;
-
 const inApp = () => {
   let path = window.location.pathname.split("/").pop();
   if (!path) {
@@ -56,7 +54,7 @@ export const fetch = (url, opts = {}) => {
       if (res.status == 403) {
         store.clear();
         if (inApp()) {
-          browserHistory.push("/login");
+          window.history.pushState(null, null, "/login");
           return toastr.error("Sorry", res.response.data.error);
         }
       }

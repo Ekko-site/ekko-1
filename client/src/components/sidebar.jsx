@@ -56,7 +56,7 @@ const Sidebar = ({ user = {}, logout }) => {
         </ul>
       </nav>
       <div className="cf" />
-      {!user.full_user && (
+      {!user.fullUser && (
         <div className="trial-alert">
           <p className="half-mb trial-alert__stopwatch">
             <img src={stopwatchImage} />

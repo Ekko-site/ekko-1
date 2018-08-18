@@ -55,7 +55,7 @@ class PageAdmin extends React.Component {
         : `${config.REACT_APP_API_URL}/s/${page.facebookPageId}`;
 
     const { outOfFreeTrial } = freeTrial(user);
-    const hidePageButtons = !user.full_user && outOfFreeTrial;
+    const hidePageButtons = !user.fullUser && outOfFreeTrial;
 
     return (
       <header className={`dash-header ${marginUnderPageAdmin && "big-mb"}`}>

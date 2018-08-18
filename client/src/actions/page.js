@@ -183,7 +183,7 @@ export function pagesFetch() {
         dispatch(pageFetched([]));
         return dispatch(go("CONNECT_TO_FACEBOOK"));
       }
-      if (!res.pages.length) {
+      if (!res.pages || !res.pages.length) {
         dispatch(pageFetched([]));
         return dispatch(go("NO_PAGES"));
       }

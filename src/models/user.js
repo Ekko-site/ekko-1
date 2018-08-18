@@ -53,9 +53,12 @@ module.exports = function(sequelize, DataTypes) {
         }
       },
       getterMethods: {
+        fullUser() {
+          return !!(this.DirectDebitCustomerId || this.StripeCustomerId);
+        },
         outOfFreeTrial() {
           return (
-            !this.full_user &&
+            !(this.DirectDebitCustomerId || this.StripeCustomerId) &&
             moment().diff(moment(this.createdAt), "days") > freeTrialDays
           );
         }

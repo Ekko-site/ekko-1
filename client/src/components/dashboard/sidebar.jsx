@@ -57,7 +57,7 @@ class Sidebar extends React.Component {
 
     return (
       <div style={styles.sidebar} className="col-2">
-        {!this.props.current_user.full_user && (
+        {!this.props.current_user.fullUser && (
           <FreeTrial user={this.props.current_user} />
         )}
         {/* <div className="p2" style={{
