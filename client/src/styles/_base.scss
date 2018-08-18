@@ -117,7 +117,7 @@ body .mt-big {
 // Intro area
 
 .home-intro {
-	min-height: 100vh;
+	min-height: 80vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -140,7 +140,7 @@ body .mt-big {
 
 body .home-intro__headline {
 	position: relative;
-	top: 140px;
+	// top: 140px;
 	-webkit-transition: all 0.45s ease-in-out;
     transition: all 0.45s ease-in-out;
 	&.pushup {

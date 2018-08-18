@@ -282,7 +282,7 @@ class Home extends React.Component {
               <div className="grid__item desk--one-half palm--one-whole lap--one-half">
                 <div className="final-cta-row__block center">
                   <p className="emphasised">
-                    Ekko's aim is to generate your new site in under a
+                    Ekko's aim is to have your new website online in under a
                     minute&hellip;
                   </p>
                   <p className="emphasised">
