@@ -4,8 +4,8 @@ node_js:
 cache:
   directories:
   - node_modules
-  - ~/.npm
-  - ~/.cache
+  - "~/.npm"
+  - "~/.cache"
 deploy:
   provider: heroku
   app: ekkosite
@@ -14,7 +14,8 @@ deploy:
   on:
     repo: Ekko-site/ekko
 notifications:
-  slack: ekko-site:1akETs5TDQBGvHqvDK5Phka9
+  slack:
+    secure: Njavni2QIutQSk/DcfC6sG6/IFNbQ4UklJUBLMfwXxZU0Skbfs7Zjur08i6w7Vs4JsOaLBCZsFoeZceUlWVedPGvIIe9t/9bnIYTb1yjDmwYWWAo7R7cMq+ynr3/dF76ZCzoRrb09tZV+MoMopkdYPkwROd6HXXUPmDVf2O07jaHU3FbyWpAH/4eXl76Mxre496EeUGhwfZnS9yWuWl3lMHbycQoO0qFQIp2V6sX9Lkp5KKCttaKfHIH0wVKInWeQ5ciThAiFx5PfSnM0SpBCH/FB4NalVg+gRTfezfLx+Rge9ghz984PVRe6G4BypJZosxt70wtIPfSp+/Z4A4af+lzQa05jf79/CJLsDcGxjXUFS0M/Bib1NnzHNZFpC7k+J8FKJVtnl4O3ZrcOU4StB+vH190bqHnKNLD1vVTCkxf/Cq24otLAxtU2e1NGwjFqejqPz83imjqvqyWCo7a6u//8VvUIB7NdoQIh+R82WaRUjNAWcUPVMsN7PAQPGK+0Qiw6vlX4p8dtLDOn5zBM2M3S/KY2M9Gxgqe9ERPKKNJQAxdRvjbWvFKW1817R7+J1Pp/1T74BsyLIPRt+JEscK0JYDNBfzwN0i47C9bmB8Ec765lD3RY8FQwsMPqz58oYMA9/3G9zdWg1blPECBhbPVQjZqWBG+wND3UlL6VzI=
 env:
   global:
     secure: iD1Whuutx1N+fesSPZYRkBd7rwZ28trYWBzYpTaFb3e2fONeTgi1qTEOnLCkKbo2WZxCSajHGhn4iCBUrxyKdMc60Dm8UneUW2LzIC1toMSVkkDQx/pgvtMQMfFs1pPuV3Cy1f/8iIkP8satS2hXpQVa3Rcfzgsrrss6LhhnAGDJ1oavxxHTcpr54qNFCJAXJBqK4k/oOwGzE7llH82X+YX5zj+7FNuJ9iixnv/abjBsCwwf3wuFFoBZ+GNkZLXybMP7QsRVjyXXGBT8HJcH/U/NLWjI1ODd+Yy+uSbJHPkienryNkEKqLH8zVIvXFGa2kVbTrEEDsQpHWbt/Omb3JyA4LcKcB31Yd93RSxqXsOGAIZtZzaw6iL4BTRyht5vuSuuftEGFmueahMGMWU7JeHLZ8O7YOir6g1Ayq+gxhaQTzwqgXthFiLREVzNpjnpTL8hHchnPzVYCSl82Wqa6NUQWnYsc0gVfR7gqSHATgvvw+gK3h8LTUXURIlTQClbtsJFan0IEcryLqFsO3E5l9zza5bsY3IGGodN9SG2WSHfn4swHzvFCXBoR951qYglF4ps9wpkCPHQxSXmAK7ErQEuQcoVz664sz4rZeu46Foo17Td6lUkeC5Q5fdhp1UMCnv/oLiDu6EcwgpErwo03gFcZuOuyuq2d8hDmb89TrQ=
