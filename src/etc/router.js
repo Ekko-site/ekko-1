@@ -14,6 +14,15 @@ const respondWithError = ({ error, res, _ravenClient: ravenClient }) => {
   const { code, message } = error;
   logger.error(code, message);
   ravenClient.captureException(error);
+  if (!code) {
+    return response({
+      status: 500,
+      data: {
+        error: `Something went wrong, we're looking at it right now!`
+      },
+      res
+    });
+  }
   if (code == 502) {
     return response({
       status: 400,

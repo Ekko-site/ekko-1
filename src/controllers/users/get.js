@@ -15,6 +15,7 @@ const get = {
     };
   },
   async whoAmI({ user }) {
+    foo();
     return {
       user
     };
