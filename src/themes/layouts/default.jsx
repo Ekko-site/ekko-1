@@ -58,7 +58,7 @@ export default ({
                 color: #fff;
                 font-family: -apple-system, BlinkMacSystemFont, sans-serif;
               }
-              .paywall-inner p, h1 {
+              .paywall-inner p, .paywall-inner h1 {
                 text-align: center;
               }
               .paywall-inner h1 {
