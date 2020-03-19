@@ -10,6 +10,11 @@ const build = async theme => {
       debug: false
     })
       .transform("uglifyify", { global: true })
+      .transform(
+        babelify.configure({
+          presets: ["es2015"]
+        })
+      )
       .bundle()
       .pipe(fse.createWriteStream(`${themePath}/js/built.js`));
     return resolve();

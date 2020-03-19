@@ -3,12 +3,12 @@ const slack = new Slack(
   "https://hooks.slack.com/services/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"
 );
 
-const send = ({ text }) =>
-  slack.send({
-    text: `${
-      process.env.NODE_ENV !== "production" ? "[development]" : ""
-    } ${text}`
-  });
+const send = ({ text }) => {};
+// slack.send({
+//   text: `${
+//     process.env.NODE_ENV !== "production" ? "[development]" : ""
+//   } ${text}`
+// });
 
 export default {
   newSignUp: ({ name, email }) => {

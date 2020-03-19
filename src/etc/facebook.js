@@ -4,7 +4,7 @@ import ApiError from "@/etc/error";
 import { logger } from "@/etc/logger";
 import MediaStore from "@/etc/media-store";
 FB.options({
-  version: "v2.7"
+  version: "v6.0"
 });
 
 class Facebook {
@@ -253,12 +253,6 @@ class Facebook {
     };
   }
 
-  fetchScreenames(data) {
-    return {
-      screennames: data
-    };
-  }
-
   async storeCover(cover, pageId) {
     const mediaStore = new MediaStore();
     const { source: url, id } = cover;
@@ -295,7 +289,7 @@ class Facebook {
   async fetchPage(
     id,
     token = this.token,
-    subscribe = true,
+    subscribe = false,
     opts = {
       preview: false
     }
@@ -308,8 +302,7 @@ class Facebook {
       "fetchPosts",
       "fetchPicture",
       "fetchEvents",
-      "fetchCallToActions",
-      "fetchScreenames"
+      "fetchCallToActions"
     ]
       .concat(subscribe ? ["fetchSubscribeToPage"] : null)
       .filter(Boolean);
@@ -347,7 +340,6 @@ class Facebook {
           method: "get",
           relative_url: `${id}/posts?fields=${[
             "full_picture",
-            "object_id",
             "message",
             "created_time"
           ].join(",")}`
@@ -375,15 +367,29 @@ class Facebook {
             "status",
             "web_destination_type"
           ].join(",")}`
-        },
-        { method: "get", relative_url: `${id}/screennames` }
+        }
       ]
         .concat(
           subscribe
             ? [
                 {
                   method: "post",
-                  relative_url: `${id}/subscribed_apps`,
+                  relative_url: `${id}/subscribed_apps?subscribed_fields=feed,mention,name,picture,category,description,conversations,
+                  branded_camera,feature_access_list,standby,
+                  messages,messaging_account_linking,messaging_checkout_updates,
+                  message_echoes,message_deliveries,messaging_game_plays,messaging_optins,
+                  messaging_optouts,messaging_payments,messaging_postbacks,
+                  messaging_pre_checkouts,message_reads,messaging_referrals,
+                  messaging_handovers,messaging_policy_enforcement,
+                  messaging_page_feedback,messaging_appointments,founded,
+                  company_overview,mission,products,general_info,leadgen,
+                  leadgen_fat,location,hours,parking,public_transit,
+                  page_about_story,phone,email,website,ratings,attire,
+                  payment_options,culinary_team,general_manager,price_range,
+                  awards,hometown,current_location,bio,affiliation,birthday,
+                  personal_info,personal_interests,publisher_subscriptions,members,
+                  checkins,page_upcoming_change,page_change_proposal,
+                  merchant_review,product_review,videos,live_videos,registration`,
                   body: `access_token=${token}`
                 }
               ]
