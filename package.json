@@ -1,9 +1,6 @@
 {
   "name": "ekko",
   "version": "1.0.0",
-  "engines": {
-    "node": "10.7.0"
-  },
   "description": "",
   "main": "server.js",
   "dependencies": {
