@@ -9,6 +9,7 @@
   "dependencies": {
     "asyncro": "^2.0.1",
     "aws-sdk": "2.3.0",
+    "babel-cli": "^6.26.0",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-root-import": "^5.1.0",
@@ -83,7 +84,6 @@
   "author": "Ben Howdle <hello@benhowdle.im> (http://benhowdle.im/)",
   "license": "ISC",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.5",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
