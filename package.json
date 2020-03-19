@@ -86,7 +86,6 @@
     "themes": "npm-run-all themes:*:*",
     "themes:build:install": "babel-node scripts/themes-install.js",
     "themes:build:sass": "babel-node scripts/themes-sass.js",
-    "themes:build:client": "babel-node scripts/themes-client-build.js",
     "webpack": "webpack --config src/themes/webpack.config.js; true;",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
