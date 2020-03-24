@@ -88,7 +88,8 @@
     "themes:build:sass": "babel-node scripts/themes-sass.js",
     "webpack": "webpack --config src/themes/webpack.config.js; true;",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "postinstall": "chmod u+x scripts/commit.sh"
   },
   "author": "Ben Howdle <hello@benhowdle.im> (http://benhowdle.im/)",
   "license": "ISC"
