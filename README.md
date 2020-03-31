@@ -76,6 +76,14 @@ General purpose Classes, mainly to connect to external APIs
 
 Themes are what the user sees when they visit their website, they are self-contained React Components. Themes are contained in `/src/themes/` and each one will have at minimum a "layout.js" and a "client.js" file. "layout.js" is a React Component which gets passed the user's FB Page data as React `props`. "client.js" is what gets ran when the browser loads the page client-side.
 
+### Theme Development & Design
+
+Theme definitions are stored and referenced in the `Themes` database table. This is what the application uses to display and render theme information from. However, if you want to add a new theme, or edit an existing theme's name, or description, edit: `/config/themes.js`. When the app boots up, it first checks this config file for any new or updated theme info, and makes the necessary `UPDATE` or `INSERT` SQL calls into the `Themes` table. Basically, if you edit the actual IDs in this config file, it will corrupt the data integrity of Themes in Ekko.
+
+To design a new theme: Duplicate a theme folder in `/src/themes`, and edit the JS and Sass files to fit your desired design, layout and content. If you're familiar with React, these Theme files should look very familiar to you, as they are simply React Components. The user's FB Page data gets passed to the master Component: `layout.js` as "props".
+
+To test your new Theme design, spin up the app, and open `[serverURL]/s/[facebookPageID]?theme=[The ThemeID from /config/themes.js]]`, ie. http://localhost:3000/293749827658926478/?theme=2
+
 ## Deploying
 
 Hosted on Heroku, this repo can be connected to Heroku from GitHub and can be set up so it automatically deploys from Master branch when its pushed.
