@@ -4,12 +4,15 @@
 
 ## Installation
 
-`yarn`
+`yarn` - this will install all dependencies for the main API
+`cd client && yarn` - this will install all dependencies for the React web-app
+`yarn themes:build:install` - this will run a script that loops over each theme in `/src/themes` and installs all the dependencies
+
+Everything should then be installed and ready to use.
 
 ## Usage
 
-`yarn dev`
-
+`yarn dev` - this will start both the API and the React web-app
 
 ## Building
 
@@ -22,9 +25,7 @@ There's a `commit.sh` in `/scripts` which can be ran like so:
 
 ## Database
 
-Create your own `config/config.json` file
-
-Create a database called 'ekko'.
+Create your own `config.js` file in the `/config` directory (this file is `.gitignore`d), with the following contents:
 
 ```
 module.exports = {
@@ -37,6 +38,8 @@ module.exports = {
     }
 }
 ```
+
+Create a database called 'ekko' on your local machine
 
 
 ## Structure
