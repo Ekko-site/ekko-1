@@ -41,6 +41,8 @@ module.exports = {
 
 Create a database called 'ekko' on your local machine
 
+We use Sequelize for database access and queries in the app code, and also for migrations. Migrations run before the app starts up in dev and prod. More info on using Sequelize migrations can be found here: https://sequelize.org/master/manual/migrations.html
+
 
 ## Structure
 
